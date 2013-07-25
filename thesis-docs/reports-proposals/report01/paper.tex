@@ -49,12 +49,17 @@ Saarland University\\
 \pagebreak
 \begin{abstract}
 
-The aim of this paper is to review recent and influential methods on
-Unsupervised Relation Extraction. In the first chapter, the definition and a general background
-for relation extraction task is provided. In the second chapter, four major previous works are
-briefly reviewed. And
-finally in the last chapter, the paper will be concluded by identifying important aspects and
-difficulties of the task and important lessons learned from each of the discussed relation extraction systems.
+The aim of this paper is to propose a new research on
+\textbf{Relation Extraction Using Distributed Representation Learning} and its
+required building blocks and time-table.
+In the first chapter, the definition and a general background for relation extraction
+task is provided. The second chapter is dedicated to a short review on
+relation extraction using a weakly supervised method called distant
+supervision. In the third chapter, four major previous works on unsupervised
+relation extraction are briefly reviewed. And finally in the last chapter, the
+proposal will be concluded by identifying important lessons learned from each of
+the discussed relation extraction systems, the description of major steps toward
+the new system and a suggested time-table.
 
 \end{abstract}
 
@@ -85,6 +90,7 @@ answer the user question. For this reason, the elements of a query, concepts or 
 their relations should be identified and documents ( which might have the answer) should be mapped to the 
 same space of entities and relations in order to find the the desired information in the question.
 
+
 Relation Extraction is the task of detecting and classifying semantic relationship 
 between named entities (NE). The goal of this task is to find a triple
 of binary relations and their arguments \cite{Androutsopoulos2009}. For instance, we want to induce a
@@ -106,6 +112,14 @@ need (2) if they can only handle a predefined enumeration of entities and re-
 lations or are open to any number of relations (3) organization of semantic
 interpretation and (4) underlying family of methods they use.
 
+In this proposal, we suggest a new method which learns informative features from
+data using deep learning methods and then use the learnt features to develop a
+relation extraction system in two schema (1) Weakly supervised and (2)
+Unsupervised. 
+
+In next chapters we review recent or influential related works and finally
+we will describe our new model as an improvement to current approaches.
+
 \iffalse
 Here, in this paper, we only limit ourselves to review unsupervised relation discovery methods. 
 One should mention that there are other approaches for this task based on the extent of resources that they use.
@@ -114,17 +128,42 @@ One should mention that there are other approaches for this task based on the ex
  We just discuss methods that do not use annotated resources for inducing the relations and finding the arguments. 
 \fi
 
-\chapter{Weakly Supervised on Relation Extraction Task}
+\chapter{Weakly Supervised Relation Extraction}
 \label{ch:weakly-supervised}
 
 \section{Distant Supervision}
 \label{sec:dist-supervision}
 
 
-The content of \cite{Huang2012} your proposal. Each topic occupies one section, each
-with their own conclusion and future work.
+Labeling data with entity-relation annotation is tedious, specially in large
+scale domains such as web. Mintz et al. \cite{Mintz2009} used the idea of
+\emph{distand supervision} and combined it with a large knowledge base,
+Freebase, to extract relations from text. They assumed that for each pair of
+entity related to each other in Freebase, any piece of text contained both of
+the entities is most probably expressing the same relation. Therefore, they
+started to make an autoamtically annotated dataset of relations. From around 1.2
+million Wikipedia, they collected contexts that a pair of related entities have
+been mentioned in them. This dataset of 1.8 million instances of 102 relation
+type is considered as positive labeles. To learn a classifer, they also needed
+negative lables which were created with random sampling of entities that don't
+happened to be related in Freebase. The number of negative examples should be at
+least twice a number of positive examples. After this phase, a multi-class
+logistic regression classifier was trained to extract relation (separate
+sentences wich express a relation from those which do not).
 
-\chapter{Major Recent Works on Unsupervised Relation Extraction}
+A variety of features were extracted to make the dataset and each type of
+features is shown to have different impact in final performance of the model.
+For example it is mentioned in \cite{Mintz2009} that the method is benefiting a lot
+from syntactic features specially in ambiguous relations or where the entities
+are near in the dependency tree but far in the sentences. Word representations
+where we will be covered in chapter ~\ref{ch:word-embedding}, are capable of
+abstracting and learning both semantic and syntactic features from various
+resources. This will suggest us to use word embeddings combined with
+authors' hand-crafted features with the hope of improving their results. This
+idea will be elaborated more in section ~\ref{sec:contr}.
+
+In the next chapter, we will review models that are annotation-free and fully unsupervised. 
+\chapter{Unsupervised Relation Extraction}
 \label{ch:related}
 
 
@@ -770,16 +809,16 @@ The main cotribution of the thesis will be:
 \item Inducing distributed
 representation for words and named entities jointly from different resources
 (corpus, lexical resources and knowledge bases) based on models described in
-chapter ~\ref{ch:word-embedding} with focus on the section
+chapter ~\ref{ch:word-embedding} with focus on section
 ~\ref{subsec:structured-embedding} (Bordes et al. \cite{Bordes2011}) 
 
 \item Incorporating learnt word embeddings to distant supervision method
-described in the section ~\ref{sec:dist-supervision}. (Mintz et al.
+described in section ~\ref{sec:dist-supervision}. (Mintz et al.
 \cite{Mintz2009})
 
 \item Based on if the results from previous phases are promising or not, the
 word embeddings will be also used within Yao et al. method \cite{Yao2011} as it is
-described in the section ~\ref{sec:rel-lda}.
+described in section ~\ref{sec:rel-lda}.
 
 \end{enumerate}
 
