@@ -8,11 +8,17 @@ class RiedelParser(object):
     '''
     classdocs
     '''
+    
+    def __init__(self):
+        '''
+        Constructor
+        '''
+        
+    
     def parse(self, file_addr):
         parsedLines = []
         for line in open(file_addr, 'r'):
-            for res in self.__parseLine(line):
-                parsedLines.append(res)
+             parsedLines.append(self.__parseLine(line))
         return parsedLines
     def __parseLine(self, line):
         tokens = line.split("\t");
@@ -64,8 +70,8 @@ class RiedelParser(object):
         res['ner']= nerl
         res['trigger'] = triggers
         res['lemma']=lexs
-       
-          
+        return res
+        '''  
         print line
         print tokens
         print 'label: ', tokens[0]
@@ -79,15 +85,9 @@ class RiedelParser(object):
         print 'ner: ', len(nerl), nerl  
         print
         print
-       
-        return res
-
-    def __init__(self):
-        '''
-        Constructor
-        '''
+       '''
         
-if __name__ == "__main__":
-    parser = RiedelParser()
-    parser.parse('/media/toothless/thesis_data/riedel_yao_univ/processed/train.positive.universal.txt') 
+
     
+        
+
