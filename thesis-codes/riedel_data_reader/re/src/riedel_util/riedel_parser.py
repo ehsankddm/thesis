@@ -3,7 +3,14 @@ Created on Sep 29, 2013
 
 @author: ehsan
 '''
-
+class TripleParser(object):
+    def parse(self, line):
+        tokens = line.strip().split('\t\t')
+        assert len(tokens)==3
+        
+        return (tokens[0], tokens[1],tokens[2])
+            
+    
 class RiedelParser(object):
     '''
     classdocs
@@ -13,13 +20,15 @@ class RiedelParser(object):
         '''
         Constructor
         '''
-        
+    
     
     def parse(self, file_addr):
-        parsedLines = []
+        #parsedLines = []
         for line in open(file_addr, 'r'):
-             parsedLines.append(self.__parseLine(line))
-        return parsedLines
+            yield self.__parseLine(line)
+#              parsedLines.append(self.__parseLine(line))
+             
+        #return parsedLines
     def __parseLine(self, line):
         tokens = line.split("\t");
         
