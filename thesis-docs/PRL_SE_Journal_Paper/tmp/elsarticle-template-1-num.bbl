@@ -1,0 +1,101 @@
+\begin{thebibliography}{12}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\href}[2]{#2}
+\providecommand{\path}[1]{#1}
+\providecommand{\DOIprefix}{doi:}
+\providecommand{\ArXivprefix}{arXiv:}
+\providecommand{\URLprefix}{URL: }
+\providecommand{\Pubmedprefix}{pmid:}
+\providecommand{\doi}[1]{\href{http://dx.doi.org/#1}{\path{#1}}}
+\providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
+\providecommand{\bibinfo}[2]{#2}
+\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Article
+\bibitem[{Turian et~al.(2010)Turian, Ratinov, and Bengio}]{Turian2010b}
+\bibinfo{author}{J.~Turian}, \bibinfo{author}{L.~Ratinov},
+  \bibinfo{author}{Y.~Bengio},
+\newblock \bibinfo{title}{{Word representations: a simple and general method
+  for semi-supervised learning}},
+\newblock \bibinfo{journal}{ACL}  (\bibinfo{year}{2010})
+  \bibinfo{pages}{384--394}.
+%Type = Article
+\bibitem[{Collobert et~al.(2011)Collobert, Weston, Bottou, Karlen, Kavukcuoglu,
+  and Kuksa}]{Collobert2011}
+\bibinfo{author}{R.~Collobert}, \bibinfo{author}{J.~Weston},
+  \bibinfo{author}{L.~Bottou}, \bibinfo{author}{M.~Karlen},
+  \bibinfo{author}{K.~Kavukcuoglu}, \bibinfo{author}{P.~Kuksa},
+\newblock \bibinfo{title}{{Natural Language Processing (almost) from Scratch}},
+\newblock \bibinfo{journal}{Machine Learning Research} \bibinfo{volume}{12}
+  (\bibinfo{year}{2011}) \bibinfo{pages}{2493--2537}.
+%Type = Book
+\bibitem[{Harris(1981)}]{Harris1981}
+\bibinfo{author}{Z.~Harris}, \bibinfo{title}{{Distributional structure}},
+  \bibinfo{publisher}{Springer Netherlands}, \bibinfo{year}{1981}. \URLprefix
+  \url{http://link.springer.com/chapter/10.1007/978-94-009-8467-7\_1}.
+%Type = Inproceedings
+\bibitem[{Lin and Wu(2009)}]{Lin2009}
+\bibinfo{author}{D.~Lin}, \bibinfo{author}{X.~Wu},
+\newblock \bibinfo{title}{{Phrase clustering for discriminative learning}},
+\newblock in: \bibinfo{booktitle}{ACL-AFNLP}, \bibinfo{year}{2009}, pp.
+  \bibinfo{pages}{1030--1038}. \URLprefix
+  \url{http://dl.acm.org/citation.cfm?id=1690290}.
+%Type = Article
+\bibitem[{Brown et~al.(1992)Brown, Desouza, and Mercer}]{Brown1992}
+\bibinfo{author}{P.~Brown}, \bibinfo{author}{P.~Desouza},
+  \bibinfo{author}{R.~Mercer},
+\newblock \bibinfo{title}{{Class-based n-gram models of natural language}},
+\newblock \bibinfo{journal}{Computational Linguistics} \bibinfo{volume}{4}
+  (\bibinfo{year}{1992}) \bibinfo{pages}{467--479}.
+%Type = Article
+\bibitem[{Bengio and Ducharme(2003)}]{Bengio2003}
+\bibinfo{author}{Y.~Bengio}, \bibinfo{author}{R.~Ducharme},
+\newblock \bibinfo{title}{{A neural probabilistic language model}},
+\newblock \bibinfo{journal}{The Journal of Machine \ldots} \bibinfo{volume}{3}
+  (\bibinfo{year}{2003}) \bibinfo{pages}{1137--1155}.
+%Type = Article
+\bibitem[{Bengio(2009)}]{Bengio2009b}
+\bibinfo{author}{Y.~Bengio},
+\newblock \bibinfo{title}{{Learning deep architectures for AI}},
+\newblock \bibinfo{journal}{Foundations and Trends® in Machine Learning}
+  (\bibinfo{year}{2009}).
+%Type = Article
+\bibitem[{Collobert and Weston(2008)}]{Collobert2008a}
+\bibinfo{author}{R.~Collobert}, \bibinfo{author}{J.~Weston},
+\newblock \bibinfo{title}{{A unified architecture for natural language
+  processing: deep neural networks with multitask learning}},
+\newblock \bibinfo{journal}{\ldots international conference on Machine
+  learning}  (\bibinfo{year}{2008}).
+%Type = Article
+\bibitem[{Bottou(2010)}]{Bottou2010}
+\bibinfo{author}{L.~Bottou},
+\newblock \bibinfo{title}{{Large-scale machine learning with stochastic
+  gradient descent}},
+\newblock \bibinfo{journal}{Proceedings of COMPSTAT'2010}
+  (\bibinfo{year}{2010}).
+%Type = Article
+\bibitem[{Mnih and Hinton(2009)}]{Mnih2009}
+\bibinfo{author}{A.~Mnih}, \bibinfo{author}{G.~Hinton},
+\newblock \bibinfo{title}{{A scalable hierarchical distributed language
+  model}},
+\newblock \bibinfo{journal}{Advances in neural information processing systems}
+  (\bibinfo{year}{2009}) \bibinfo{pages}{1--8}.
+%Type = Article
+\bibitem[{Bordes et~al.(2011)Bordes, Weston, Collobert, and
+  Bengio}]{Bordes2011}
+\bibinfo{author}{A.~Bordes}, \bibinfo{author}{J.~Weston},
+  \bibinfo{author}{R.~Collobert}, \bibinfo{author}{Y.~Bengio},
+\newblock \bibinfo{title}{{Learning structured embeddings of knowledge bases}},
+\newblock \bibinfo{journal}{AAAI}  (\bibinfo{year}{2011})
+  \bibinfo{pages}{301--306}.
+%Type = Inproceedings
+\bibitem[{Bordes et~al.(2012)Bordes, Glorot, Weston, and Bengio}]{Bordes2012}
+\bibinfo{author}{A.~Bordes}, \bibinfo{author}{X.~Glorot},
+  \bibinfo{author}{J.~Weston}, \bibinfo{author}{Y.~Bengio},
+\newblock \bibinfo{title}{{Joint learning of words and meaning representations
+  for open-text semantic parsing}},
+\newblock in: \bibinfo{booktitle}{Artificial Intelligence and Statistics
+  (AISTATS)}, volume~\bibinfo{volume}{22}, \bibinfo{year}{2012}. \URLprefix
+  \url{http://redirect.subscribe.ru/\_/-/jmlr.csail.mit.edu/proceedings/papers/v22/bordes12/bordes12.pdf}.
+
+\end{thebibliography}
