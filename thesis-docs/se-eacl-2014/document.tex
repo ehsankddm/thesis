@@ -1,0 +1,388 @@
+%
+% File eacl2014.tex
+%
+% Contact g.bouma@rug.nl yannick.parmentier@univ-orleans.fr
+%
+% Based on the instruction file for ACL 2013 
+% which in turns was based on the instruction files for previous 
+% ACL and EACL conferences
+
+%% Based on the instruction file for EACL 2006 by Eneko Agirre and Sergi Balari
+%% and that of ACL 2008 by Joakim Nivre and Noah Smith
+
+\documentclass[11pt]{article}
+\usepackage{eacl2014}
+\usepackage{times}
+\usepackage{url}
+\usepackage{latexsym}
+\special{papersize=210mm,297mm} % to avoid having to use "-t a4" with dvips 
+%\setlength\titlebox{6.5cm}  % You can expand the title box if you really have to
+
+\title{Learning Bi-lingual Word Representations from \\a Large-Scale Unified
+Lexical Semantic Resource}
+
+\author{First Author \\
+  Affiliation / Address line 1 \\
+  Affiliation / Address line 2 \\
+  Affiliation / Address line 3 \\
+  {\tt email@domain} \\\And
+  Second Author \\
+  Affiliation / Address line 1 \\
+  Affiliation / Address line 2 \\
+  Affiliation / Address line 3 \\
+  {\tt email@domain} \\}
+
+\date{}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+  Word representations and specially word feautres induced by distributed models
+  are shown to be able to boost the performance of various NLP tasks such as
+  Word Sense Disambiguation, Named Entity Recognition, Parsing,\ldots
+  Bordes et al. have proposed a model in [??2011] to learn
+  representation for entities of a structured knowldege base such as WordNet.
+  
+  Here in this paper, we follow [??2011] and extend their idea by
+  incorporating multiple resources unified and linked through UBY
+  in order to induce richer representations jointly for two different languages.  
+  We have evaluated both monolingual (Bordes embeddings) and bilingual embeddings (our embeddings) on four different gold dataset
+for word-pair similarity task and shown that bilingual embeddings perform similarly or better than monolingual embeddings.
+\end{abstract}
+
+
+\section{Introduction}
+% das: removed reference to PostScript
+
+In a large number of machine learning methods and its application to natural language processing,
+ most of the labor is dedicated to \emph{Feature Engineering}. Extracting informative features is the crucial part
+of most supervised methods and it is done mostly manually.\emph{Representation learning} is an umberella term
+for a family of unsupervised methods to learn features from data. Most of recent
+works on the application of this idea in NLP focus on inducing word
+representations. \emph{Word representation} or \emph{Word embedding} ''is a mathematical object, usually a
+vector, which each dimension in this vector represents a grammatical or
+semantical feature to identify this word and is induced automatically from data''
+\cite{Turian2010b}. Recently, it has been shown in \cite{Turian2010b} and \cite{Collobert2011} that using
+ induced word representations can be helpful to improve state-of-the-art methods in 
+variouse NLP tasks. While their word embeddings are induced for a single
+language, Klementiev et al.
+[Inducing Crosslingual Distributed Representations of Words ] have a model which
+learns cross-lingual representations and is shown to have superior performance
+for text classification task. In contrast to previous similar works which word
+embeddings learnt from a corpus, Bordes et al. proposed a method
+\cite{Bordes2011} to learn distributed representations from multi-relational knowledge bases such as WordNet and Freebase.
+ Their datasets include binary relations between two entities and each relation
+ is instantiated from a different relation type. Since we are following their methodology, a description of their work is presented
+ in ~\ref{rel-work:structured-embedding}.
+ 
+ In the rest of paper we introduce our method to extend their idea to learn
+ bi-lingual word embeddings from multiple resources. Our contribution is to
+ 1)infere cross-resource and cross-lingual relations has been enabled us to
+ share the task of learning embeddings between different resources and languages and 2) encoding this
+ information in a way that it can be fed to Bordes model. \ldots Uby is
+ something sime hting  is providing a necessary described in ~\ref{uby}.
+ 
+ Finally we will compare performance of mono-lingual and bi-lingual
+ embeddings in word similarity task to investigate the effectiveness of them to
+ capture different aspects and features of words meanings(??).
+ 
+ 
+
+\section{Representation Learning from Knowledge Bases}
+
+Manuscripts must be in two-column format.  Exceptions to the
+two-column format include the title, authors' names and complete
+addresses, which must be centered at the top of the first page, and
+any full-width figures or tables (see the guidelines in
+Subsection~\ref{ssec:fonts}). {\bf Type single-spaced.}  Start all
+pages directly under the top margin. See the guidelines later
+regarding formatting the first page (Subsection~\ref{ssec:first}).
+The manuscript should be printed single-sided and its length should
+not exceed the maximum page limit described in
+Section~\ref{sec:length}.  {\bf Do not number the pages.}
+
+\subsection{Bordes model for word embedding}
+
+Bordes et al. in \cite{Bordes2011} and \cite{Bordes2012} have attempted to use
+distributed models to induce word representations from lexical resources such as
+WordNet and knowledge bases (KB) like Freebase. Their model in [2011] is
+composed of a two major elements. 
+
+ In WordNet for example, each synset is related to another synset by an instance
+ of a specific type of relation. 
+In \cite{Bordes2011}, each entity is represented as a vector and each relation is decomposed to two
+matrices. Each of these matrices transform left and right-hand-side entities
+to a semantic space. Similarity of transformed entities indicates that the
+relation holds between the entities.  A prediction task is defined to evaluate
+the embeddings. Given a relation and one of the entities, the task is to predict
+the missing entity. The high accuracy (99.2\%) of the model on prediciton
+of training data shows that learnt representation highly captures attributes of
+the entities and relations in Freebase.
+
+
+
+\subsection{Uby}
+\label{sect:uby}
+
+this part is dedicated to introudce Uby and Uby API. 
+
+
+\subsection{Creating of Dataset}
+\label{ssec:uby-rel}
+
+As it is described in the previous section we can relate two senses from two different resources using Uby SenseAxis Alignments.
+This is an additional information which can play a role of bridge between two
+different tasks to transfer knowledge from one to the another.
+Using this new feature we make our WordNet-GermaNet dataset which contains three type of relations 
+(1) WordNet relations 
+(2) GermaNet relations
+(3) Cross-lingual sense relations between WordNet and GermaNet
+\\
+Example of relations:
+\begin{center}
+WN-1 \hspace{0.5in}  rel1 \hspace{0.5in}   WN-2\\
+GN-1 \hspace{0.5in} rel3 \hspace{0.5in}  GN-2\\
+WN-1 \hspace{0.5in} c-rel \hspace{0.5in} GN-2\\
+\end{center}
+
+We have also created another version of this dataset but with different granularities, we mapped similar inter-lingual relations to same relations.
+This will help to have faster learning phase with roughly similar performance.
+For example , in this encoding, [list of relatons] are mapped to [rel1].
+
+We will compare them later together to examine the sensitivity of model to
+different granularities of relations. 
+
+Some statistics of data should be shown here.
+
+
+
+
+
+\section{Evaluation}
+\label{sec:eval}
+
+To show the effectiveness of joint learning of features from multiple knowledge bases we suggest 
+two experiment setups. In the first schema we follow Bordes et al. ranking task. The goal of this task is
+to show how good the structure of knowledge bases are represented through the learned features. 
+After we learned the word embeddings from subset(??) of Uby(??),
+their ability to reproduce the structure of it will be assessed. On the other hand, the second
+setup is investigating on this question that if the learned word embeddings from multiple resources
+are able to improve the performance of monolingual embeddings in a standard NLP
+task, here word-pair similarity or not.
+In this setup we will look to contribution of the learned features in predicting similarity of words.
+
+\subsection{Intrinstic Evaluation}
+\label{ssec:intrinsic}
+
+Bordes et al. define a ranking task where for each triplet $(e_{l} , r, e_{r} ) $ in trianing and test set,
+     $e_{l}$ will be removed and all the entities will be ranked by 
+     using 1-norm rank function  ( equation ??? decomposing equation). A higher rank of $e_{l}$ (lower number)
+     reflects the better quality of learned representations. Additionally they have compared this result to
+     another ranking schema using density estimation . 
+     In this schema, for each word embedding $e$ the density of $(e , r, e_{r} )$ will be computed
+     ( as it is described in our section???) and triplets will be sorted by their estimated probability 
+     (probability terms ??). Since we are using larger sets of triplets, instead of ranking
+     all the training instances
+     we sample randomly from each training dataset with size of 20\% of the original dataset(??) then
+     we test our models on these sampled training instances and all the instances from test set. Bordes et al. have followed
+     a similar  approach for ranking their embeddings on their biggest dataset. We re-run  their related experiments to make 
+     the comparison to our embeddings meaningful. Table (??) shows the results.
+\FloatBarrier
+\begin{table}[ht]
+\caption{Ranking Performance for Non-mapped Relations } % title name of the table
+\centering % centering table
+\begin{tabular}{l c c c c c c} % creating 10 columns
+\hline\hline % inserting double-line
+ Dataset & \#dimension & \#relations & \#entities &  & Micro & Macro
+\\ [0.5ex] 
+\hline % inserts single-line
+
+ & & &  & lhs & 82.08 & 73.11 \\[-1ex]
+  & & &  & rhs & 81.22 & 72.36 \\[-1ex]
+\raisebox{1.5ex}{GermaNet} & \raisebox{0.5ex}{25}& \raisebox{0.5ex}{16}& \raisebox{0.5ex}{64025}&global
+&  81.65 & 72.74 \\[1ex]
+
+ & & &  & lhs & 81.76 & 85.79 \\[-1ex]
+  & & &  & rhs & 81.96 & 85.49 \\[-1ex]
+\raisebox{1.5ex}{WordNet} & \raisebox{0.5ex}{25}& \raisebox{0.5ex}{23}& \raisebox{0.5ex}{148976}& global
+& 81.86 & 85.63 \\[1ex]
+
+ & & &  & lhs & 82.50 & 85.09  \\[-1ex]
+  & & &  & rhs & 83.16 & 84.46 \\[-1ex]
+\raisebox{1.5ex}{WordNet-GermaNet (WN)} & \raisebox{0.5ex}{25}& \raisebox{0.5ex}{32}& \raisebox{0.5ex}{213002}& global
+& 82.83 & 84.78 \\[1ex]
+
+ & & &  & lhs & 72.12 & 63.63 \\[-1ex]
+  & & &  & rhs & 67.78 & 65.77 \\[-1ex]
+\raisebox{1.5ex}{WordNet-GermaNet (GN)} & \raisebox{0.5ex}{25}& \raisebox{0.5ex}{32}& \raisebox{0.5ex}{213002}& global
+& 69.95 & 64.70 \\[1ex]
+
+ & & &  & lhs & 1 & 1 \\[-1ex]
+  & & &  & rhs & 1 & 1 \\[-1ex]
+\raisebox{1.5ex}{WordNet-FrameNet} & \raisebox{0.5ex}{25}& \raisebox{0.5ex}{25}& \raisebox{0.5ex}{25}& global
+& 1 & 1 \\[1ex]
+% [1ex] adds vertical space
+\hline % inserts single-line
+\end{tabular}
+\label{tab:PPer}
+\end{table}
+
+\begin{table}[ht]
+\caption{Ranking Performance for Mapped Relations } % title name of the table
+\centering % centering table
+\begin{tabular}{l c c c c c c} % creating 10 columns
+\hline\hline % inserting double-line
+ Dataset & \#dimension & \#relations & \#entities &  & Micro(\%) & Macro(\%)
+\\ [0.5ex] 
+\hline % inserts single-line
+
+ & & &  & lhs & 82.60 & 68.18 \\[-1ex]
+  & & &  & rhs & 81.90 & 68.84 \\[-1ex]
+\raisebox{1.5ex}{GermaNet} & \raisebox{0.5ex}{25}& \raisebox{0.5ex}{10}& \raisebox{0.5ex}{64025}&global
+&  82.25 & 68.51 \\[1ex]
+
+ & & &  & lhs & 83.50 & 83.17 \\[-1ex]
+  & & &  & rhs & 84.22 & 83.64 \\[-1ex]
+\raisebox{1.5ex}{WordNet} & \raisebox{0.5ex}{25}& \raisebox{0.5ex}{19}& \raisebox{0.5ex}{148976}& global
+& 83.86 & 83.40 \\[1ex]
+
+ & & &  & lhs & 78.70 & 82.60 \\[-1ex]
+  & & &  & rhs & 79.56 & 83.06 \\[-1ex]
+\raisebox{1.5ex}{WordNet-GermaNet (WN)} & \raisebox{0.5ex}{25}& \raisebox{0.5ex}{24}& \raisebox{0.5ex}{213002}& global
+& 79.13 & 82.83 \\[1ex]
+
+ & & &  & lhs & 69.66 & 59.54 \\[-1ex]
+  & & &  & rhs & 66.60 & 58.95 \\[-1ex]
+\raisebox{1.5ex}{WordNet-GermaNet (GN)} & \raisebox{0.5ex}{25}& \raisebox{0.5ex}{24}& \raisebox{0.5ex}{213002}& global
+& 68.13 & 59.25 \\[1ex]
+
+ & & &  & lhs & 1 & 1 \\[-1ex]
+  & & &  & rhs & 1 & 1 \\[-1ex]
+\raisebox{1.5ex}{WordNet-FrameNet} & \raisebox{0.5ex}{25}& \raisebox{0.5ex}{25}& \raisebox{0.5ex}{25}& global
+& 1 & 1 \\[1ex]
+% [1ex] adds vertical space
+\hline % inserts single-line
+\end{tabular}
+\label{tab:PPer}
+\end{table}
+
+ We repeat the ranking evaluation with two different embeddings: 
+ (1) learned from GermaNet (2) jointly learned from GermaNet-WordNet. The intrinsic evaluation we use here
+can't be used to compare the effectivness of these two different embeddings since the evaluation only reflects the difficulty level
+of a structure and since these 
+ 
+  Table (??) presents
+ the comparison of ranking tasks for mono-lingual and bilingual word embeddings.
+     
+ \FloatBarrier  
+
+\subsection{Extrinsic Evaluation}
+\label{ssec:extrinsic}
+ \label{exp:word-similarity}
+ We are interested to further analyze the role of multi-task learning of embeddings for transforming knowledge
+ from one resource to the another. In order to examine
+ if semantic information from English (WordNet) can be transfered to German (GermaNet) or the other way,
+ we compare the embeddings learnt from multiple resources to the embeddings learnt from single resource in word-pair similarity experiments.
+ Four datasets of word-pair similarity are used to compare the correlation of predicted similairty of pair of words against human judgments.
+ [rubensteinGoodenough], [yangPowers], [millerCharles] and [finkelstein] are datasets that we used to meaure the correlation of similarities
+ predicted by the original bordes model (single resource) and our proposed model (multiple resource) to human judgments.
+ To measure the similarity between any given wordpair $(w_1 , w_2)$ we find all vectors associated to different senses
+ of the given words in our embedding dictionary and compute and find the maximum cosine similarity between two vectors.
+ Then for each dataset, both Pearson and Spearman correlation among predicted and gold similarities 
+ were calculated which is reported in table \ref{tab:en-wp-sim}. 
+ 
+ \begin{table}[ht]
+\caption{Word-pair Similarity Performance for English } % title name of the table
+\centering % centering table
+\begin{tabular}{cr c c c c c} % creating 10 columns
+\hline\hline % inserting double-line
+ Dataset & & WN-SE50  & WN-GN-SE50 & WN-SME-BIL50 &  WN-GN-SME-BIL50
+\\ [0.5ex] 
+\hline % inserts single-line
+                                           &  Pearson & 0.488  & 0.571 & 00 & 00 \\[-1ex]
+\raisebox{1.5ex}{RubensteinGoodenough65}  &  Spearman & 0.426 & 0.528 & 00 & 00 \\[1ex]
+
+                                    &  Pearson & 0.454 & 0.438 & 00 & 00 \\[-1ex]
+\raisebox{1.5ex}{MillerCharles30}  &  Spearman & 0.40 & 0.34 & 00 & 00 \\[1ex]
+
+                                   &  Pearson & 0.194  & 0.177 & 00 & 00 \\[-1ex]
+\raisebox{1.5ex}{Finkelstein353}  &  Spearman & 0.137 & 0.128 & 00 & 00 \\[1ex]
+
+                                  &  Pearson & 0.634  & 0.771 & 00 & 00 \\[-1ex]
+\raisebox{1.5ex}{YangPowers130}  &  Spearman & 0.598 & 0.770 & 00 & 00 \\[1ex]
+
+
+\hline % inserts single-line
+     
+          
+ \hline % inserts single-line
+\end{tabular}
+\label{tab:en-wp-sim}
+\end{table}      
+          
+\FloatBarrier          
+            
+As we see in the table \ref{tab:en-wp-sim} in two datasets the performance of learned embeddings from bi-lingual resources
+are slightly worse but comparable to the mono-lingual embeddings and in the other two datasets one can observe a significant 
+increase of performance of bi-lingual resources over monolingual resources.      
+
+\section{Conclusion and Future Work}
+
+Papers that had software and/or dataset submitted for the review
+process should also submit it with the camera-ready paper. Besides,
+the software and/or dataset should not be anonymous.
+
+Please note that the publications of EACL-2014 will be publicly
+available at ACL Anthology (http://aclweb.org/anthology-new/) on April
+19th, 2014, one week before the start of the conference. Since some of
+the authors may have plans to file patents related to their papers in
+the conference, we are reminding authors that April 19th, 2014 may be
+considered to be the official publication date, instead of the opening
+day of the conference.
+
+\section*{Acknowledgments}
+
+Do not number the acknowledgment section. Do not include this section
+when submitting your paper for review.
+
+% If you use BibTeX with a bib file named eacl2014.bib, 
+% you should add the following two lines:
+\bibliographystyle{acl}
+\bibliography{eacl2014}
+
+% Otherwise you can include your references as follows:
+%% \begin{thebibliography}{}
+
+%% \bibitem[\protect\citename{Aho and Ullman}1972]{Aho:72}
+%% Alfred~V. Aho and Jeffrey~D. Ullman.
+%% \newblock 1972.
+%% \newblock {\em The Theory of Parsing, Translation and Compiling}, volume~1.
+%% \newblock Prentice-{Hall}, Englewood Cliffs, NJ.
+
+%% \bibitem[\protect\citename{{American Psychological Association}}1983]{APA:83}
+%% {American Psychological Association}.
+%% \newblock 1983.
+%% \newblock {\em Publications Manual}.
+%% \newblock American Psychological Association, Washington, DC.
+
+%% \bibitem[\protect\citename{{Association for Computing Machinery}}1983]{ACM:83}
+%% {Association for Computing Machinery}.
+%% \newblock 1983.
+%% \newblock {\em Computing Reviews}, 24(11):503--512.
+
+%% \bibitem[\protect\citename{Chandra \bgroup et al.\egroup }1981]{Chandra:81}
+%% Ashok~K. Chandra, Dexter~C. Kozen, and Larry~J. Stockmeyer.
+%% \newblock 1981.
+%% \newblock Alternation.
+%% \newblock {\em Journal of the Association for Computing Machinery},
+%%   28(1):114--133.
+
+%% \bibitem[\protect\citename{Gusfield}1997]{Gusfield:97}
+%% Dan Gusfield.
+%% \newblock 1997.
+%% \newblock {\em Algorithms on Strings, Trees and Sequences}.
+%% \newblock Cambridge University Press, Cambridge, UK.
+
+%% \end{thebibliography}
+
+\end{document}

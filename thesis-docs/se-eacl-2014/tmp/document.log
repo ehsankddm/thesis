@@ -1,0 +1,234 @@
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2013.7.17)  24 OCT 2013 12:21
+entering extended mode
+ restricted \write18 enabled.
+ Source specials enabled.
+ %&-line parsing enabled.
+**document.tex
+(./document.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, et
+hiopic, farsi, arabic, pinyin, croatian, bulgarian, ukrainian, russian, slovak,
+ czech, danish, dutch, usenglishmax, ukenglish, finnish, french, basque, ngerma
+n, german, swissgerman, ngerman-x-2012-05-30, german-x-2012-05-30, monogreek, g
+reek, ibycus, ancientgreek, hungarian, bengali, tamil, hindi, telugu, gujarati,
+ sanskrit, malayalam, kannada, assamese, marathi, oriya, panjabi, italian, lati
+n, latvian, lithuanian, mongolian, mongolianlmc, nynorsk, bokmal, indonesian, e
+speranto, coptic, welsh, irish, interlingua, serbian, serbianc, slovenian, friu
+lan, romansh, estonian, romanian, armenian, uppersorbian, turkish, afrikaans, i
+celandic, kurmanji, polish, portuguese, galician, catalan, spanish, swedish, lo
+aded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (./eacl2014.sty
+Conference Style for EACL 2014 -- released March 18, 2013
+\titlebox=\skip43
+) (/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty
+Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
+)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip10
+Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/latexsym.sty
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 47.
+) (./document.aux
+
+LaTeX Warning: Label `tab:PPer' multiply defined.
+
+)
+\openout1 = `document.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 37.
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 38.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 38.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 38.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 38.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 38.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 38.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 38.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+Underfull \hbox (badness 1297) in paragraph at lines 40--45
+\OT1/ptm/m/n/10.95 feautres in-duced by dis-tributed mod-els
+ []
+
+
+Underfull \hbox (badness 1242) in paragraph at lines 46--51
+\OT1/ptm/m/n/10.95 des em-bed-dings) and bilin-gual em-bed-
+ []
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 65.
+
+LaTeX Warning: Citation `Turian2010b' on page 1 undefined on input line 65.
+
+
+LaTeX Warning: Citation `Turian2010b' on page 1 undefined on input line 65.
+
+
+LaTeX Warning: Citation `Collobert2011' on page 1 undefined on input line 65.
+
+
+LaTeX Warning: Citation `Bordes2011' on page 1 undefined on input line 73.
+
+
+LaTeX Warning: Reference `rel-work:structured-embedding' on page 1 undefined on
+ input line 76.
+
+
+LaTeX Warning: Reference `uby' on page 1 undefined on input line 83.
+
+
+LaTeX Warning: Reference `ssec:fonts' on page 1 undefined on input line 97.
+
+
+LaTeX Warning: Reference `ssec:first' on page 1 undefined on input line 99.
+
+
+LaTeX Warning: Reference `sec:length' on page 1 undefined on input line 102.
+
+[1
+
+
+
+]
+
+LaTeX Warning: Citation `Bordes2011' on page 2 undefined on input line 106.
+
+
+LaTeX Warning: Citation `Bordes2012' on page 2 undefined on input line 106.
+
+
+LaTeX Warning: Citation `Bordes2011' on page 2 undefined on input line 113.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 177.
+! Undefined control sequence.
+l.190 \FloatBarrier
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (196.421pt too wide) in paragraph at lines 194--228
+ [][][] 
+ []
+
+
+Overfull \hbox (229.24883pt too wide) in paragraph at lines 233--267
+ [][][] 
+ []
+
+[2]
+! Undefined control sequence.
+l.277  \FloatBarrier
+                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Underfull \hbox (badness 1365) in paragraph at lines 282--293
+[]\OT1/ptm/m/n/10.95 We are in-ter-ested to fur-ther an-a-lyze the role
+ []
+
+
+Underfull \hbox (badness 1087) in paragraph at lines 282--293
+\OT1/ptm/m/n/10.95 and [finkel-stein] are datasets that we used to
+ []
+
+
+Overfull \hbox (296.92206pt too wide) in paragraph at lines 297--321
+ [][][] 
+ []
+
+! Undefined control sequence.
+l.323 \FloatBarrier
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[3] (./document.bbl
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 \end{thebibliography}
+                         
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+) [4
+
+] (./document.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 459 strings out of 493494
+ 5767 string characters out of 3143820
+ 69141 words of memory out of 3000000
+ 3812 multiletter control sequences out of 15000+200000
+ 12065 words of font info for 39 fonts, out of 3000000 for 9000
+ 957 hyphenation exceptions out of 8191
+ 22i,9n,23p,188b,256s stack positions out of 5000i,500n,10000p,200000b,50000s
+
+Output written on document.dvi (4 pages, 19772 bytes).
