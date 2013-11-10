@@ -41,14 +41,16 @@ Lexical Semantic Resource}
   Word representations and specially word feautres induced by distributed models
   are shown to be able to boost the performance of various NLP tasks such as
   Word Sense Disambiguation, Named Entity Recognition, Parsing,\ldots
-  Bordes et al. have proposed a model in [??2011] to learn
+  Previously a model have been proposed  to learn
   representation for entities of a structured knowldege base such as WordNet.
   
-  Here in this paper, we follow [??2011] and extend their idea by
-  incorporating multiple resources unified and linked through UBY
-  in order to induce richer representations jointly for two different languages.  
-  We have evaluated both monolingual (Bordes embeddings) and bilingual embeddings (our embeddings) on four different gold dataset
-for word-pair similarity task and shown that bilingual embeddings perform similarly or better than monolingual embeddings.
+  Here in this paper, we follow the previous work and extend their idea by
+  incorporating multiple resources  in order to induce richer representations jointly for two different languages.  
+  We have evaluated both monolingual  and bilingual embeddings on four different gold dataset
+for word-pair similarity task and shown that bilingual embeddings perform similarly or better than monolingual embeddings. 
+For example on one of datasets, bilingual embeddings is 10 percent more correlated (Pearson correlation) to human judgements  than 
+monolingual embeddings of the same model and up to 40 percent more than the other models.
+
 \end{abstract}
 
 
@@ -56,8 +58,8 @@ for word-pair similarity task and shown that bilingual embeddings perform simila
 % das: removed reference to PostScript
 
 In a large number of machine learning methods and their application to computational linguistics
- \emph{Feature Engineering} or extracting informative features is a crucial part
- and it is done mostly manually. \emph{Representation Learning} is an umberella term
+ \emph{feature engineering} or extracting informative features is a crucial part
+ and it is done mostly manually. \emph{ Representation Learning} is an umberella term
 for a family of unsupervised methods to learn features from data to decrease the manual labour. Most of recent
 works related to this idea focus on inducing word
 representations. \emph{Word representation} or \emph{Word embedding} ''is a mathematical object, usually a
@@ -80,18 +82,14 @@ They encode information in KBs as binary relations between entities which each r
  This paper is motivated by two questions. The first question is that how can we extend the framework in (Bordes2011)
   to induce crosslingual word representations to benefit from aggregation of information in two 
   different resource in two (or more) different languages.
-  The second question is how much informative are these learned features. More specifically
-   how well are these embeddings and also the embeddings from other methods able
-  to capture semantic similarity between words.
+  The second question is how much informative are these learned features? More specifically, we inspect the degree of ability of 
+  these embeddings and also embeddings from other methods to capture semantic similarity between words.
  
  Regarding the first question, In section ?? we introduce our approach to use Bordes framework to learn
  bi-lingual word embeddings from multiple resources. Our contribution is to
  1)infere cross-resource and cross-lingual relations which will enable us to
  share the task of learning embeddings between different resources and languages and 2) encoding this
- information in a way that it can be fed to Bordes model. \ldots Uby is a unified lexical resource which is central
- to our approach for providing cross-resource information. Since it is playing an important role in our knowledge represenation, 
- a brief description of Uby comes in section (??). For more information on Uby we will point the readers 
- to this (?) and that(?).
+ information in a way that it can be fed to Bordes model.
  
  Finally, section ?? tries to answer the second question. Therefor we will compare performance of 
  mono-lingual and bi-lingual embeddings induced by different methods as well as ours in 
@@ -129,15 +127,14 @@ Two major models are proposed in [Bordes2011] and [Bordes2012] to transfer infor
 
 
 
-\subsection{Introduction to Uby}
-\label{ssect:uby}
-
-this part is dedicated to introudce Uby and Uby API. 
 
 
 \subsection{Creating of Dataset}
 \label{ssec:uby-rel}
 
+ Uby is a unified lexical resource which 
+ to our approach for providing cross-resource information. For more information on Uby we will point the readers 
+ to this (?) and that(?).
 As it is described in the previous section we can relate two senses from two different resources using Uby SenseAxis Alignments.
 This is an additional information which can play a role of bridge between two
 different tasks to transfer knowledge from one to the another.
@@ -195,8 +192,8 @@ Bordes et al. define a ranking task where for each triplet $(e_{l} , r, e_{r} ) 
      we test our models on these sampled training instances and all the instances from test set. Bordes et al. have followed
      a similar  approach for ranking their embeddings on their biggest dataset. We re-run  their related experiments to make 
      the comparison to our embeddings meaningful. Table (??) shows the results.
-\FloatBarrier
-\begin{table}[ht]
+
+\begin{table*}[ht]
 \caption{Ranking Performance for Non-mapped Relations } % title name of the table
 \centering % centering table
 \begin{tabular}{l c c c c c c} % creating 10 columns
@@ -225,17 +222,14 @@ Bordes et al. define a ranking task where for each triplet $(e_{l} , r, e_{r} ) 
 \raisebox{1.5ex}{WordNet-GermaNet (GN)} & \raisebox{0.5ex}{25}& \raisebox{0.5ex}{32}& \raisebox{0.5ex}{213002}& global
 & 69.95 & 64.70 \\[1ex]
 
- & & &  & lhs & 1 & 1 \\[-1ex]
-  & & &  & rhs & 1 & 1 \\[-1ex]
-\raisebox{1.5ex}{WordNet-FrameNet} & \raisebox{0.5ex}{25}& \raisebox{0.5ex}{25}& \raisebox{0.5ex}{25}& global
-& 1 & 1 \\[1ex]
+ 
 % [1ex] adds vertical space
 \hline % inserts single-line
 \end{tabular}
 \label{tab:PPer}
-\end{table}
-
-\begin{table}[ht]
+\end{table*}
+\FloatBarrier    
+\begin{table*}[ht]
 \caption{Ranking Performance for Mapped Relations } % title name of the table
 \centering % centering table
 \begin{tabular}{l c c c c c c} % creating 10 columns
@@ -264,16 +258,13 @@ Bordes et al. define a ranking task where for each triplet $(e_{l} , r, e_{r} ) 
 \raisebox{1.5ex}{WordNet-GermaNet (GN)} & \raisebox{0.5ex}{25}& \raisebox{0.5ex}{24}& \raisebox{0.5ex}{213002}& global
 & 68.13 & 59.25 \\[1ex]
 
- & & &  & lhs & 1 & 1 \\[-1ex]
-  & & &  & rhs & 1 & 1 \\[-1ex]
-\raisebox{1.5ex}{WordNet-FrameNet} & \raisebox{0.5ex}{25}& \raisebox{0.5ex}{25}& \raisebox{0.5ex}{25}& global
-& 1 & 1 \\[1ex]
+ 
 % [1ex] adds vertical space
 \hline % inserts single-line
 \end{tabular}
 \label{tab:PPer}
-\end{table}
-
+\end{table*}
+\FloatBarrier    
  We repeat the ranking evaluation with two different embeddings: 
  (1) learned from GermaNet (2) jointly learned from GermaNet-WordNet. The intrinsic evaluation we use here
 can't be used to compare the effectivness of these two different embeddings since the evaluation only reflects the difficulty level
@@ -282,7 +273,7 @@ of a structure and since these
   Table (??) presents
  the comparison of ranking tasks for mono-lingual and bilingual word embeddings.
      
- \FloatBarrier  
+
 
 \subsection{Extrinsic Evaluation}
 \label{ssec:extrinsic}
@@ -299,25 +290,26 @@ of a structure and since these
  Then for each dataset, both Pearson and Spearman correlation among predicted and gold similarities 
  were calculated which is reported in table \ref{tab:en-wp-sim}. 
  
- \begin{table}[ht]
+ \begin{table*}[ht]
 \caption{Word-pair Similarity Performance for English } % title name of the table
 \centering % centering table
-\begin{tabular}{cr c c c c c} % creating 10 columns
+\tabcolsep=0.09cm
+\begin{tabular}{cr c c c c c c c} 
 \hline\hline % inserting double-line
- Dataset & & WN-SE50  & WN-GN-SE50 & WN-SME-BIL50 &  WN-GN-SME-BIL50
+ Dataset & & WN-SE  & WN-GN-SE & WN-SME-BIL &  WN-GN-SME-BIL & HLBL & Turian & KlementievTitov
 \\ [0.5ex] 
 \hline % inserts single-line
-                                           &  Pearson & 0.488  & 0.571 & 00 & 00 \\[-1ex]
-\raisebox{1.5ex}{RubensteinGoodenough65}  &  Spearman & 0.426 & 0.528 & 00 & 00 \\[1ex]
+                                           &  P & 0.488  & 0.571 & 00 & 00 \\[-1ex]
+\raisebox{1.5ex}{RubensteinGoodenough65}  &  S & 0.426 & 0.528 & 00 & 00 \\[1ex]
 
-                                    &  Pearson & 0.454 & 0.438 & 00 & 00 \\[-1ex]
-\raisebox{1.5ex}{MillerCharles30}  &  Spearman & 0.40 & 0.34 & 00 & 00 \\[1ex]
+                                    &  P & 0.454 & 0.438 & 00 & 00 \\[-1ex]
+\raisebox{1.5ex}{MillerCharles30}  &  S & 0.40 & 0.34 & 00 & 00 \\[1ex]
 
-                                   &  Pearson & 0.194  & 0.177 & 00 & 00 \\[-1ex]
-\raisebox{1.5ex}{Finkelstein353}  &  Spearman & 0.137 & 0.128 & 00 & 00 \\[1ex]
+                                   &  P & 0.194  & 0.177 & 00 & 00 \\[-1ex]
+\raisebox{1.5ex}{Finkelstein353}  &  S & 0.137 & 0.128 & 00 & 00 \\[1ex]
 
-                                  &  Pearson & 0.634  & 0.771 & 00 & 00 \\[-1ex]
-\raisebox{1.5ex}{YangPowers130}  &  Spearman & 0.598 & 0.770 & 00 & 00 \\[1ex]
+                                  &  P & 0.634  & 0.771 & 00 & 00 \\[-1ex]
+\raisebox{1.5ex}{YangPowers130}  &  S & 0.598 & 0.770 & 00 & 00 \\[1ex]
 
 
 \hline % inserts single-line
@@ -326,7 +318,39 @@ of a structure and since these
  \hline % inserts single-line
 \end{tabular}
 \label{tab:en-wp-sim}
-\end{table}      
+\end{table*}      
+
+\FloatBarrier    
+
+\begin{table*}[ht]
+\caption{Word-pair Similarity Performance for German } % title name of the table
+\centering  % centering table
+\tabcolsep=0.09cm
+\begin{tabular}{cr c c c c c c} % creating 10 columns
+\hline\hline % inserting double-line
+ Dataset & & GN-SE  & WN-GN-SE & GN-SME-BIL &  WN-GN-SME-BIL & KlementievTitov
+\\ [0.5ex] 
+\hline % inserts single-line
+                                 &  P & -0.022  & 0.112 & 0.058 & 00& 0.118 \\[-1ex]
+\raisebox{1.5ex}{wortpaare222}  &  S & -0.100 & 0.225 & 0.230 & 00 & 0.153 \\[1ex]
+
+                                  &  P & 0.865 & 0.984 & -0.443 & 00 & -0.887 \\[-1ex]
+\raisebox{1.5ex}{wortpaare30}    &  S & 1.0 & 1.0 & -0.500 & 00 & -1.0 \\[1ex]
+
+                                  &  P & -0.089  & 0.045 & 0.163 & 00& 0.168 \\[-1ex]
+\raisebox{1.5ex}{wortpaare350}  &  S & -0.158 & -0.017  &  0.135 & 00 & 0.117 \\[1ex]
+
+                                &  P & 0.800  & 0.558 & -0.572 & 00 & 0.233 \\[-1ex]
+\raisebox{1.5ex}{wortpaare65}  &  S & 0.800 & 0.800 & -0.8 & 00 & 0.200 \\[1ex]
+
+
+\hline % inserts single-line
+     
+          
+ \hline % inserts single-line
+\end{tabular}
+\label{tab:en-wp-sim}
+\end{table*}      
           
 \FloatBarrier          
             

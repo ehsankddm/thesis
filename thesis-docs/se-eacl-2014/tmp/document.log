@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2013.7.8)  28 OCT 2013 14:30
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2013.7.8)  10 NOV 2013 20:34
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -64,6 +64,9 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 
 LaTeX Warning: Label `tab:PPer' multiply defined.
 
+
+LaTeX Warning: Label `tab:en-wp-sim' multiply defined.
+
 )
 \openout1 = `document.aux'.
 
@@ -107,44 +110,46 @@ LaTeX Font Info:    Try loading font information for OT1+pcr on input line 39.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Underfull \hbox (badness 1297) in paragraph at lines 41--46
-\OT1/ptm/m/n/10.95 feautres in-duced by dis-tributed mod-els
- []
-
-
-Underfull \hbox (badness 1242) in paragraph at lines 47--52
-\OT1/ptm/m/n/10.95 des em-bed-dings) and bilin-gual em-bed-
- []
-
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 66.
-
-LaTeX Warning: Citation `Turian2010b' on page 1 undefined on input line 66.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 68.
 
 
-LaTeX Warning: Citation `Turian2010b' on page 1 undefined on input line 66.
+LaTeX Warning: Citation `Turian2010b' on page 1 undefined on input line 68.
 
 
-LaTeX Warning: Citation `Collobert2011' on page 1 undefined on input line 66.
+LaTeX Warning: Citation `Turian2010b' on page 1 undefined on input line 68.
 
 
-LaTeX Warning: Citation `Bordes2011' on page 1 undefined on input line 74.
+LaTeX Warning: Citation `Collobert2011' on page 1 undefined on input line 68.
+
+
+LaTeX Warning: Citation `Bordes2011' on page 1 undefined on input line 76.
 
 
 LaTeX Warning: Reference `rel-work:structured-embedding' on page 1 undefined on
- input line 78.
+ input line 80.
 
 [1
 
 
 
 ]
-Underfull \hbox (badness 3623) in paragraph at lines 113--119
+Underfull \hbox (badness 3623) in paragraph at lines 111--117
 \OT1/ptm/m/n/10.95 and [Bor-des2012] to trans-fer in-for-ma-tion in
  []
 
+[2]
 ! Undefined control sequence.
-l.198 \FloatBarrier
+l.231 \FloatBarrier
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.267 \FloatBarrier
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -153,45 +158,22 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (196.421pt too wide) in paragraph at lines 202--236
- [][][] 
- []
-
-[2]
-Overfull \hbox (229.24883pt too wide) in paragraph at lines 241--275
- [][][] 
- []
-
-
-Underfull \vbox (badness 1383) has occurred while \output is active []
-
-
-! Undefined control sequence.
-l.285  \FloatBarrier
-                    
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-Underfull \hbox (badness 1365) in paragraph at lines 290--301
+Underfull \hbox (badness 1365) in paragraph at lines 281--292
 []\OT1/ptm/m/n/10.95 We are in-ter-ested to fur-ther an-a-lyze the role
  []
 
 
-Underfull \hbox (badness 1087) in paragraph at lines 290--301
+Underfull \hbox (badness 1087) in paragraph at lines 281--292
 \OT1/ptm/m/n/10.95 and [finkel-stein] are datasets that we used to
  []
 
 
-Overfull \hbox (296.92206pt too wide) in paragraph at lines 305--329
+Overfull \hbox (84.64442pt too wide) in paragraph at lines 297--321
  [][][] 
  []
 
 ! Undefined control sequence.
-l.331 \FloatBarrier
+l.323 \FloatBarrier
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -199,7 +181,16 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[3] (./document.bbl
+! Undefined control sequence.
+l.355 \FloatBarrier
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+(./document.bbl
 
 ! LaTeX Error: Something's wrong--perhaps a missing \item.
 
@@ -212,9 +203,7 @@ l.3 \end{thebibliography}
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-) [4
-
-] (./document.aux)
+) [3] [4] [5] (./document.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -223,12 +212,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 745 strings out of 493494
- 8901 string characters out of 3143821
- 69122 words of memory out of 3000000
- 4079 multiletter control sequences out of 15000+200000
+ 744 strings out of 493494
+ 8890 string characters out of 3143821
+ 71122 words of memory out of 3000000
+ 4078 multiletter control sequences out of 15000+200000
  14606 words of font info for 51 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  23i,9n,24p,213b,258s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on document.dvi (4 pages, 20720 bytes).
+Output written on document.dvi (5 pages, 21096 bytes).
