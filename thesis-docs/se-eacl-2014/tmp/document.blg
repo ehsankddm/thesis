@@ -6,10 +6,9 @@ Database file #1: eacl2014.bib
 Warning--I didn't find a database entry for "Turian2010b"
 Warning--I didn't find a database entry for "Collobert2011"
 Warning--I didn't find a database entry for "Bordes2011"
-Warning--I didn't find a database entry for "Bordes2012"
 You've used 0 entries,
             2490 wiz_defined-function locations,
-            560 strings with 4565 characters,
+            558 strings with 4545 characters,
 and the built_in function-call counts, 23 in all, are:
 = -- 0
 > -- 0
@@ -48,4 +47,4 @@ warning$ -- 0
 while$ -- 0
 width$ -- 0
 write$ -- 2
-(There were 4 warnings)
+(There were 3 warnings)

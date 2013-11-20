@@ -15,10 +15,11 @@
 \usepackage{times}
 \usepackage{url}
 \usepackage{latexsym}
+\usepackage{amssymb}
 \special{papersize=210mm,297mm} % to avoid having to use "-t a4" with dvips 
 %\setlength\titlebox{6.5cm}  % You can expand the title box if you really have to
 
-\title{Learning Bi-lingual Word Representations from \\a Large-Scale Unified
+\title{Learning Bi-lingual Word Representations using Uby \\a Large-Scale Unified
 Lexical Semantic Resource}
 
 \author{First Author \\
@@ -54,75 +55,82 @@ for word-pair similarity task and shown that bilingual embeddings perform simila
 \section{Introduction}
 % das: removed reference to PostScript
 
-In a large number of machine learning methods and its application to natural language processing,
- most of the labor is dedicated to \emph{Feature Engineering}. Extracting informative features is the crucial part
-of most supervised methods and it is done mostly manually.\emph{Representation learning} is an umberella term
-for a family of unsupervised methods to learn features from data. Most of recent
-works on the application of this idea in NLP focus on inducing word
+In a large number of machine learning methods and their application to computational linguistics
+ \emph{Feature Engineering} or extracting informative features is a crucial part
+ and it is done mostly manually. \emph{Representation Learning} is an umberella term
+for a family of unsupervised methods to learn features from data to decrease the manual labour. Most of recent
+works related to this idea focus on inducing word
 representations. \emph{Word representation} or \emph{Word embedding} ''is a mathematical object, usually a
 vector, which each dimension in this vector represents a grammatical or
 semantical feature to identify this word and is induced automatically from data''
 \cite{Turian2010b}. Recently, it has been shown in \cite{Turian2010b} and \cite{Collobert2011} that using
  induced word representations can be helpful to improve state-of-the-art methods in 
-variouse NLP tasks. While their word embeddings are induced for a single
+variouse standard tasks. While their word embeddings are induced for a single
 language, Klementiev et al.
 [Inducing Crosslingual Distributed Representations of Words ] have a model which
 learns cross-lingual representations and is shown to have superior performance
-for text classification task. In contrast to previous similar works which word
+for text classification task over strong baselines. In contrast to previous similar works which word
 embeddings learnt from a corpus, Bordes et al. proposed a method
-\cite{Bordes2011} to learn distributed representations from multi-relational knowledge bases such as WordNet and Freebase.
- Their datasets include binary relations between two entities and each relation
- is instantiated from a different relation type. Since we are following their methodology, a description of their work is presented
- in ~\ref{rel-work:structured-embedding}.
+\cite{Bordes2011} to learn distributed representations from multi-relational knowledge bases(KB) such as WordNet 
+and Freebase. 
+They encode information in KBs as binary relations between entities which each relation
+ is instantiated from a set of relation types. Since we are following their methodology, 
+ a description of their work is presented in ~\ref{rel-work:structured-embedding}.
  
- In the rest of paper we introduce our method to extend their idea to learn
+ This paper is motivated by two questions. The first question is that how can we extend the framework in (Bordes2011)
+  to induce crosslingual word representations to benefit from aggregation of information in two 
+  different resource in two (or more) different languages.
+  The second question is how much informative are these learned features. More specifically
+   how well are these embeddings and also the embeddings from other methods able
+  to capture semantic similarity between words.
+ 
+ Regarding the first question, In section ?? we introduce our approach to use Bordes framework to learn
  bi-lingual word embeddings from multiple resources. Our contribution is to
- 1)infere cross-resource and cross-lingual relations has been enabled us to
+ 1)infere cross-resource and cross-lingual relations which will enable us to
  share the task of learning embeddings between different resources and languages and 2) encoding this
- information in a way that it can be fed to Bordes model. \ldots Uby is
- something sime hting  is providing a necessary described in ~\ref{uby}.
+ information in a way that it can be fed to Bordes model. \ldots Uby is a unified lexical resource which is central
+ to our approach for providing cross-resource information. Since it is playing an important role in our knowledge represenation, 
+ a brief description of Uby comes in section (??). For more information on Uby we will point the readers 
+ to this (?) and that(?).
  
- Finally we will compare performance of mono-lingual and bi-lingual
- embeddings in word similarity task to investigate the effectiveness of them to
+ Finally, section ?? tries to answer the second question. Therefor we will compare performance of 
+ mono-lingual and bi-lingual embeddings induced by different methods as well as ours in 
+ word similarity task to investigate the effectiveness of them to
  capture different aspects and features of words meanings(??).
  
  
 
 \section{Representation Learning from Knowledge Bases}
 
-Manuscripts must be in two-column format.  Exceptions to the
-two-column format include the title, authors' names and complete
-addresses, which must be centered at the top of the first page, and
-any full-width figures or tables (see the guidelines in
-Subsection~\ref{ssec:fonts}). {\bf Type single-spaced.}  Start all
-pages directly under the top margin. See the guidelines later
-regarding formatting the first page (Subsection~\ref{ssec:first}).
-The manuscript should be printed single-sided and its length should
-not exceed the maximum page limit described in
-Section~\ref{sec:length}.  {\bf Do not number the pages.}
+In this section, we will first review a framework proposed in (Bordes2011 and Bordes2012) and then will give  
+a short introduction on Uby. In the last part of this section,
+ we will show how to use information encoded in or inferred from Uby to induce cross-lingual word representation 
+with Bordes et al models.
+
 
 \subsection{Bordes model for word embedding}
+\label{ssect:bordes}
+Two major models are proposed in [Bordes2011] and [Bordes2012] to transfer information in Knowledge Bases (KBs)
+, encoded as graphs, to continues vector space. The knowledge representation in most of KBs can be expressed
+ in form of triples of $(e_{i},r_{k} , e_{j} )$ where $e_{i}$ and $e_{j}$ are $i_{th}$ and $j_{th}$ entities related
+ by a binary relation of type $r_{k}$. The purpose of the models is to induce a vector space and associate
+  each entity relation to an embedding vector (or a matrix in the case of first model for relations)
+   which its dimensions are supposed to reflect a set of informative features of entities and relations.
+   
+   In the first model, \textbf{structured embeddings}, entities are modeled as \textit{d}-dimensional vectors.
+    An associated vector to the $i_{th}$ entity, $e_{i}$, is $E_{i} \in \mathbb{R}^{d}$. Each relation , $r$, 
+    is decomposed to two operators each represented as $d \times d$ matrix, $R_{left}$ and $R_{right}$. 
+   
+   
+  
+  
+   
+   
 
-Bordes et al. in \cite{Bordes2011} and \cite{Bordes2012} have attempted to use
-distributed models to induce word representations from lexical resources such as
-WordNet and knowledge bases (KB) like Freebase. Their model in [2011] is
-composed of a two major elements. 
-
- In WordNet for example, each synset is related to another synset by an instance
- of a specific type of relation. 
-In \cite{Bordes2011}, each entity is represented as a vector and each relation is decomposed to two
-matrices. Each of these matrices transform left and right-hand-side entities
-to a semantic space. Similarity of transformed entities indicates that the
-relation holds between the entities.  A prediction task is defined to evaluate
-the embeddings. Given a relation and one of the entities, the task is to predict
-the missing entity. The high accuracy (99.2\%) of the model on prediciton
-of training data shows that learnt representation highly captures attributes of
-the entities and relations in Freebase.
 
 
-
-\subsection{Uby}
-\label{sect:uby}
+\subsection{Introduction to Uby}
+\label{ssect:uby}
 
 this part is dedicated to introudce Uby and Uby API. 
 
@@ -326,6 +334,8 @@ As we see in the table \ref{tab:en-wp-sim} in two datasets the performance of le
 are slightly worse but comparable to the mono-lingual embeddings and in the other two datasets one can observe a significant 
 increase of performance of bi-lingual resources over monolingual resources.      
 
+
+More analysis on why some dataset is good and some is not good. 
 \section{Conclusion and Future Work}
 
 Papers that had software and/or dataset submitted for the review
@@ -340,10 +350,7 @@ the conference, we are reminding authors that April 19th, 2014 may be
 considered to be the official publication date, instead of the opening
 day of the conference.
 
-\section*{Acknowledgments}
 
-Do not number the acknowledgment section. Do not include this section
-when submitting your paper for review.
 
 % If you use BibTeX with a bib file named eacl2014.bib, 
 % you should add the following two lines:
