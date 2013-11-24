@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>thesis-writing</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>net.sourceforge.texlipse.builder.TexlipseBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>net.sourceforge.texlipse.builder.TexlipseNature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>src/.tex</name>
+			<type>1</type>
+			<location>/usr/share/texlive/texmf-dist/tex/latex/tools/.tex</location>
+		</link>
+		<link>
+			<name>src/biblio.bib</name>
+			<type>1</type>
+			<location>/usr/share/texlive/texmf-dist/bibtex/bib/msc/biblio.bib</location>
+		</link>
+	</linkedResources>
+</projectDescription>
