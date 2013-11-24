@@ -1,0 +1,30 @@
+\chapter{Word Embeddings}
+\label{ch:word-embeddings}
+
+\section{Neural Language Models}
+\label{ssec:lang-model}
+
+In \cite{Collobert2008a}, Weston and Collobert use a non-probabilistic and
+discriminative model to jointly learn word embeddings and a language model that
+can separate plausible n-grams from noisy ones. For each word in a n-gram, they
+combine the word embeddings and use it as positive example. They put noise in
+the n-gram to make negative examples and then train a neural network to learn to
+classify postive labels from negative ones. The parameters of neural network
+(neural language model) and word embedding values will be learned jointly by an
+optimization method called \emph{Stochastic Gradient Descent} \cite{Bottou2010}.
+
+A hierarchical dsitributed language model (HLBL) proposed by Mnih and
+Hinton in \cite{Mnih2009} is another influential work on word embeddings. In
+this model a probabilistic linear neural network(LBL) will be trained to 
+combine word embeddings in first $n-1$ words of a n-gram to predict the $n_th$ word.
+
+Weston-Collobert model and HLBL by Mnih and Hinton are evaluated in
+\cite{Turian2010b} in two NLP tasks: chunking and named entity recognition. With
+using word embeddings from these models combined with hand-crafted features, the
+performance of both tasks are shown to be improved.
+
+\section{Learning Word Embeddings from Lexical Resources}
+\label{ssec:structured-word-embedding}
+
+
+

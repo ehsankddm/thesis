@@ -1,0 +1,42 @@
+\chapter{Introduction}
+Nowadays searching through Internet is the first step we take if we want to get answer to our question.
+We convert our questions to sequences of keywords and search engines are trying 
+to lead us to web pages where might contain the answer to our questions, they return us a set of related
+documents which are sorted by their popularity and similarity of their text to our query.
+In this way, users themselves are responsible to find the desired knowledge 
+from documents. The next generation search engines should go further than current 
+approaches in understanding the meaning of a query and the underlying semantics of documents on 
+the web. The next natural improvement is to return a piece of information which directly approaches to 
+answer the user question. For this reason, the elements of a query, concepts or entities and 
+their relations should be identified and documents ( which might have the answer) should be mapped to the 
+same space of entities and relations in order to find the the desired information in the question.
+
+
+Relation Extraction is the task of detecting and classifying semantic relationship 
+between named entities (NE). The goal of this task is to find a triple
+of binary relations and their arguments \cite{Androutsopoulos2009}. For instance, we want to induce a
+relation like \emph{bornIn} with its arguments which could be for example like this:\emph{ (
+bornIn, Beata Nyari, Budapest )}. Applications of such task is numerous
+in natural language processing; Question/Answering, machine translation and
+text summarization are systems that benefit from relation extraction \cite{Androutsopoulos2009}.
+
+In this task, we are trying to have a model to find paraphrases which means
+that we are interested to have all the similar semantically similar relations under
+one umbrella. So it is desired to have all different surface realizations of one
+relation like \emph{isGivenBirth, isBorn, isFrom} in a same set, namely \emph{bornIn}.
+
+From a classic method, DIRT \cite{Lin2001}, to very famous frameworks ,
+TextRunner\cite{Bankoa} or distant supervision\cite{Mintz2009}, and more recent works e.g. PATTY\cite{Nakashole2012a},
+all are examples of several different family of approaches. These methods could
+be categorized from different perspectives (1) amount of annotated data they
+need (2) if they can only handle a predefined enumeration of entities and re-
+lations or are open to any number of relations (3) organization of semantic
+interpretation and (4) underlying family of methods they use.
+
+In this proposal, we suggest a new method which learns informative features from
+data using deep learning methods and then use the learnt features to develop a
+relation extraction system in two schema (1) Weakly supervised and (2)
+Unsupervised. 
+
+In next chapters we review recent or influential related works and finally
+we will describe our new model as an improvement to current approaches.

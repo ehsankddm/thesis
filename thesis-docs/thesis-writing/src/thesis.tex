@@ -1,0 +1,131 @@
+\documentclass[a4paper, 11pt]{book}
+
+\usepackage{footnote}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french,english]{babel}
+
+\usepackage{titlesec}
+
+\usepackage[utf8]{inputenc}
+\usepackage[LGR,T1]{fontenc}
+\newcommand{\textgreek}[1]{\begingroup\fontencoding{LGR}\selectfont#1\endgroup}
+
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{wrapfig}
+\usepackage{lipsum}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{pifont}
+\usepackage{graphicx}
+\usepackage[center]{caption}
+\usepackage[center]{subcaption}	
+\usepackage{gb4e}
+\usepackage{paralist}
+\usepackage{url}
+\usepackage{hyperref}
+
+%\usepackage{graphics}
+\usepackage{epsfig}
+\usepackage{times}
+% \usepackage{framed, color}
+% \usepackage{fancybox}
+%\definecolor{shadecolor}{rgb}{0.8,0.8,0.8}
+% \usepackage{fontspec}
+%\newfontfamily\ipa{Gentium}
+
+\usepackage[authoryear]{natbib}
+%\bibliography{representation_learning,relation_discovery,deep_learning,NP-Bayesian}
+
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{2.0ex plus 1.0ex minus 0.5ex}
+
+\setlength{\topmargin}{-20 mm}
+\setlength{\textheight}{24 cm}
+\setlength{\textwidth}{16 cm}
+\setlength{\oddsidemargin}{0 cm}
+
+% Format of the heading
+\titleformat{\chapter}[hang]{\Large\bfseries}{\thechapter\quad}{0pt}{}
+\titleformat{\section}[hang]{\large\bfseries}{\thesection\quad}{0pt}{}
+\titleformat{\subsection}[hang]{\large\bfseries}{\thesubsection\quad}{0pt}{}
+\titleformat{\subsubsection}[hang]{\large\bfseries}{\thesubsubsection\quad}{0pt}{}
+%\titlespacing{\chapter}{0pt}{-3em}{6pt}
+\linespread{1.5}
+\usepackage{vmargin}
+\setmarginsrb{3cm}{2.5cm}{3cm}{3.5cm}{\baselineskip}{1cm}{1.1cm}{1.5cm}
+
+\pagestyle{plain}
+\usepackage{setspace}
+\onehalfspacing
+\setcounter{secnumdepth}{3}
+
+\begin{document}
+\frontmatter %Roman numbering
+
+\thispagestyle{empty}
+\large{
+Saarland University\\
+Language Science and Technology\\
+Master's Thesis\\
+Prof.~Dr.~Dietrich Klakow\\
+Prof.~Dr.~Iryna Gurevych\\
+}
+\vspace{4 cm}
+
+\centerline{\LARGE\textbf{Relation Extraction Using Liberalism}}
+\centerline{\LARGE\textbf{love and beloved}}
+\vspace{0,2cm}
+
+\vspace{0,8cm}
+
+%\hspace{0,3cm}
+\centerline{\today}
+
+\vspace{4 cm}
+
+Ehsan Khoddammohammadi
+
+\newpage
+
+
+
+\input{acknowledgements}
+\newpage
+
+\input{abstract}
+
+\newpage
+\begingroup
+\def\addvspace#1{}
+\tableofcontents
+\endgroup
+%\tableofcontents
+\newpage
+
+\mainmatter %Arabic numbering
+
+
+\input{introduction}
+\input{ml}
+\input{repr-learning}
+\input{word-emb}
+\input{rel-dscv}
+\input{experiments}
+\input{future-work}
+\input{conclusion}
+
+\newpage
+\bibliographystyle{plain}
+
+\bibliography{library}
+
+
+
+
+\end{document}
