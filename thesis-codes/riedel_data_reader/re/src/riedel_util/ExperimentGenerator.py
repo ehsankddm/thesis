@@ -90,42 +90,42 @@ class Experiment(object):
         test_positive_addr_orig ='/media/toothless/thesis_data/riedel_yao_univ/processed/test.positive.universal.txt'
         test_negative_addr_orig = '/media/toothless/thesis_data/riedel_yao_univ/processed/test.negative.universal.txt'
         
-        train_positive_addr_in = 'sample.train.positive'
-        train_unlabeled_addr_in = 'sample.train.unlabeled'
-        train_negative_addr_in = 'sample.train.negative'
+        train_positive_addr_in = '/media/toothless/thesis_data/riedel_yao_univ/processed/exp02/sample.train.positive'
+        train_unlabeled_addr_in = '/media/toothless/thesis_data/riedel_yao_univ/processed/exp02/sample.train.unlabeled'
+        train_negative_addr_in = '/media/toothless/thesis_data/riedel_yao_univ/processed/exp02/sample.train.negative'
         
-        test_positive_addr_in ='sample.test.positive'
-        test_negative_addr_in = 'sample.test.negative'
+        test_positive_addr_in ='/media/toothless/thesis_data/riedel_yao_univ/processed/exp02/sample.test.positive'
+        test_negative_addr_in = '/media/toothless/thesis_data/riedel_yao_univ/processed/exp02/sample.test.negative'
         
-        validation_positive_addr_in = 'sample.validation.positive'
-        validation_negative_addr_in = 'sample.validation.negative'
+        validation_positive_addr_in = '/media/toothless/thesis_data/riedel_yao_univ/processed/exp02/sample.validation.positive'
+        validation_negative_addr_in = '/media/toothless/thesis_data/riedel_yao_univ/processed/exp02/sample.validation.negative'
         
-        train_addr_out = 'train_sample'
-        test_addr_out = 'test_sample'
-        validation_addr_out = 'validation_sample'
+        train_addr_out = 'UnivSchema_train'
+        test_addr_out = 'UnivSchema_test'
+        validation_addr_out = 'UnivSchema_validation'
         
-        Experiment.sample(train_positive_addr_orig,train_positive_addr_in, 8409)
-        Experiment.sample(train_negative_addr_orig,train_negative_addr_in, 20000)
+        #Experiment.sample(train_positive_addr_orig,train_positive_addr_in, 8409)
+        #Experiment.sample(train_negative_addr_orig,train_negative_addr_in, 20000)
         
-        Experiment.sample(test_positive_addr_orig,test_positive_addr_in, 2500)
-        Experiment.sample(test_negative_addr_orig,test_negative_addr_in, 4000)
+        #Experiment.sample(test_positive_addr_orig,test_positive_addr_in, 2500)
+        #Experiment.sample(test_negative_addr_orig,test_negative_addr_in, 4000)
         
-        Experiment.sample(test_positive_addr_in,validation_positive_addr_in, 1000)
-        Experiment.sample(test_negative_addr_in,validation_negative_addr_in, 1000)
+        #Experiment.sample(test_positive_addr_in,validation_positive_addr_in, 1000)
+        #Experiment.sample(test_negative_addr_in,validation_negative_addr_in, 1000)
         
         
-        opt={'label':True,'hasNER':True, 'trigger':True, 'hasTrigger':True,'hasDependencyRole':True}
+        opt={'label':True,'hasNER':False, 'trigger':True, 'hasTrigger':False,'hasDependencyRole':False}
         Experiment.parseAndMake(train_positive_addr_in, train_addr_out, opt)
         
-        opt={'label':True,'hasNER':True, 'trigger':True, 'hasTrigger':True,'hasDependencyRole':True}
+        opt={'label':True,'hasNER':False, 'trigger':True, 'hasTrigger':False,'hasDependencyRole':False}
         Experiment.parseAndMake(train_negative_addr_in, train_addr_out, opt)
         
                 
-        opt={'label':False,'hasNER':True, 'trigger':True, 'hasTrigger':True,'hasDependencyRole':True}
-        Experiment.parseAndMake(test_positive_addr_in, train_addr_out, opt)
+        #opt={'label':False,'hasNER':True, 'trigger':True, 'hasTrigger':True,'hasDependencyRole':True}
+        #Experiment.parseAndMake(test_positive_addr_in, train_addr_out, opt)
                
-        opt={'label':False,'hasNER':True, 'trigger':True, 'hasTrigger':True,'hasDependencyRole':True}
-        Experiment.parseAndMake(test_negative_addr_in, train_addr_out, opt) 
+        #opt={'label':False,'hasNER':True, 'trigger':True, 'hasTrigger':True,'hasDependencyRole':True}
+        #Experiment.parseAndMake(test_negative_addr_in, train_addr_out, opt) 
 
 
         opt={'label':True}
@@ -145,9 +145,9 @@ if __name__ == '__main__':
         
         Experiment.experiment1()
         
-        train_addr_out = 'train_sample'
-        test_addr_out = 'test_sample'
-        validation_addr_out = 'validation_sample'
+        train_addr_out = 'UnivSchema_train'
+        test_addr_out = 'UnivSchema_test'
+        validation_addr_out = 'UnivSchema_validation'
         Experiment.statistics(train_addr_out)
         
         #Experiment.experiment1() 
