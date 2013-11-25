@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2013.7.8)  25 NOV 2013 17:55
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2013.7.8)  25 NOV 2013 19:09
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -205,24 +205,6 @@ Underfull \hbox (badness 2435) in paragraph at lines 362--374
 Overfull \hbox (43.12106pt too wide) in paragraph at lines 388--415
  [][][] 
  []
-
-! Undefined control sequence.
-l.417 \FloatBarrier
-                   
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.452 \FloatBarrier
-                   
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
 
 (./document.bbl
 

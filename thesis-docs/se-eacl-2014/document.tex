@@ -414,7 +414,6 @@ Bordes et al. (Bordes2011) proposed a ranking task that for each triple $(e_{i} 
 \label{tab:en-wp-sim}
 \end{table*}      
 
-\FloatBarrier    
 
 \begin{table*}[ht]
 \caption{Word-pair Similarity Performance for German } % title name of the table
@@ -427,17 +426,17 @@ Bordes et al. (Bordes2011) proposed a ranking task that for each triple $(e_{i} 
  Dataset & & GN-SE  & WN-GN-SE & GN-SME-BIL &  WN-GN-SME-BIL & WN-GN-SME-BIL-DD & Klementiev*
 \\ [0.5ex] 
 \hline % inserts single-line
-                                 &  P & -0.022  & 0.112 & 0.058 & 0.103&0.203 &0.118 \\[-1ex]
-\raisebox{1.5ex}{wortpaare222}  &  S & -0.100 & 0.225 & 0.230 & 0.091 & 0.195 &0.153 \\[1ex]
+                                 &  P & -0.010  & 0.156 & 0.073 & 0.130&0.196 &0.107 \\[-1ex]
+\raisebox{1.5ex}{wortpaare222}  &  S & -0.125 & 0.234& 0.152 & 0.175 & 0.111 &0.152 \\[1ex]
 
-                                  &  P & 0.865 & 0.984 & -0.443 & 0.671 & 0.656 & -0.887 \\[-1ex]
-\raisebox{1.5ex}{wortpaare30}    &  S & 1.0 & 1.0 & -0.500 & 0.682 & 0.686 & -1.0 \\[1ex]
+                                  &  P & 0.865 & 0.984 & 0.185 & 0.287 & 0.301 & -0.887 \\[-1ex]
+\raisebox{1.5ex}{wortpaare30}    &  S & 1.0   & 1.0   & -0.500 & -0.500  & 0.500 & -1.0 \\[1ex]
 
-                                  &  P & -0.089  & 0.045 & 0.163 & 0.300& 0.256 &0.168 \\[-1ex]
-\raisebox{1.5ex}{wortpaare350}  &  S & -0.158 & -0.017  &  0.135 & 0.295 & 0.231 &0.117 \\[1ex]
+                                  &  P & -0.085  & 0.063 & 0.185 & 0.188 & 0.127 &0.187 \\[-1ex]
+\raisebox{1.5ex}{wortpaare350}  &  S & -0.157 & 0.009  &  0.172 & 0.194 & 0.142 &0.142 \\[1ex]
 
-                                &  P & 0.800  & 0.558 & -0.572 & 0.607 & 0.480 & 0.233 \\[-1ex]
-\raisebox{1.5ex}{wortpaare65}  &  S & 0.800 & 0.800 & -0.8 & 0.588 & 0.439 &0.200 \\[1ex]
+                                &  P & 0.800  & 0.558 & -0.572 & 0.485 & -0.166 & 0.233 \\[-1ex]
+\raisebox{1.5ex}{wortpaare65}  &  S & 0.800 & 0.800 & -0.8 & 0.399 & 0.200 & 0.200 \\[1ex]
 
 
 \hline % inserts single-line
@@ -449,7 +448,6 @@ Bordes et al. (Bordes2011) proposed a ranking task that for each triple $(e_{i} 
 
 \end{table*}      
           
-\FloatBarrier          
             
 As we see in the table \ref{tab:en-wp-sim} in two datasets the performance of learned embeddings from bi-lingual resources
 are slightly worse but comparable to the mono-lingual embeddings and in the other two datasets one can observe a significant 
