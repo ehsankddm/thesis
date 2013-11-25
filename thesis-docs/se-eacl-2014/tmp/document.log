@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2013.7.8)  22 NOV 2013 17:12
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2013.7.8)  25 NOV 2013 17:55
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -197,17 +197,17 @@ Underfull \hbox (badness 3492) in paragraph at lines 183--184
  []
 
 
-Underfull \hbox (badness 2435) in paragraph at lines 361--373
+Underfull \hbox (badness 2435) in paragraph at lines 362--374
 \OT1/ptm/m/n/10.95 man-tic fea-tures of words, there-for we com-
  []
 
 [3]
-Overfull \hbox (77.75294pt too wide) in paragraph at lines 387--414
+Overfull \hbox (43.12106pt too wide) in paragraph at lines 388--415
  [][][] 
  []
 
 ! Undefined control sequence.
-l.416 \FloatBarrier
+l.417 \FloatBarrier
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -216,7 +216,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.451 \FloatBarrier
+l.452 \FloatBarrier
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -249,4 +249,4 @@ Here is how much of TeX's memory you used:
  957 hyphenation exceptions out of 8191
  27i,9n,24p,279b,265s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on document.dvi (6 pages, 27572 bytes).
+Output written on document.dvi (6 pages, 27528 bytes).

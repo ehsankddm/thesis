@@ -39,14 +39,14 @@
 \maketitle
 \begin{abstract}
   Word representations and specially word feautres induced by distributed models
-  are shown to be able to boost the performance of various NLP tasks such as
-  Word Sense Disambiguation, Named Entity Recognition, Parsing,\ldots
+  are shown to be able to boost the performance of various NLP tasks such as: 
+  word sense disambiguation, named entity recognition and parsing.
   Previously a model have been proposed  to learn
-  representation for entities of a structured knowldege base such as WordNet.
+  representation for entities of a structured lexical resource such as WordNet.
   
   Here in this paper, we follow the previous work and extend their idea by
   incorporating multiple resources  in order to induce richer representations jointly for two different languages.  
-  We have evaluated both monolingual  and bilingual embeddings on four different gold dataset
+  We have evaluated both monolingual  and bilingual embeddings on five different gold datasets
 for word-pair similarity task and shown that bilingual embeddings perform similarly or better than monolingual embeddings. 
 For example on one of datasets, bilingual embeddings is 10 percent more correlated (Pearson correlation) to human judgements  than 
 monolingual embeddings of the same model and up to 40 percent more than the other models.
@@ -294,19 +294,20 @@ Bordes et al. (Bordes2011) proposed a ranking task that for each triple $(e_{i} 
 \raisebox{1.0ex}{WN-GN SME-BIL(GN held out)} & \raisebox{0.5ex}{32}& \raisebox{0.5ex}{213002}& global
 & 64.16 & 55.98 \\[1ex]
  \hline
-& &   & lhs & 57.72 & 38.063 \\[-0.5ex]
-  &  &  & rhs & 60.72 & 63.617 \\[-0.5ex]
+ 
+& &   & lhs & 77.06 & 64.98 \\[-0.5ex]
+  &  &  & rhs & 77.08 & 65.17 \\[-0.5ex]
+  & &   & mean & 166.18 & 466.91 \\[-0.5ex]
+  & &   & median & 18.0 & 55.41 \\[-0.5ex]
+\raisebox{1.0ex}{WordNet-GermaNet-DD (WN held out)} &  \raisebox{0.5ex}{32}& \raisebox{0.5ex}{213002}& global
+& 77.07 & 65.082 \\[1ex]
+ 
+& &   & lhs & 57.72 & 38.06 \\[-0.5ex]
+  &  &  & rhs & 60.72 & 63.61 \\[-0.5ex]
   & &   & mean & 932.49 & 719.47 \\[-0.5ex]
   & &   & median & 56.0 & 175.56 \\[-0.5ex]
-\raisebox{1.0ex}{WordNet-GermaNet-DD (GN held out)} &  \raisebox{0.5ex}{32}& \raisebox{0.5ex}{213002}& global
+\raisebox{1.0ex}{WordNet-GermaNet-DD (GN held out)} & \raisebox{0.5ex}{32}& \raisebox{0.5ex}{213002}& global
 & 59.22 & 50.84 \\[1ex]
- 
-& &   & lhs & 69.66 & 59.54 \\[-0.5ex]
-  &  &  & rhs & 66.60 & 58.95 \\[-0.5ex]
-  & &   & mean & 166.18 & 18.0 \\[-0.5ex]
-  & &   & median & 466.91 & 55.41 \\[-0.5ex]
-\raisebox{1.0ex}{WordNet-GermaNet-DD (WN held out)} & \raisebox{0.5ex}{32}& \raisebox{0.5ex}{213002}& global
-& 68.13 & 59.25 \\[1ex]
  
 % [1ex] adds vertical space
 \hline % inserts single-line
@@ -384,25 +385,25 @@ Bordes et al. (Bordes2011) proposed a ranking task that for each triple $(e_{i} 
 \centering % centering table
 \tabcolsep=0.09cm
 {\footnotesize
-\begin{tabular}{cr c c c c c c c c c} 
+\begin{tabular}{c c c c c c c c c c} 
 \hline\hline % inserting double-line
  Dataset & & WN-SE  & WN-GN-SE & WN-SME-BIL &  WN-GN-SME-BIL & WN-GN-SME-BIL-DD &HLBL & Turian* & Klementiev*
 \\ [0.5ex] 
 \hline % inserts single-line
-                                           &P&0.682&0.666&0.540&0.508&0.611&-0.115&0.233&-0.380 \\[-1ex]
-\raisebox{1.5ex}{RubensteinGoodenough65}  &S&0.769&0.741&0.447&0.478&0.552&-.083&0.118&-0.398 \\[1ex]
+                          &P&0.682&0.666&0.703&0.833&0.725&-0.115&0.233&-0.380 \\[-1ex]
+\raisebox{1.5ex}{RG-65}  &S&0.769&0.741&0.741&0.811&0.825&-.083&0.118&-0.398 \\[1ex]
 
-                                     &  P &0.611&0.644&0.592&0.555&0.541&-0.363&0.150&-0.768 \\[-1ex]
-\raisebox{1.5ex}{MillerCharles30}  &  S & 0.720&0.648&0.564&0.561&0.468&-.450&-0.198&-0.522 \\[1ex]
+                          &  P &0.611&0.644&0.601&0.740&0.599&-0.363&0.150&-0.768 \\[-1ex]
+\raisebox{1.5ex}{MC-30}  &  S & 0.720&0.648&0.756&0.846&0.954&-.450&-0.198&-0.522 \\[1ex]
 
-                                   &  P &0.179&0.206&0.272&0.208&0.193&0.236&0.246&0.032 \\[-1ex]
-\raisebox{1.5ex}{Finkelstein353}  &  S &0.087&0.146&0.240&0.196&0.162&0.204&0.223&0.044 \\[1ex]
+                           &  P &0.181&0.206&0.239&0.246&0.238&0.233&0.236&0.029 \\[-1ex]
+\raisebox{1.5ex}{WS-353}  &  S &0.093&0.146&0.185&0.224&0.201&0.197&0.210&0.040 \\[1ex]
 
-                                  &  P &-0.145&0.032&0.010&0.043&0.048&-0.228&0.014&0.0001 \\[-1ex]
-\raisebox{1.5ex}{Szumlanski122}  &  S & -0.159&0.034&0.035&0.037&0.041&-0.263&0.023&-0.014 \\[1ex]
+                            &  P &-0.109&0.037&-0.126&-0.326&-0.1128&-0.367&-0.044&-0.005 \\[-1ex]
+\raisebox{1.5ex}{Rel-122}  &  S & -0.112&0.019&-0.121&0.037&0.041&-0.409&-0.092&-0.0009 \\[1ex]
 
-                                  &  P & 0.729&0.682&0.597&0.767&0.819&0.237&0.199&0.454 \\[-1ex]
-\raisebox{1.5ex}{YangPowers130}  &  S & 0.829&0.853&0.483&0.793&0.836&0.024&0.097& 0.634 \\[1ex]
+                                  &  P & 0.482&0.637&0.584&0.627&0.610&-0.130&-0.076&0.154 \\[-1ex]
+\raisebox{1.5ex}{YangPowers-130}  &  S & 0.401&0.472&0.406&0.553&0.533&-0.186&-0.116& 0.113 \\[1ex]
 
 \hline % inserts single-line
      
