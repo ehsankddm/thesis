@@ -46,10 +46,10 @@
   
   Here in this paper, we follow the previous work and extend their idea by
   incorporating multiple resources  in order to induce richer representations jointly for two different languages.  
-  We have evaluated both monolingual  and bilingual embeddings on five different gold datasets
-for word-pair similarity task and shown that bilingual embeddings perform similarly or better than monolingual embeddings. 
-For example on one of datasets, bilingual embeddings is 10 percent more correlated (Pearson correlation) to human judgements  than 
-monolingual embeddings of the same model and up to 40 percent more than the other models.
+  We have evaluated both mono-lingual  and bi-lingual embeddings on four
+  different gold datasets for word-pair similarity task and shown that bi-lingual embeddings perform similarly or better than mono-lingual embeddings. 
+For example on one of datasets, bi-lingual embeddings is 10 percent(??) more
+correlated (Pearson correlation) to human judgements  than mono-lingual embeddings of the same model and up to 40 percent more than the other models.
 
 \end{abstract}
 
@@ -202,10 +202,10 @@ Left and right entities are WordNet and GermaNet senses and relations are curren
 
 To show the effectiveness of joint learning of features from multiple knowledge bases we suggest 
 two experiment setups. In the first schema we follow Bordes et al. ranking task. The goal of this task is
-to show how well the information in knowledge bases can be preserved by the learned features. 
+to show how well information in knowledge bases can be preserved by learned features. 
  On the other hand, the second
-setup is investigating on this question that if the learned word embeddings from multiple resources
-are able to improve the performance of monolingual embeddings in a standard NLP
+setup is investigating on this question that if bi-lingual word embeddings from
+multiple resources are able to improve the performance of mono-lingual embeddings in a standard NLP
 task, here word-pair similarity or not.
 In this setup we will look to contribution of the learned features in predicting similarity of words.
 
@@ -246,7 +246,7 @@ Bordes et al. (Bordes2011) proposed a ranking task that for each triple $(e_{i} 
   & &   & rhs & 83.30 & 81.11 \\[-0.5ex]
   & &   & mean & 407.90 & 308.01 \\[-0.5ex]
   & &   & median & 10.0 & 54.18 \\[-0.5ex]
-\raisebox{1.0ex}{GN SME-BIL} &  \raisebox{0.5ex}{16}& \raisebox{0.5ex}{64025}&global
+\raisebox{1.0ex}{GN SME-Bil} &  \raisebox{0.5ex}{16}& \raisebox{0.5ex}{64025}&global
 &  81.18 & 69.85 \\[1ex]
 \hline
 
@@ -261,7 +261,7 @@ Bordes et al. (Bordes2011) proposed a ranking task that for each triple $(e_{i} 
   & &   & rhs & 85.2 &77.92 \\[-1ex]
   & &   & mean & 128.82 & 511.21 \\[-0.5ex]
   & &   & median & 10.0 & 26.63 \\[-0.5ex]
-\raisebox{1.0ex}{WN SME-BIL} &  \raisebox{0.5ex}{23}& \raisebox{0.5ex}{148976}& global
+\raisebox{1.0ex}{WN SME-Bil} &  \raisebox{0.5ex}{23}& \raisebox{0.5ex}{148976}& global
 & 84.14 & 75.57 \\[1ex]
 \hline
 
@@ -276,7 +276,7 @@ Bordes et al. (Bordes2011) proposed a ranking task that for each triple $(e_{i} 
   & &   & rhs & 83.40 & 73.44 \\[-0.5ex]
   & &   & mean & 124.85 & 331.82 \\[-0.5ex]
   & &   & median & 11.0 & 33.86 \\[-0.5ex]
-\raisebox{1.0ex}{WN-GN SME-BIL(WN held out)} & \raisebox{0.5ex}{32}& \raisebox{0.5ex}{213002}& global
+\raisebox{1.0ex}{WN-GN SME-Bil(WN held out)} & \raisebox{0.5ex}{32}& \raisebox{0.5ex}{213002}& global
 & 82.91 & 73.55 \\[1ex]
 
  \hline
@@ -291,7 +291,7 @@ Bordes et al. (Bordes2011) proposed a ranking task that for each triple $(e_{i} 
   & &   & rhs & 64.78 & 70.32 \\[-0.5ex]
   & &   & mean & 984.79 & 1021.37 \\[-0.5ex]
   & &   & median & 40.0 & 428.90 \\[-0.5ex]
-\raisebox{1.0ex}{WN-GN SME-BIL(GN held out)} & \raisebox{0.5ex}{32}& \raisebox{0.5ex}{213002}& global
+\raisebox{1.0ex}{WN-GN SME-Bil(GN held out)} & \raisebox{0.5ex}{32}& \raisebox{0.5ex}{213002}& global
 & 64.16 & 55.98 \\[1ex]
  \hline
  
@@ -359,25 +359,44 @@ Bordes et al. (Bordes2011) proposed a ranking task that for each triple $(e_{i} 
 \subsection{Extrinsic Evaluation}
 \label{ssec:extrinsic}
  \label{exp:word-similarity}
- We are interested to further analyze the effectiveness of learned embeddings to capture semantic features of words, therefor 
- we compare the embeddings learned a single resource or from multiple resources against human judgments.
- Five datasets of word-pair similarity are used to compare the correlation of predicted similairty of 
- pair of words against human judgments.
- [rubensteinGoodenough], [yangPowers], [millerCharles],[Szumlanski] and [finkelstein] are English datasets that we used 
- to meaure the correlation of similarities
- predicted by our embeddings and  embeddings induced by the other methods to human judgments. 
- For German, we use [this and that].
- The other embeddings which are used in our comparison are (Turian et al., HLBL and Klementiev et al.).
+ We are interested to further analyze the effectiveness of learned embeddings to capture semantic features of words,
+  therefore 
+ we compare the mono-lingual and bi-lingual embeddings against human judgments
+ and also other embeddings learned from corpus. 
+ The other embeddings which we used for our comparison are (Turian et al., HLBL
+ and Klementiev et al.).
  To measure the similarity between any given wordpair $(w_1 , w_2)$ we find all vectors associated to different senses
- of the given words in our embedding dictionary and pick the pair of embeddings that maximize cosine similarity between two words. 
- We can motivate this by saying that for each word pair any of words works as a context for disambiguating the sense of the other word.
+ of the given words in our embedding dictionary and pick the pair of embeddings that maximize cosine
+  similarity between two words. 
+ We can motivate this by saying that for each word pair any of words works as a context for 
+ disambiguating the sense of the other word.
+ 
+ Four datasets of word-pair similarity are used to compare correlation of
+ predicted similairty of pair of words against human judgments.
+ RG-65 [rubensteinGoodenough], Yang and Powers verb similarity
+ dataset[yangPowers], MC-30[millerCharles] and WS-353 [finkelstein] are English
+ datasets that we used for this task. RG-65 and its subset, MC-30 are providing
+ human scored datasets for measuring synonymy among wordpairs (nouns),. WS-353
+ has broader notaion of semantic similarity and include word pairs for measuirng semantic
+ relatedness too. Yang and Powers have provided a dataset for measuring semantic
+ similarity between verbs.
+  
+ 
   
  Both Pearson and Spearman correlation of predicted and gold similarities 
- are calculated and is reported in table \ref{tbl:en-wp-sim} for English and \ref{tbl:de-wp-sim} for German.
+ are calculated and is reported in table \ref{tbl:en-wp-sim} for English. We can
+ see that bi-lingual embeddings learned by SME-Bil model outperformed all other
+ embeddings both in Pearson and Spearman correlation in all four datasets.
+ Another observation is that SME-Bil models performes better than SE
+ models in most cases. Among SME-Bil models, bi-lingual embeddings are always
+ more correlated to human hudgments than mono-lingual embeddings.
+ All models perform poorly on WS-353, bi-lingual SME-Bil model still performs
+ better than the rest. We believe this could due to including notion of
+ relatedness in this dataset. Poor performance of knowledge based models on
+ semantic relatedness task is previously known and discussed in
+ [Szulmanski2013]. 
  
- For English, we can see that \ldots.
- 
- On the other hand in German \ldots. 
+
  
  \begin{table*}[ht]
 \caption{Word-pair Similarity Performance for English } % title name of the table
@@ -387,7 +406,7 @@ Bordes et al. (Bordes2011) proposed a ranking task that for each triple $(e_{i} 
 {\footnotesize
 \begin{tabular}{c c c c c c c c c c} 
 \hline\hline % inserting double-line
- Dataset & & WN-SE  & WN-GN-SE & WN-SME-BIL &  WN-GN-SME-BIL & WN-GN-SME-BIL-DD &HLBL & Turian* & Klementiev*
+ Dataset & & WN-SE  & WN-GN-SE & WN-SME-Bil &  WN-GN-SME-Bil & WN-GN-SME-Bil-DD &HLBL & Turian* & Klementiev*
 \\ [0.5ex] 
 \hline % inserts single-line
                           &P&0.682&0.666&0.703&0.833&0.725&-0.115&0.233&-0.380 \\[-1ex]
@@ -399,8 +418,10 @@ Bordes et al. (Bordes2011) proposed a ranking task that for each triple $(e_{i} 
                            &  P &0.181&0.206&0.239&0.246&0.238&0.233&0.236&0.029 \\[-1ex]
 \raisebox{1.5ex}{WS-353}  &  S &0.093&0.146&0.185&0.224&0.201&0.197&0.210&0.040 \\[1ex]
 
-                            &  P &-0.109&0.037&-0.126&-0.326&-0.1128&-0.367&-0.044&-0.005 \\[-1ex]
-\raisebox{1.5ex}{Rel-122}  &  S & -0.112&0.019&-0.121&0.037&0.041&-0.409&-0.092&-0.0009 \\[1ex]
+ %                           &  P
+                            % &-0.109&0.037&-0.126&-0.326&-0.1128&-0.367&-0.044&-0.005 \\[-1ex]
+%\raisebox{1.5ex}{Rel-122}  &  S &
+% -0.112&0.019&-0.121&0.037&0.041&-0.409&-0.092&-0.0009 \\[1ex]
 
                                   &  P & 0.482&0.637&0.584&0.627&0.610&-0.130&-0.076&0.154 \\[-1ex]
 \raisebox{1.5ex}{YangPowers-130}  &  S & 0.401&0.472&0.406&0.553&0.533&-0.186&-0.116& 0.113 \\[1ex]
@@ -415,6 +436,9 @@ Bordes et al. (Bordes2011) proposed a ranking task that for each triple $(e_{i} 
 \end{table*}      
 
 
+For German,
+ we use [this and that].
+
 \begin{table*}[ht]
 \caption{Word-pair Similarity Performance for German } % title name of the table
 \label{tbl:de-wp-sim}
@@ -423,7 +447,7 @@ Bordes et al. (Bordes2011) proposed a ranking task that for each triple $(e_{i} 
 {\footnotesize
 \begin{tabular}{cr c c c c c c c} % creating 10 columns
 \hline\hline % inserting double-line
- Dataset & & GN-SE  & WN-GN-SE & GN-SME-BIL &  WN-GN-SME-BIL & WN-GN-SME-BIL-DD & Klementiev*
+ Dataset & & GN-SE  & WN-GN-SE & GN-SME-Bil &  WN-GN-SME-Bil & WN-GN-SME-Bil-DD & Klementiev*
 \\ [0.5ex] 
 \hline % inserts single-line
                                  &  P & -0.010  & 0.156 & 0.073 & 0.130&0.196 &0.107 \\[-1ex]
@@ -449,25 +473,11 @@ Bordes et al. (Bordes2011) proposed a ranking task that for each triple $(e_{i} 
 \end{table*}      
           
             
-As we see in the table \ref{tab:en-wp-sim} in two datasets the performance of learned embeddings from bi-lingual resources
-are slightly worse but comparable to the mono-lingual embeddings and in the other two datasets one can observe a significant 
-increase of performance of bi-lingual resources over monolingual resources.      
+     
 
 
-More analysis on why some dataset is good and some is not good. 
+ 
 \section{Conclusion and Future Work}
-
-Papers that had software and/or dataset submitted for the review
-process should also submit it with the camera-ready paper. Besides,
-the software and/or dataset should not be anonymous.
-
-Please note that the publications of EACL-2014 will be publicly
-available at ACL Anthology (http://aclweb.org/anthology-new/) on April
-19th, 2014, one week before the start of the conference. Since some of
-the authors may have plans to file patents related to their papers in
-the conference, we are reminding authors that April 19th, 2014 may be
-considered to be the official publication date, instead of the opening
-day of the conference.
 
 
 
