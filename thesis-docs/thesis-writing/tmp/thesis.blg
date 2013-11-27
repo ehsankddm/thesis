@@ -5,46 +5,57 @@ The style file: plain.bst
 Database file #1: library.bib
 Warning--I didn't find a database entry for "Dirt"
 Warning--I didn't find a database entry for "patty"
+Warning--there's a number but no series in Alfonseca2012
+Warning--there's a number but no series in Bhagat2007
+Warning--there's a number but no volume in Bordes2011
+Warning--there's a number but no volume in Bottou2010
+Warning--can't use both volume and number fields in Mintz2009
+Warning--there's a number but no volume in Pantel2007
+Warning--empty institution in Poon2013
+Warning--can't use both volume and number fields in Poon2009
 Warning--there's a number but no volume in Riedel2013
-You've used 3 entries,
+Warning--there's a number but no volume in Teh2007
+Warning--there's a number but no volume in Turian2010b
+Warning--there's a number but no series in Yates2007
+You've used 38 entries,
             2118 wiz_defined-function locations,
-            521 strings with 4572 characters,
-and the built_in function-call counts, 1137 in all, are:
-= -- 110
-> -- 54
-< -- 2
-+ -- 21
-- -- 18
-* -- 80
-:= -- 187
-add.period$ -- 9
-call.type$ -- 3
-change.case$ -- 18
+            737 strings with 9646 characters,
+and the built_in function-call counts, 14017 in all, are:
+= -- 1432
+> -- 571
+< -- 22
++ -- 224
+- -- 186
+* -- 922
+:= -- 2198
+add.period$ -- 116
+call.type$ -- 38
+change.case$ -- 204
 chr.to.int$ -- 0
-cite$ -- 4
-duplicate$ -- 45
-empty$ -- 86
-format.name$ -- 18
-if$ -- 238
+cite$ -- 50
+duplicate$ -- 589
+empty$ -- 1100
+format.name$ -- 186
+if$ -- 3026
 int.to.chr$ -- 0
-int.to.str$ -- 3
-missing$ -- 3
-newline$ -- 18
-num.names$ -- 6
-pop$ -- 20
+int.to.str$ -- 38
+missing$ -- 37
+newline$ -- 193
+num.names$ -- 76
+pop$ -- 217
 preamble$ -- 1
-purify$ -- 15
+purify$ -- 169
 quote$ -- 0
-skip$ -- 33
+skip$ -- 472
 stack$ -- 0
-substring$ -- 66
-swap$ -- 14
-text.length$ -- 2
+substring$ -- 960
+swap$ -- 202
+text.length$ -- 22
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 12
-warning$ -- 1
-while$ -- 11
-width$ -- 4
-write$ -- 35
-(There were 3 warnings)
+type$ -- 148
+warning$ -- 12
+while$ -- 144
+width$ -- 40
+write$ -- 422
+(There were 14 warnings)
