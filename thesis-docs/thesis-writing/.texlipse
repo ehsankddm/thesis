@@ -1,14 +1,14 @@
 #TeXlipse project settings
-#Sun Nov 24 16:11:57 CET 2013
+#Mon Nov 25 11:27:25 CET 2013
 markTmpDer=true
 builderNum=6
-outputDir=src/
+outputDir=
 makeIndSty=
 bibrefDir=
 outputFormat=pdf
-tempDir=src
+tempDir=tmp
 mainTexFile=thesis.tex
 outputFile=thesis.pdf
-langSpell=
+langSpell=en
 markDer=true
 srcDir=src/

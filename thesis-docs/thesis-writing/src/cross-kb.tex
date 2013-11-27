@@ -1,9 +1,8 @@
-\chapter{Experimental Setup}
-\section{Entity Linking Among Lexical Resources}
-\label{sec:exp-ent-link}
+\chapter{Entity Linking Among Lexical Resources}
+\label{ch:exp-ent-link}
 
-\subsection{Creating of Dataset}
-\label{ssec:dataset}
+\section{Experimental Setup}
+\label{sec:xkb-exp}
 
 In this part of paper we describe the methodology we followed to encode available information 
 in two different lexical resources, WordNet and GermaNet, that makes it possible to link entities of the two different
@@ -52,8 +51,8 @@ Left and right entities are WordNet and GermaNet senses and relations are curren
   (version of wordnet, germanet, ILI and role of uby should be described here)  
  
 
-\subsection{Evaluation}
-\label{ssec:ent-link-eval}
+\section{Evaluation}
+\label{sec:ent-link-eval}
 
 To show the effectiveness of joint learning of features from multiple knowledge bases we suggest 
 two experiment setups. In the first schema we follow Bordes et al. ranking task. The goal of this task is
@@ -64,7 +63,7 @@ are able to improve the performance of monolingual embeddings in a standard NLP
 task, here word-pair similarity or not.
 In this setup we will look to contribution of the learned features in predicting similarity of words.
 
-\subsubsection{Intrinstic Evaluation}
+\subsection{Evaluation Using Reconstruction}
 \label{ssec:ent-link-intrinsic}
 
 Bordes et al. (Bordes2011) proposed a ranking task that for each triple $(e_{i} , r_{k}, e_{j} )$ in the data set,
@@ -208,7 +207,7 @@ Bordes et al. (Bordes2011) proposed a ranking task that for each triple $(e_{i} 
 \end{table*}
     
 
-\subsubsection{Extrinsic Evaluation}
+\subsubsection{Evaluation on feature informativity}
 \label{ssec:ent-link-extrinsic}
  \label{exp:word-similarity}
  We are interested to further analyze the effectiveness of learned embeddings to capture semantic features of words, therefor 
