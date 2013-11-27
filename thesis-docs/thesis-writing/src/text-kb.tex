@@ -1,0 +1,137 @@
+\chapter{Linking Text to a Knowledge Base for Relation Extraction}
+\label{ch:text-kb}
+
+In this chapter I introduce an idea which relates previous work on
+representation learning of KBs to relation extraction from text. First I propose
+a method which tries to learn embeddings of entities and relations both from
+Freebase and a corpus prepared in a specific format. With such a rich
+embeddings, I will propose a model to and settings to predict links between
+entities in Freebase or relations among entities mentioned in the corpus.
+Later on, the experimental setup and a pipeline created for this purpose will be
+described and finally in the last section we will evaluate our model and discuss
+different aspects of the results.
+
+\section{Learning Representaion of Entities and Relations
+from Text and Knowledge Base}
+\label{sec:dataset}
+
+Two direction of works have been conducted previously on learning representation
+of words which we discussed in \ref{repr-learn}. 1) KB-based
+representation learning and 2)Corpus-based methods. Here I will demonstrate a
+process which will enable us to jointly learn embeddings with both contextual
+and lexical information. Among previously discussed methods, I borrow a model
+proposed in \cite{Bordes2012}. As I described in \ref{bordes-model}, this model
+can take set of binary predicates and their arguments and induce continuous
+features for both predicates and arguments in vector space. Using these
+embeddings and a bilinear combination of them, the model can discriminate
+between true facts in the dataset and negative examples. For more information of
+this model please see \ref{bordes-model}.
+
+We can see that this models in its plain vanilla form is limited to learn
+embeddings from a KB but has a great potential to be extended in various
+aspects. One of the possible aspects which matters for relation extraction task,
+which is main motivation of this work, is that it should be able to learn facts
+also from text. The reason is that, despite the vast effort of gathering
+information and encode it as knowledge in KBs, they are limited in the sense of
+coverage. To compensate this problem we need to discover new facts from corpus.
+
+In chapter \ref{rel-dscv} we have extensively discussed major related works and
+we also discussed important features that were being used in many important
+works and are shown to be very effective. Most of these feature were previously
+encoded in a way that can be used for classic classifiers. I will first
+enumerate these features and then we will see that how can we formalized them
+to make it possible to use them with a neural distributed model discussed in
+\ref{bordes-model}. A thorough discussion of creating dataset will appear in
+\ref{sec:textkb-exp} but for now, it is sufficient to know that by a corpus we
+mean, a pre-processed clean pile of text in English, coming from harvested web
+pages or from news papers which contains these annotations: 1) part of speech
+tags 2)dependency parsed 3) named entities are recognized and tagged by their
+type. Our process of extracting features will be described fully in
+\ref{sec:textkb-exp}, in the next part, Any feature I describe comes from a
+sentence which contains two named entities. 
+
+\subsection{Informative Features for Relation Extraction}
+In this part, I briefly enumerate important features which have been used
+extensively in previous works. For an actul example, I show some instances from
+a dataset prepared by Riedel et al. and used in \cite{Riedel2013} and
+\cite{Riedel2010a}. For full description of futures in their work please see
+\ref{UnivSchema}.
+
+A relevent set of features that I harvest from text to my work is as follow:
+
+\begin{description}
+  
+  \item[Type of Named Entities] \hfill \\
+    These types are simple set of types that usually named entity taggers tag
+    entities with them. For example: \textbf{LOC} for locations, \textbf{PER}
+    for persons. These types contain a minimalistic information but yet useful.
+    The actual type of entities, features of an entity which are common with
+    similar entities should be induced by the model.
+    
+  \item[Dependency Role of Named Entities] \hfill \\
+    Dependency structures have useful information and there is a long history of
+    using dependency patterns in literature. For example we discussed
+    \cite{Dirt}, \cite{patty} in \ref{rel-dscv} and we showed the importance of
+    dependency roles in these models. I follow previous works and will use this
+    type of features in my proposed model. As an example a NE in a senctence can
+    have either of these roles: direct object \textit{dobj}, passive object
+    \textit{pobj}, appositional modifier \textit{appos}, participial modifier
+    \textit{partmod}, nominal subject \textit{nsubj}, noun compound modifier
+    \textit{nn} and prepositional modifier \textit{prep}.
+ 
+  \item[Head of Sentence in Dependency Path] \hfill \\
+  
+  The dependency path between arguments and the head of the sentence worked as
+  surface patterns indicating a relation if it appears in different contexts.
+  All the head words are collected and I use them as surface patterns. They are
+ labels for relations that we want to induce or predict among entities. 
+  
+  
+ \end{description}
+ 
+ Another set of features, the most important one, which are available in KBs are
+ actual knowledge about entities and the relation between them. This types of
+ relations naturally are encoded as predicate-arguments relations. For example
+ this relation:
+\begin{center}
+\label{rel:mir}
+\textsc{Mir-Hossein Mousavi ~~~ /people/person/nationality  ~~~~   Iran} \hfill
+\end{center}
+
+indicates that \textit{Mir-Hossein Mousavi} has \textit{Iranian} nationality.
+
+\section{Task Description}
+\label{sec:textkb-task}
+
+We have a set of facts, $\mathcal{F}$, coming from a KB which any instance of it
+is in form of a triple $(e_{i}, rel_{k}, e_{j})$ which arguments of this triple are
+left and right named entities and the predicate is a relation from a certain
+type. Additionally we have a corpus of text, $\mathcal{C}$, which is tagged by
+part of speech, named entities and parsed with a dependency parser.
+A positive triple is a triple which at least an element of context in
+$\mathcal{C}$, here a sentence, supports this triple. Likewise, a negative
+triple is a triple that there is no support available for it in the corpus.
+Given $\mathcal{F}$ and $\mathcal{C}$ we would like to perform two tasks
+jointly:
+
+\begin{enumerate}
+  \item Learning embeddings of named entities, KB relations and surface patterns
+  from information in $\mathcal{F}$ and $\mathcal{C}$.
+  \item Learning a model with objective of ranking all positive triples lower
+  than all negative triples, preferably with a large margin.
+\end{enumerate}
+
+In the domain of machine learning there are several models with ability of
+performing learning representations and classification jointly which we
+discussed some of them in \autoref{repr-learning}. Among those models relevant
+to our task, we picked the neural distributed model proposed in \cite{Bordes2012}.
+A detail of this model is discussed in \autoref{Bordes}.
+
+This model takes a set of triples $\mathcal{T}$ as an input and perform both of
+our desired tasks. With having this model the only problem now is to generate 
+$\mathcal{T}$ such as it staisfies our objective. In the next section I will
+describe a method for generating this dataset and later in
+\autoref{sec:textkb-eval} I emperically show the effectivness of this method.
+
+\section{Experimental Setup}
+\label{sec:textkb-exp}
