@@ -1,45 +1,11 @@
 \select@language {english}
-\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
-\contentsline {chapter}{\numberline {2}Machine Learning}{3}{chapter.2}
-\contentsline {chapter}{\numberline {3}Representation Learning}{5}{chapter.3}
-\contentsline {section}{\numberline {3.1}Distributional Representation}{5}{section.3.1}
-\contentsline {section}{\numberline {3.2}Distributed Representation}{6}{section.3.2}
-\contentsline {section}{\numberline {3.3}Representation Learning of Knowledge Bases}{6}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Distributed Representation Learning of Knowledge Bases}{6}{subsection.3.3.1}
-\contentsline {chapter}{\numberline {4}Word Embeddings}{9}{chapter.4}
-\contentsline {section}{\numberline {4.1}Neural Language Models}{9}{section.4.1}
-\contentsline {section}{\numberline {4.2}Learning Word Embeddings from Lexical Resources}{9}{section.4.2}
-\contentsline {chapter}{\numberline {5}Relation Discovery}{11}{chapter.5}
-\contentsline {section}{\numberline {5.1}Distant Supervision}{11}{section.5.1}
-\contentsline {section}{\numberline {5.2}Unsupervised Relation Extraction}{12}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}DIRT}{12}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Extended Distributional Hypothesis}{12}{subsection.5.2.2}
-\contentsline {subsection}{\numberline {5.2.3}Model Description}{13}{subsection.5.2.3}
-\contentsline {subsubsection}{\numberline {5.2.3.1}Evaluation and Analysis}{13}{subsubsection.5.2.3.1}
-\contentsline {subsubsection}{\numberline {5.2.3.2}Inference Selectional Preferences}{14}{subsubsection.5.2.3.2}
-\contentsline {subsubsection}{\numberline {5.2.3.3}Direction of Inference Rules}{15}{subsubsection.5.2.3.3}
-\contentsline {subsection}{\numberline {5.2.4}TextRunner}{15}{subsection.5.2.4}
-\contentsline {subsubsection}{\numberline {5.2.4.1}TextRunner Architecture}{16}{subsubsection.5.2.4.1}
-\contentsline {subsubsection}{\numberline {5.2.4.2}Model Description}{16}{subsubsection.5.2.4.2}
-\contentsline {subsubsection}{\numberline {5.2.4.3}Evaluation}{17}{subsubsection.5.2.4.3}
-\contentsline {subsection}{\numberline {5.2.5}USP}{17}{subsection.5.2.5}
-\contentsline {subsubsection}{\numberline {5.2.5.1}Semantic Parsing}{17}{subsubsection.5.2.5.1}
-\contentsline {subsubsection}{\numberline {5.2.5.2}Model Description}{18}{subsubsection.5.2.5.2}
-\contentsline {subsubsection}{\numberline {5.2.5.3}Evaluation}{21}{subsubsection.5.2.5.3}
-\contentsline {subsection}{\numberline {5.2.6}Rel-LDA \& Type-LDA}{21}{subsection.5.2.6}
-\contentsline {subsubsection}{\numberline {5.2.6.1}Input format and preprocessing}{22}{subsubsection.5.2.6.1}
-\contentsline {subsubsection}{\numberline {5.2.6.2}Model Description}{22}{subsubsection.5.2.6.2}
-\contentsline {subsubsection}{\numberline {5.2.6.3}Evaluation}{25}{subsubsection.5.2.6.3}
-\contentsline {section}{\numberline {5.3}Problem Identification}{26}{section.5.3}
-\contentsline {chapter}{\numberline {6}Linking Text to a Knowledge Base for Relation Extraction}{29}{chapter.6}
-\contentsline {section}{\numberline {6.1}Learning Representaion of Entities and Relations from Text and Knowledge Base}{29}{section.6.1}
-\contentsline {subsection}{\numberline {6.1.1}Informative Features for Relation Extraction}{30}{subsection.6.1.1}
-\contentsline {section}{\numberline {6.2}Model description}{31}{section.6.2}
-\contentsline {section}{\numberline {6.3}Experimental Setup}{31}{section.6.3}
-\contentsline {chapter}{\numberline {7}Entity Linking Among Lexical Resources}{33}{chapter.7}
-\contentsline {section}{\numberline {7.1}Experimental Setup}{33}{section.7.1}
-\contentsline {section}{\numberline {7.2}Evaluation}{34}{section.7.2}
-\contentsline {subsection}{\numberline {7.2.1}Evaluation Using Reconstruction}{34}{subsection.7.2.1}
-\contentsline {subsubsection}{\numberline {7.2.1.1}Evaluation on feature informativity}{35}{subsubsection.7.2.1.1}
-\contentsline {chapter}{\numberline {8}Future Work}{41}{chapter.8}
-\contentsline {chapter}{\numberline {9}Conclusion}{43}{chapter.9}
+\contentsline {chapter}{\numberline {1}Linking Text to a Knowledge Base for Relation Extraction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Learning Representaion of Entities and Relations from Text and Knowledge Base}{1}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Informative Features for Relation Extraction}{2}{subsection.1.1.1}
+\contentsline {section}{\numberline {1.2}Task Description}{3}{section.1.2}
+\contentsline {section}{\numberline {1.3}Experimental Setup}{4}{section.1.3}
+\contentsline {chapter}{\numberline {2}Entity Linking Among Lexical Resources}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}Experimental Setup}{5}{section.2.1}
+\contentsline {section}{\numberline {2.2}Evaluation}{6}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Evaluation Using Reconstruction}{6}{subsection.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.1.1}Evaluation on feature informativity}{7}{subsubsection.2.2.1.1}
