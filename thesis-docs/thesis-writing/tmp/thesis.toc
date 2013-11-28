@@ -1,11 +1,12 @@
 \select@language {english}
-\contentsline {chapter}{\numberline {1}Linking Text to a Knowledge Base for Relation Extraction}{1}{chapter.1}
+\contentsline {chapter}{\numberline {1}Linking Text to a Knowledge Base for Relation Discovery}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Learning Representaion of Entities and Relations from Text and Knowledge Base}{1}{section.1.1}
 \contentsline {subsection}{\numberline {1.1.1}Informative Features for Relation Extraction}{2}{subsection.1.1.1}
 \contentsline {section}{\numberline {1.2}Task Description}{3}{section.1.2}
-\contentsline {section}{\numberline {1.3}Experimental Setup}{4}{section.1.3}
-\contentsline {chapter}{\numberline {2}Entity Linking Among Lexical Resources}{5}{chapter.2}
-\contentsline {section}{\numberline {2.1}Experimental Setup}{5}{section.2.1}
-\contentsline {section}{\numberline {2.2}Evaluation}{6}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Evaluation Using Reconstruction}{6}{subsection.2.2.1}
-\contentsline {subsubsection}{\numberline {2.2.1.1}Evaluation on feature informativity}{7}{subsubsection.2.2.1.1}
+\contentsline {section}{\numberline {1.3}Linking Text to KB}{4}{section.1.3}
+\contentsline {section}{\numberline {1.4}Experimental Setup}{5}{section.1.4}
+\contentsline {chapter}{\numberline {2}Entity Linking Among Lexical Resources}{7}{chapter.2}
+\contentsline {section}{\numberline {2.1}Experimental Setup}{7}{section.2.1}
+\contentsline {section}{\numberline {2.2}Evaluation}{8}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Evaluation Using Reconstruction}{8}{subsection.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.1.1}Evaluation on feature informativity}{9}{subsubsection.2.2.1.1}

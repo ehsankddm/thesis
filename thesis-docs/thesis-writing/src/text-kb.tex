@@ -1,4 +1,4 @@
-\chapter{Linking Text to a Knowledge Base for Relation Extraction}
+\chapter{Linking Text to a Knowledge Base for Relation Discovery}
 \label{ch:text-kb}
 
 In this chapter I introduce an idea which relates previous work on
@@ -95,7 +95,8 @@ A relevent set of features that I harvest from text to my work is as follow:
  this relation:
 \begin{center}
 \label{rel:mir}
-\textsc{Mir-Hossein Mousavi ~~~ /people/person/nationality  ~~~~   Iran} \hfill
+\textsc{ /people/person/nationality(~Mir-Hossein Mousavi,~Iran)}
+\hfill
 \end{center}
 
 indicates that \textit{Mir-Hossein Mousavi} has \textit{Iranian} nationality.
@@ -132,6 +133,82 @@ our desired tasks. With having this model the only problem now is to generate
 $\mathcal{T}$ such as it staisfies our objective. In the next section I will
 describe a method for generating this dataset and later in
 \autoref{sec:textkb-eval} I emperically show the effectivness of this method.
+
+\section{Linking Text to KB}
+\label{sec:textkb-link}
+
+To benefit from information both available in a KB and hidden in the text we
+need to link them so information can transfer from one to the another. This can
+be happened through sharing the task of learning representations of words
+specially NEs and surface patterns. This section is dedicated to elaborate on
+the approach I took to share the task of representation learning between text
+and KB.
+
+The main idea is to present important features of text in such a formalization
+that can be mutually learn with set of fact that come from a KB, for instance
+Freebase. We mentioned that knowledge in Freebase is encoded as triples of a
+predicate and two arguments. We take the same formalism and by introducing
+auxillary predicates, we encode the annotations of a corpus in form of triples.
+
+These are list of auxiliary relations which we add to $\mathcal{T}$ with their
+definition:
+\begin {description}
+\item[HAS\_TYPE] this predicate takes a NE as left argument and its type
+produced by NE-tagger as right argument. For example:
+\begin{center}
+ \textsc{HAS\_TYPE(~Mir-Hossein Mousavi,~Per)}
+ \end{center}
+
+\item[HAS\_DEP\_ROLE] with this predicate we relate a NE to its dependency role:
+
+\begin{center}
+ \textsc{ HAS\_DEP\_ROLE(~Mir-Hossein Mousavi,~dobj)}
+ \end{center}
+ 
+ \item[Head of Dependency path] for each dependency path, we can consider 
+ head of a path as a relation or a predicate which relates two NEs of the path
+ together. This head word ,which in our case is always verb but in general can
+ also be a nominal phrase, will work as a surface pattern and a candidate
+ relation. From now on we will call this head words \textit{triggers},
+ following the work in \cite{UniversalSchema}.
+ For example for this sentence and its dependency path:
+\begin{center}
+ \textit{Mir-Hossein Mousavi, president of Iran, said \ldots}
+ \textsc{path\#appos|->appos->president->prep->of->pobj->|pobj }
+ \end{center}
+ 
+ we will have the relation below in $\mathcal{T}$:
+ \begin{center}
+ \textsc{PRESIDENT (~Mir-Hossein Mousavi,~Iran)}
+ \end{center}
+ 
+
+
+\item[HAS\_TRIGGER] we know that we have two types of relations in
+$\mathcal{T}$, relations that come from corpus $\mathcal{C}$ and those from a KB
+$\mathcal{F}$. If there are two NEs in $\mathcal{C}$ which are related by a
+trigger and there exist a relation between them in $\mathcal{F}$ too then we
+will add a third relation, \textbf{HAS_TRIGGER} between the knowledge base
+relation and a trigger relation. For example given these two relations in
+$\mathcal{T}$ :
+\begin{center}
+ \textsc{PRESIDENT (~Mir-Hossein Mousavi,~Iran)}
+ \textsc{ /government/position\_held/president (~Mir-Hossein Mousavi,~Iran)}
+ \end{center}
+ 
+ we will add the third relation below to $\mathcal{T}$:
+  \begin{center}
+ \textsc{HAS\_TRIGGER (~/government/position_held/president,~PRESIDENT)}
+ \end{center}
+ 
+ The reason is to increase correlation between KB relations and text surface
+ patterns which will enable the model to transfer information across KB and
+ corpus.
+ \end{description}
+ 
+ Having $\mathcal{T}$ generated now we can run our experiments. In the next
+ section I describe the pipeline  and after that we will see the evaluation of
+ our approach.
 
 \section{Experimental Setup}
 \label{sec:textkb-exp}

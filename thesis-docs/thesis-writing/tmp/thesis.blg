@@ -5,10 +5,11 @@ The style file: plain.bst
 Database file #1: library.bib
 Warning--I didn't find a database entry for "Dirt"
 Warning--I didn't find a database entry for "patty"
+Warning--I didn't find a database entry for "UniversalSchema"
 Warning--there's a number but no volume in Riedel2013
 You've used 3 entries,
             2118 wiz_defined-function locations,
-            521 strings with 4572 characters,
+            523 strings with 4602 characters,
 and the built_in function-call counts, 1137 in all, are:
 = -- 110
 > -- 54
@@ -47,4 +48,4 @@ warning$ -- 1
 while$ -- 11
 width$ -- 4
 write$ -- 35
-(There were 3 warnings)
+(There were 4 warnings)

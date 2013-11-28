@@ -1,3 +1,71 @@
 \chapter{Machine Learning}
 
-Bye \cite{III2009}
+\section{Representation Learning}
+\label {ch:repr-learning}
+
+In this chapter, we will define and justify the task of
+\emph{Representation Learning} and we will see different families of methods for
+inducing word representation and its application in NLP.
+
+In machine learning specially in industry, most of the labor is dedicated to
+\emph{Feature Engineering}. Extracting informative features is the crucial part
+of most supervised methods and it is done mostly manually. While many different
+applications share common learning models and classifiers, the difference in
+performance of competing methods mostly goes to the data representation and
+hand-crafted features that they use. This observation reveals an important
+weakness in current models, namely their inability to extract and organize
+discriminative features from data. Representation learning is an umberella term
+for a family of unsupervised methods to learn features from data. Most of recent
+works on the application of this idea in NLP focus on inducing word
+representations. \emph{Word representation} is a mathematical object, usually a
+vector, which each dimension in this vector represents a grammatical or
+semantical feature to identify this word and is induced automatically from data
+\cite{Turian2010b}. Recently, it has been shown in \cite{Turian2010b} and \cite{Collobert2011} that using
+ induced feautres can be helpful to improve state-of-the-art methods in 
+different NLP tasks. It seems that relation extraction can also benefit from such features since similar tasks like 
+semantic role labeling has been shown to benefit from
+induced word representations. In section ~\ref{sec:contr} we will describe one
+possible way of incorporating this idea in to our task. In the next two sections, two major
+families of representations will be shortly reviewed.
+
+
+\subsection{Distributional Representation}
+\label{sec:distl-repr}
+In distributional semantics, the meaning of a word is expressed by the context
+that it appears in it \cite{Harris1981}. Features that are used to represent the
+meaning of a word are other words in its neighborhood as it is so called the
+context. In some approaches like LDA and latent semantic analysis (LSA), 
+the context is defined in the scope of a document rather than a window around a
+word. To represent word meanings in via distributional approach, one should
+start from count matrix (or zero-one co-occurence matrix) which each row
+represents a word and each column is a context. The representation can be
+limited to raw usage of the very same matrix or some transforms like
+\emph{tf-idf} will be applied first. A further analysis over this matrix to
+extract more meaningful features is applying dimensionality reduction methods or
+clustering models to induce latent distributional representations. A similar
+clustering method to k-means is used in \cite{Lin2009} to represent phrase and
+word meanings and brown clustering algorithm \cite{Brown1992} has been shown to
+have impact on near to state-of-the-art NLP tasks \cite{Turian2010b}. 
+
+
+\subsection{Distributed Representation}
+\label{sec:disted-repr}
+Distributed representation has been introduced in the literature for the first
+time in \cite{Bengio2003} where Bengio et al. introduced a first language
+model based on deep learning methods\cite{Bengio2009b}. Deep learning is
+learning through several layers of neural networks which each layer is
+responsible to learn a different concept and each concecpt is built over other
+more abstract concepts. In the deep learning society, any word representation
+that is induced with a neural network is called \emph{Word Embedding}. 
+In contrast to raw count matrix in distributional representations, word embeddings are low-dimensional, dense and real-valued vectors.
+ The term, \textbf{`Distributed'}, in this context refers to the fact that
+ exponential number of objects (clusters) can be modeled by word embeddings.
+ Here we will see two famous models to induce for such representations. One
+ family will use n-grams to learn word representation jointly with a language
+ model and the other family learns the embedding from structured resources.
+
+ 
+\subsection{Representation Learning of Knowledge Bases}
+\label{sec: repr-learning-kb}
+
+    
