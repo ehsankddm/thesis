@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2013.7.17)  28 NOV 2013 11:41
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2013.7.17)  28 NOV 2013 13:33
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -1194,11 +1194,11 @@ LaTeX Warning: Reference `sec:textkb-eval' on page 4 undefined on input line 13
 Package natbib Warning: Citation `UniversalSchema' on page 4 undefined on input
  line 173.
 
-[4]) (./cross-kb.tex [5] [6
+[4] [5]) (./cross-kb.tex [6]
+Chapter 2.
+[7
 
 ]
-Chapter 2.
-[7]
 
 LaTeX Warning: Reference `eq:sim' on page 8 undefined on input line 72.
 
@@ -1244,7 +1244,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 132.
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 132.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 132.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 04D774B49AA4B31D8FCB40C7F8C79DC5;778.
+(rerunfilecheck)             Checksum: 76CA4E72826AA73A3714F95882C068FA;848.
 
 
 LaTeX Warning: There were undefined references.
@@ -1255,12 +1255,12 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 132.
  ) 
 Here is how much of TeX's memory you used:
- 9668 strings out of 493494
- 134517 string characters out of 3143820
+ 9673 strings out of 493494
+ 134608 string characters out of 3143820
  344317 words of memory out of 3000000
- 12786 multiletter control sequences out of 15000+200000
+ 12791 multiletter control sequences out of 15000+200000
  29569 words of font info for 51 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  36i,8n,38p,270b,438s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on thesis.dvi (23 pages, 55132 bytes).
+Output written on thesis.dvi (23 pages, 58740 bytes).

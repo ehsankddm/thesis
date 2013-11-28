@@ -6,46 +6,47 @@ Database file #1: library.bib
 Warning--I didn't find a database entry for "Dirt"
 Warning--I didn't find a database entry for "patty"
 Warning--I didn't find a database entry for "UniversalSchema"
+Warning--can't use both volume and number fields in Mintz2009
 Warning--there's a number but no volume in Riedel2013
-You've used 3 entries,
+You've used 4 entries,
             2118 wiz_defined-function locations,
-            523 strings with 4602 characters,
-and the built_in function-call counts, 1137 in all, are:
-= -- 110
-> -- 54
-< -- 2
-+ -- 21
-- -- 18
-* -- 80
-:= -- 187
-add.period$ -- 9
-call.type$ -- 3
-change.case$ -- 18
+            531 strings with 4916 characters,
+and the built_in function-call counts, 1742 in all, are:
+= -- 172
+> -- 77
+< -- 4
++ -- 30
+- -- 26
+* -- 123
+:= -- 267
+add.period$ -- 12
+call.type$ -- 4
+change.case$ -- 25
 chr.to.int$ -- 0
-cite$ -- 4
-duplicate$ -- 45
-empty$ -- 86
-format.name$ -- 18
-if$ -- 238
+cite$ -- 6
+duplicate$ -- 72
+empty$ -- 133
+format.name$ -- 26
+if$ -- 376
 int.to.chr$ -- 0
-int.to.str$ -- 3
-missing$ -- 3
-newline$ -- 18
-num.names$ -- 6
-pop$ -- 20
+int.to.str$ -- 4
+missing$ -- 4
+newline$ -- 23
+num.names$ -- 8
+pop$ -- 28
 preamble$ -- 1
-purify$ -- 15
+purify$ -- 21
 quote$ -- 0
-skip$ -- 33
+skip$ -- 60
 stack$ -- 0
-substring$ -- 66
-swap$ -- 14
-text.length$ -- 2
+substring$ -- 119
+swap$ -- 31
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 12
-warning$ -- 1
-while$ -- 11
-width$ -- 4
-write$ -- 35
-(There were 4 warnings)
+type$ -- 16
+warning$ -- 2
+while$ -- 16
+width$ -- 5
+write$ -- 47
+(There were 5 warnings)

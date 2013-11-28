@@ -212,3 +212,28 @@ $\mathcal{T}$ :
 
 \section{Experimental Setup}
 \label{sec:textkb-exp}
+
+In this section, first we will describe the process of producing a dataset I use
+for running experiments and then we will see different experiments I ran to
+examine the effectiveness of proposed approach for relation discovery.
+
+\subsection{Creating Dataset}
+\label{ssec:textkb-exp-data}
+
+There are three phases to create a suitable dataset for our experiments. In the
+first phase, a corpus should be annotated by part of speech and named entity
+tags and parsed with dependency parser. This will lead to produce our desired
+corpus $\mathcal{C}$ . In the second phase, we pick a KB and
+use it as our $\mathcal{F}$ dataset. If $\mathcal{F}$ is too big in sense of
+size of relations for our computing resource we can limit ourselves to a subset
+of KB. I followed the heuristic proposed in \cite{Mintz2009} and
+\cite{Riedel2013} and limit  $\mathcal{F}$ only to relations which their
+argument have been co-occurred in a sentence in $\mathcal{C}$.
+
+In the third phase, using $\mathcal{C}$ and $\mathcal{F}$ we produce triples
+that we discussed in \autoref{sec:textkb-link} and create our final dataset
+$\mathcal{T}$. 
+
+To make our corpus we follow the protocol described in \cite{Riedel2013} and
+use their dataset since it is fully compatible with our requirements. They used
+New-York Times corpus 
