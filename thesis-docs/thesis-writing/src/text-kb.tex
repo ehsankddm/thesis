@@ -303,5 +303,61 @@ experiments.
 \subsection{Evaluation}
 \label{ssec:textkb-exp-exp}
 
+The objective we train our model toward that is to predict a relation between
+two given entities. So how do we do prediction with our model? We basically rank
+all possible relations based on a similarity score we already introduced in
+\eqref{eq:dot}. Given two entities, we take their embeddings we learned through
+the training phase and then iterate over all embeddings of Freebase ( or
+surface patterns) and calculate a score for triple of these three embeddings.
+Then we can sort all relations based on this score, this will construct our
+prediction. One should notice that the output is not probabilistic. In
+\cite{Bordes2011} a method based on kernel density estimation has been proposed
+to make a probabilistic output but since it is reported ot overfit on the
+training dataset I don't use it here. 
+Having all the relations sorted for a given tuple of entities for our test
+cases, we can find the predicted rank of the true relation and report statistics
+per relation and for whole test set. The statistics I report here are mean and
+median of true rank pre relation and also the number of times that true relation
+appeared on top-$r$ relations, here 100. For aggregating these statistics for
+the whole dataset we can follow to protocols. In one type of aggregation we
+give more weight for more frequent relations (Micro statistics) and in the other
+protocol we compute mean and median of true ranks without considering the
+popularity of a relation, we give equal weight for each relation. 
 
+\begin{table*}[ht]
+\caption{Relation Prediction Evaluation  }
+\label{tbl:rel-pred} % title name of the table
+\centering % 
+\begin{tabular}{l  l c  c c}
+\hline\hline % inserting double-line
+ Dataset &  Feature Type &  & Micro & Macro
+\\ [0.5ex] 
+\hline % inserts single-line
+
+  &   & mean & 1003.59 & 3739.85 \\[-1ex]
+   &  & median & 5.0 & 2213.37 \\[-1ex]
+\raisebox{1.0ex}{Experiment 1} &  \raisebox{1.0ex}{KB}
+ &r@100& 84.23 & 72.49 \\[1ex]
+
+&   & mean & 1003.59 & 3739.85 \\[-1ex]
+   &  & median & 5.0 & 2213.37 \\[-1ex]
+\raisebox{1.0ex}{Experiment 2} &  \raisebox{1.0ex}{KB+Trigger}
+ &r@100& 84.23 & 72.49 \\[1ex]
+ 
+ &   & mean & 1003.59 & 3739.85 \\[-1ex]
+   &  & median & 5.0 & 2213.37 \\[-1ex]
+\raisebox{1.0ex}{Experiment 3} &  \raisebox{1.0ex}{All-Trigger}
+ &r@100& 84.23 & 72.49 \\[1ex]
+ 
+ &   & mean & 1003.59 & 3739.85 \\[-1ex]
+   &  & median & 5.0 & 2213.37 \\[-1ex]
+\raisebox{1.0ex}{Experiment 4} &  \raisebox{1.0ex}{All}
+ &r@100& 84.23 & 72.49 \\[1ex]
+ 
+ 
+ 
+\hline % inserts single-line
+\end{tabular}
+
+\end{table*}
 
