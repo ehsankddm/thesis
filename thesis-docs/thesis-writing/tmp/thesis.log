@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2013.7.17)  28 NOV 2013 13:33
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2013.7.17)  29 NOV 2013 02:13
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -1047,6 +1047,12 @@ Package: vmargin 2004/07/15 V2.5 set document margins (VK)
 Package: setspace 2011/12/19 v6.7a set line spacing
 ) (./thesis.aux
 
+LaTeX Warning: Label `ssec:dirt-model' multiply defined.
+
+
+LaTeX Warning: Label `ssec:textkb-exp-exp' multiply defined.
+
+
 LaTeX Warning: Label `tab:PPer' multiply defined.
 
 )
@@ -1121,17 +1127,17 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 ] [6
 
 ] (./thesis.toc
-LaTeX Font Info:    Try loading font information for U+msa on input line 3.
+LaTeX Font Info:    Try loading font information for U+msa on input line 4.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 3.
+LaTeX Font Info:    Try loading font information for U+msb on input line 4.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
-)
-Overfull \hbox (28.0488pt too wide) in paragraph at lines 3--3
+) [7]
+Overfull \hbox (28.0488pt too wide) in paragraph at lines 34--34
  [][][] [] []  
  []
 
@@ -1139,76 +1145,164 @@ Overfull \hbox (28.0488pt too wide) in paragraph at lines 3--3
 \tf@toc=\write4
 \openout4 = `thesis.toc'.
 
- [7] [8
-
-] (./text-kb.tex
+ [8] (./introduction.tex
 Chapter 1.
-
-LaTeX Warning: Reference `repr-learn' on page 1 undefined on input line 19.
-
-
-LaTeX Warning: Reference `bordes-model' on page 1 undefined on input line 23.
-
-
-LaTeX Warning: Reference `bordes-model' on page 1 undefined on input line 28.
-
 [1
 
+
+]) (./ml.tex [2]
+Chapter 2.
+
+LaTeX Warning: Reference `sec:contr' on page 3 undefined on input line 27.
+
+
+Underfull \vbox (badness 4217) has occurred while \output is active []
+
+ [3
+
+])
+(./repr-learning.tex) (./word-emb.tex [4]
+Chapter 3.
+[5
+
+] [6]
+
+LaTeX Warning: Reference `sec:SGD' on page 7 undefined on input line 86.
+
+) (./rel-dscv.tex [7] [8
+
 ]
+Chapter 4.
 
-LaTeX Warning: Reference `rel-dscv' on page 2 undefined on input line 38.
-
-
-LaTeX Warning: Reference `bordes-model' on page 2 undefined on input line 44.
-
-
-LaTeX Warning: Reference `UnivSchema' on page 2 undefined on input line 58.
+LaTeX Warning: Reference `ch:word-embedding' on page 9 undefined on input line 
+29.
 
 
-Package natbib Warning: Citation `Dirt' on page 2 undefined on input line 74.
+LaTeX Warning: Reference `sec:contr' on page 9 undefined on input line 33.
 
 
-Package natbib Warning: Citation `patty' on page 2 undefined on input line 74.
+Underfull \vbox (badness 1648) has occurred while \output is active []
+
+ [9]
+[10] [11] [12]
+Overfull \hbox (0.32814pt too wide) in paragraph at lines 156--157
+[]\T1/ptm/m/n/12 So far all the sim-i-lar re-la-tions are con-sid-ered to be pa
+ra-phrases and they have bi-directional
+ []
+
+[13]
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 188.
+
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 188.
+
+Underfull \hbox (badness 10000) in paragraph at lines 199--208
+
+ []
+
+[14] [15] [16] [17] [18] [19]
+
+LaTeX Warning: Reference `ch:dirt-model' on page 20 undefined on input line 392
+.
 
 
-LaTeX Warning: Reference `rel-dscv' on page 2 undefined on input line 74.
+Underfull \hbox (badness 10000) in paragraph at lines 400--402
 
-[2]
+ []
+
+File: rel-lda.eps Graphic file (type eps)
+<rel-lda.eps> [20]
+Underfull \hbox (badness 10000) in paragraph at lines 432--437
+
+ []
+
+[21]
+
+LaTeX Warning: Reference `ch:sel-pref' on page 22 undefined on input line 472.
+
+File: type-lda.eps Graphic file (type eps)
+<type-lda.eps> [22] [23] [24]) (./text-kb.tex [25] [26
+
+]
+Chapter 5.
+
+LaTeX Warning: Reference `repr-learn' on page 27 undefined on input line 19.
+
+
+LaTeX Warning: Reference `bordes-model' on page 27 undefined on input line 23.
+
+
+LaTeX Warning: Reference `bordes-model' on page 27 undefined on input line 28.
+
+[27]
+
+LaTeX Warning: Reference `rel-dscv' on page 28 undefined on input line 38.
+
+
+LaTeX Warning: Reference `bordes-model' on page 28 undefined on input line 44.
+
+
+LaTeX Warning: Reference `UnivSchema' on page 28 undefined on input line 58.
+
+
+Package natbib Warning: Citation `Dirt' on page 28 undefined on input line 74.
+
+
+Package natbib Warning: Citation `patty' on page 28 undefined on input line 74.
+
+
+
+LaTeX Warning: Reference `rel-dscv' on page 28 undefined on input line 74.
+
+[28]
 Underfull \hbox (badness 10000) in paragraph at lines 82--83
 
  []
 
 
-LaTeX Warning: Reference `repr-learning' on page 3 undefined on input line 127.
+LaTeX Warning: Reference `repr-learning' on page 29 undefined on input line 127
+.
 
 
+LaTeX Warning: Reference `Bordes' on page 29 undefined on input line 129.
 
-LaTeX Warning: Reference `Bordes' on page 3 undefined on input line 129.
+[29]
 
-[3]
-
-LaTeX Warning: Reference `sec:textkb-eval' on page 4 undefined on input line 13
-5.
+LaTeX Warning: Reference `sec:textkb-eval' on page 30 undefined on input line 1
+35.
 
 
-Package natbib Warning: Citation `UniversalSchema' on page 4 undefined on input
- line 173.
+Package natbib Warning: Citation `UniversalSchema' on page 30 undefined on inpu
+t line 174.
 
-[4] [5]) (./cross-kb.tex [6]
-Chapter 2.
-[7
+[30] [31]
+Overfull \hbox (12.45181pt too wide) in paragraph at lines 254--258
+\T1/ptm/m/it/12 Freebase-Rel:/business/company_shareholder/major_shareholder_of
+    NE:(PERSON,
+ []
+
+
+Overfull \hbox (40.9032pt too wide) in paragraph at lines 258--261
+\T1/ptm/m/it/12 left en-tity: Su-san Arnold    right en-tity: Sweet-hearts    t
+rig-ger: pro-ducer NE:(PERSON,MISC)
+ []
+
+[32]
+
+LaTeX Warning: Reference `??' on page 33 undefined on input line 297.
+
+) (./cross-kb.tex [33] [34
 
 ]
+Chapter 6.
+[35]
 
-LaTeX Warning: Reference `eq:sim' on page 8 undefined on input line 72.
+LaTeX Warning: Reference `ssec:bordes' on page 36 undefined on input line 72.
 
-
-LaTeX Warning: Reference `eq:dot' on page 8 undefined on input line 72.
-
-
-LaTeX Warning: Reference `ssec:bordes' on page 8 undefined on input line 72.
-
-[8]
+[36]
 Overfull \hbox (8.92613pt too wide) in paragraph at lines 86--168
  [][][] 
  []
@@ -1231,20 +1325,31 @@ Overfull \hbox (75.38364pt too wide) in paragraph at lines 275--298
  [][][] 
  []
 
-[9]) [10] (./thesis.bbl [11] [12] [13] [14
+[37]) (./future-work.tex [38] [39] [40] [41] [42
 
-])
+]
+Chapter 7.
+) (./conclusion.tex [43] [44
+
+]
+Chapter 8.
+) [45] (./thesis.bbl [46
+
+]
+LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 33.
+ [47] [48] [49])
 
 Package natbib Warning: There were undefined citations.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 132.
-[15]
+[50]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 132.
  (./thesis.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 132.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 132.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 76CA4E72826AA73A3714F95882C068FA;848.
+(rerunfilecheck)             Checksum: 08C85451D3220EB91E6B440C77193ADD;2285.
 
 
 LaTeX Warning: There were undefined references.
@@ -1255,12 +1360,12 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 132.
  ) 
 Here is how much of TeX's memory you used:
- 9673 strings out of 493494
- 134608 string characters out of 3143820
- 344317 words of memory out of 3000000
- 12791 multiletter control sequences out of 15000+200000
- 29569 words of font info for 51 fonts, out of 3000000 for 9000
+ 9882 strings out of 493494
+ 138107 string characters out of 3143820
+ 345066 words of memory out of 3000000
+ 12973 multiletter control sequences out of 15000+200000
+ 31213 words of font info for 52 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 36i,8n,38p,270b,438s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,8n,38p,270b,597s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on thesis.dvi (23 pages, 58740 bytes).
+Output written on thesis.dvi (58 pages, 187296 bytes).

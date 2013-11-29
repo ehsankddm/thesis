@@ -6,47 +6,57 @@ Database file #1: library.bib
 Warning--I didn't find a database entry for "Dirt"
 Warning--I didn't find a database entry for "patty"
 Warning--I didn't find a database entry for "UniversalSchema"
+Warning--there's a number but no series in Alfonseca2012
+Warning--there's a number but no series in Bhagat2007
+Warning--there's a number but no volume in Bordes2011
+Warning--there's a number but no volume in Bottou2010
 Warning--can't use both volume and number fields in Mintz2009
+Warning--there's a number but no volume in Pantel2007
+Warning--empty institution in Poon2013
+Warning--can't use both volume and number fields in Poon2009
 Warning--there's a number but no volume in Riedel2013
-You've used 4 entries,
+Warning--there's a number but no volume in Teh2007
+Warning--there's a number but no volume in Turian2010b
+Warning--there's a number but no series in Yates2007
+You've used 38 entries,
             2118 wiz_defined-function locations,
-            531 strings with 4916 characters,
-and the built_in function-call counts, 1742 in all, are:
-= -- 172
-> -- 77
-< -- 4
-+ -- 30
-- -- 26
-* -- 123
-:= -- 267
-add.period$ -- 12
-call.type$ -- 4
-change.case$ -- 25
+            737 strings with 9621 characters,
+and the built_in function-call counts, 14268 in all, are:
+= -- 1461
+> -- 582
+< -- 23
++ -- 228
+- -- 190
+* -- 942
+:= -- 2226
+add.period$ -- 116
+call.type$ -- 38
+change.case$ -- 206
 chr.to.int$ -- 0
-cite$ -- 6
-duplicate$ -- 72
-empty$ -- 133
-format.name$ -- 26
-if$ -- 376
+cite$ -- 50
+duplicate$ -- 599
+empty$ -- 1115
+format.name$ -- 190
+if$ -- 3087
 int.to.chr$ -- 0
-int.to.str$ -- 4
-missing$ -- 4
-newline$ -- 23
-num.names$ -- 8
-pop$ -- 28
+int.to.str$ -- 38
+missing$ -- 37
+newline$ -- 193
+num.names$ -- 76
+pop$ -- 219
 preamble$ -- 1
-purify$ -- 21
+purify$ -- 171
 quote$ -- 0
-skip$ -- 60
+skip$ -- 484
 stack$ -- 0
-substring$ -- 119
-swap$ -- 31
-text.length$ -- 4
+substring$ -- 992
+swap$ -- 211
+text.length$ -- 23
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 16
-warning$ -- 2
-while$ -- 16
-width$ -- 5
-write$ -- 47
-(There were 5 warnings)
+type$ -- 148
+warning$ -- 12
+while$ -- 147
+width$ -- 40
+write$ -- 423
+(There were 15 warnings)

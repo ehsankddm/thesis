@@ -145,7 +145,7 @@ the approach I took to share the task of representation learning between text
 and KB.
 
 The main idea is to present important features of text in such a formalization
-that can be mutually learn with set of fact that come from a KB, for instance
+that can be mutually learned with set of facts that come from a KB, for instance
 Freebase. We mentioned that knowledge in Freebase is encoded as triples of a
 predicate and two arguments. We take the same formalism and by introducing
 auxillary predicates, we encode the annotations of a corpus in form of triples.
@@ -153,20 +153,21 @@ auxillary predicates, we encode the annotations of a corpus in form of triples.
 These are list of auxiliary relations which we add to $\mathcal{T}$ with their
 definition:
 \begin {description}
-\item[HAS\_TYPE] this predicate takes a NE as left argument and its type
+\item[HAS\_TYPE] \hfil \\this predicate takes a NE as left argument and its type
 produced by NE-tagger as right argument. For example:
 \begin{center}
  \textsc{HAS\_TYPE(~Mir-Hossein Mousavi,~Per)}
  \end{center}
 
-\item[HAS\_DEP\_ROLE] with this predicate we relate a NE to its dependency role:
+\item[HAS\_DEP\_ROLE]\hfil \\ with this predicate we relate a NE to its
+dependency role:
 
 \begin{center}
  \textsc{ HAS\_DEP\_ROLE(~Mir-Hossein Mousavi,~dobj)}
  \end{center}
  
- \item[Head of Dependency path] for each dependency path, we can consider 
- head of a path as a relation or a predicate which relates two NEs of the path
+ \item[Head of Dependency path]\hfil \\ for each dependency path, we can
+ consider head of a path as a relation or a predicate which relates two NEs of the path
  together. This head word ,which in our case is always verb but in general can
  also be a nominal phrase, will work as a surface pattern and a candidate
  relation. From now on we will call this head words \textit{triggers},
@@ -184,11 +185,11 @@ produced by NE-tagger as right argument. For example:
  
 
 
-\item[HAS\_TRIGGER] we know that we have two types of relations in
+\item[HAS\_TRIGGER]\hfil \\we know that we have two types of relations in
 $\mathcal{T}$, relations that come from corpus $\mathcal{C}$ and those from a KB
 $\mathcal{F}$. If there are two NEs in $\mathcal{C}$ which are related by a
 trigger and there exist a relation between them in $\mathcal{F}$ too then we
-will add a third relation, \textbf{HAS_TRIGGER} between the knowledge base
+will add a third relation, \textit{HAS\_TRIGGER} between the knowledge base
 relation and a trigger relation. For example given these two relations in
 $\mathcal{T}$ :
 \begin{center}
@@ -235,5 +236,72 @@ that we discussed in \autoref{sec:textkb-link} and create our final dataset
 $\mathcal{T}$. 
 
 To make our corpus we follow the protocol described in \cite{Riedel2013} and
-use their dataset since it is fully compatible with our requirements. They used
-New-York Times corpus 
+\cite{Riedel2010} and use their dataset since it is fully compatible with our
+requirements.
+They used NYTimes corpusin their work. After pre-processing and tagging this
+corpus, it is splitted to two parts. Articles after year 2000 as training and
+between 1990 to 2000 for the test dataset. For KB, Freebase has been chosen and
+only those relations have been included to $\mathcal{F}$ that both left hand
+side and right hand side of relation is available in a sentence in the corpus.
+If for both NEs' of a sentence there was no relation in Freebase we have used
+\textit{NA} relation and we call it a negative instance. We used a subset of
+this dataset.
+For training we picked 8409 positive and the same number of negative instances.
+For test set we used 4000 instances, balanced between number of positive and
+negative instances. Based on this dataset we run our experiments. As an example
+you can see one positive and one negative instance below:
+\begin{description}
+\item[POSITIVE]\hfil \\ \textit{left entity:Edward M. Liddy ~~  right
+entity:Allstate ~~ trigger:executive ~~ path:appos|->appos->executive->prep->of->pobj->|pobj
+~~ \\ Freebase-Rel:/business/company\_shareholder/major\_shareholder\_of
+~~ NE:(PERSON, ORGANIZATION) }
+\item[NEGATIVE] \hfil \\ \textit{left entity: Susan Arnold ~~ right entity:
+Sweethearts ~~ trigger: producer        NE:(PERSON,MISC)
+~~ path: appos|->appos->producer->dep->|dep   ~~    Freebase-Rel:NA}
+\end{description}
+
+\subsection{Experiments}
+\label{ssec:textkb-exp-exp}
+
+
+We arrange different settings and experiments to examine the role of our
+features and compare it to the setting previously used in \cite{Bordes2011} and
+\cite{Bordes2012}. We start from features used in the previous work and
+gradually introduce our own features in each experiment.
+
+\begin {description}
+\item[Experiment 1] \hfil \\
+In this experiment we only use Freebase relations for the sake of repeating the
+proposed setting in \cite{Bordes2011}. In this setting, there is no actual link
+from text to KB and therefor by comparing other experiments against experiment 1
+we can see the efftect of linking through our proposed formalism.
+\item[Experiment 2] \hfill \\
+This experiment is designed to see the effect of adding surface pattern features
+to Freebase relations and learn them jointly. In this settings, our train
+dataset consists only of Freebase relations and trigger relations.
+\item[Experiment 3] \hfill \\
+All the features are used in this experiment except
+the surface pattern (trigger) relations. 
+\item[Experiment 4] \hfill \\
+All the features including surface patterns are employed and we have full
+linkage between corpus and KB. 
+\end{description}
+
+All of these experiments are conducted with same parameters of the model. Even
+though the structure of the forth experiment is more complex than for example
+the first experiment but by using same parameters the outcome of the experiments
+can be analyzed based on the effectiveness of the feature set of each
+experiments. For all experiments we used 50-dimensional embeddings and we used
+SME-Bil neural distributed model. Number of iterations were 500 for all
+experiments and with fixed number of batches, namely 100. The details of this
+model has been previously described in \autoref{??}.
+
+In the next section we will see the results and comparison of different
+experiments.
+
+
+\subsection{Evaluation}
+\label{ssec:textkb-exp-exp}
+
+
+
