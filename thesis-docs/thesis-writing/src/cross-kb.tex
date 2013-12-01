@@ -1,19 +1,43 @@
 \chapter{Entity Linking Among Lexical Resources}
 \label{ch:exp-ent-link}
 
-Each KB or lexical resource contains limited amount of information.  
+Each KB or lexical resource contains limited amount of information and
+different structured resources have different perspective and partially encode
+information about an entity and its relations to the other entities of the
+resource. Therefor, if one is interested about learning different features from
+a lexical resource or a KB, a natural next step is to jointly learn features
+from multiple resources. In previous chapter we saw how to learn features from
+a KB and a corpus with application to relation discovery and extraction. In this
+chapter we focus on inducing features for entities of multiple structured KBs.
+For relation extraction, the most relevant available resource is Freebase and
+it suffices together with corpus to learn features of named entities (NE). In
+this chapter we focus on learning features for other type of words e.g. nouns,
+verbs and \ldots~. Learning features for other words in a sentence rather than
+just NEs might help improving the performance of a relation discovery system
+specially for verbs (relations) when some semantic aspects of them like
+selectional preference has been shown to be an important aspect. Another
+application is learning and linking entities of lexical resources in two
+different languages which helps to transfer information from one language domain
+to the another one. For these reasons, first we describe a pipeline to learn
+word features from multiple resources and as proof of concept I implement this
+idea with inducing bi-lingual word features and show its performance
+on semantic similarity task. The actual application of this idea and learned
+word features is postponed to future work which I describe potential usage of
+them in relation discovery.
 
-\section{Experimental Setup}
-\label{sec:xkb-exp}
 
-In this part we describe the methodology we followed to encode available information 
+\section{Task Description}
+\label{sec:xkb-task-desc}
+
+In this part I describe the methodology we followed to encode available information 
 in two different lexical resources, WordNet and GermaNet, that makes it possible to link entities of the two different
 resources and learn bi-lingual 
 embeddings of word senses in German and English.  
 The main idea is to relate two senses from two different resources using cross-lingual sense alignments.
 This is an additional information which can play a role of bridge between two
 different tasks, learning German embeddings and English embeddings, and can help to transfer knowledge from one to the another.
-Using this new feature we make our WordNet-GermaNet dataset which contains three type of relations 
+Using this new feature we make our WordNet-GermaNet dataset which contains three
+types of relations
 (1) WordNet relations 
 (2) GermaNet relations
 (3) Cross-lingual sense alignments between WordNet and GermaNet
@@ -25,11 +49,17 @@ Example of relations:
 \begin{center}
 WN-sense-A \hspace{0.3in}  WN-rel-1    \hspace{0.3in}  WN-sense-B\\
 GN-sense-C \hspace{0.3in}  GN-rel-2    \hspace{0.3in}  GN-sense-D\\
-WN-sense-A \hspace{0.3in}  ILI-rel-1-2 \hspace{0.3in}  WN-sense-B\\
+WN-sense-A \hspace{0.3in}  ILI-rel-1-2 \hspace{0.3in}  GN-sense-D\\
 \end{center}
 
-Left and right entities are WordNet and GermaNet senses and relations are current semantical relations in each of lexicons such as:
+Left and right entities are WordNet and GermaNet senses and relations are current semantical relations
+ in each of lexicons such as:
  meronymy, holonymy and \ldots.
+
+
+\section{Experimental Setup}
+\label{sec:xkb-exp}
+
  
  We have created four different dataset, each divided to train, test and validation separated subsets. Our four datasets are:
  \begin{enumerate}
@@ -77,7 +107,7 @@ Bordes et al. (Bordes2011) proposed a ranking task that for each triple $(e_{i} 
    proposed to schema for calculating the average rank, micro averaging which emphasis on more frequent relations by
     weighted averaging with frequency of relations as weights and macro averaging which consider all the relations equally
     , either frequent or infrequent ones. The third statistic that we report following their work, r@100, is the ratio of number of times that 
-    an entity is correctly among top 100 entities ranked and predicted for a triple to the number of occurances of this entity in the dataset.
+    an entity is correctly among top 100 entities ranked and predicted for a triple to the number of occurrences of this entity in the dataset.
     We applied SE and SME-Bil models on our created datasets and the ranking performance on each of them is presented in Table ~\ref{tbl:rank-tbl}.
 	
 \begin{table}[ht]
@@ -91,220 +121,204 @@ Bordes et al. (Bordes2011) proposed a ranking task that for each triple $(e_{i} 
 \\ [0.5ex] 
 \hline % inserts single-line
 
- & &   & lhs & 84.42 & 72.59 \\[-0.5ex]
-  & &   & rhs & 84.04 & 72.38 \\[-0.5ex]
   & &   & mean & 1003.59 & 3739.85 \\[-0.5ex]
   & &   & median & 5.0 & 2213.37 \\[-0.5ex]
 \raisebox{1.0ex}{GN SE} &  \raisebox{0.5ex}{16}& \raisebox{0.5ex}{64025}
 &global& 84.23 & 72.49 \\[1ex]
 
- & &   & lhs & 79.06 & 58.58 \\[-0.5ex]
-  & &   & rhs & 83.30 & 81.11 \\[-0.5ex]
   & &   & mean & 407.90 & 308.01 \\[-0.5ex]
   & &   & median & 10.0 & 54.18 \\[-0.5ex]
-\raisebox{1.0ex}{GN SME-BIL} &  \raisebox{0.5ex}{16}& \raisebox{0.5ex}{64025}&global
+\raisebox{1.0ex}{GN SME-Bil} &  \raisebox{0.5ex}{16}& \raisebox{0.5ex}{64025}&global
 &  81.18 & 69.85 \\[1ex]
 \hline
 
- & &   & lhs & 91.90 & 89.47 \\[-0.5ex]
-  & &   & rhs & 92.30 & 90.25 \\[-0.5ex]
   & &   & mean & 148.72 & 623.10 \\[-0.5ex]
   & &   & median & 5.0 & 4.69 \\[-0.5ex]
 \raisebox{1.0ex}{WN SE} &  \raisebox{0.5ex}{23}& \raisebox{0.5ex}{148976}& global
 & 92.10 & 89.86 \\[1ex]
 
-& &   & lhs & 83.08 & 72.21 \\[-1ex]
-  & &   & rhs & 85.2 &77.92 \\[-1ex]
   & &   & mean & 128.82 & 511.21 \\[-0.5ex]
   & &   & median & 10.0 & 26.63 \\[-0.5ex]
-\raisebox{1.0ex}{WN SME-BIL} &  \raisebox{0.5ex}{23}& \raisebox{0.5ex}{148976}& global
+\raisebox{1.0ex}{WN SME-Bil} &  \raisebox{0.5ex}{23}& \raisebox{0.5ex}{148976}& global
 & 84.14 & 75.57 \\[1ex]
 \hline
 
- & &   & lhs & 90.82 & 89.14  \\[-0.5ex]
-  & &   & rhs & 91.56 & 88.76 \\[-0.5ex]
   & &   & mean & 293.16 & 1356.30 \\[-0.5ex]
   & &   & median & 5.0 & 5.10 \\[-0.5ex]
 \raisebox{1.0ex}{WN-GN SE (WN held out)} & \raisebox{0.5ex}{32}& \raisebox{0.5ex}{213002}& global
 & 91.19 & 88.95 \\[1ex]
 
- & &   & lhs & 82.42 & 73.65 \\[-0.5ex]
-  & &   & rhs & 83.40 & 73.44 \\[-0.5ex]
   & &   & mean & 124.85 & 331.82 \\[-0.5ex]
   & &   & median & 11.0 & 33.86 \\[-0.5ex]
-\raisebox{1.0ex}{WN-GN SME-BIL(WN held out)} & \raisebox{0.5ex}{32}& \raisebox{0.5ex}{213002}& global
+\raisebox{1.0ex}{WN-GN SME-Bil(WN held out)} & \raisebox{0.5ex}{32}& \raisebox{0.5ex}{213002}& global
 & 82.91 & 73.55 \\[1ex]
 
  \hline
- & &   & lhs & 81.82 & 70.56  \\[-0.5ex]
-  & &   & rhs & 79.92 & 70.06 \\[-0.5ex]
   & &   & mean & 3031.44 & 15470.56 \\[-0.5ex]
   & &   & median & 7.0 & 10080.5 \\[-0.5ex]
 \raisebox{1.0ex}{WN-GN SE (GN held out)} & \raisebox{0.5ex}{32}& \raisebox{0.5ex}{213002}& global
 & 80.87 & 70.313 \\[1ex]
 
- & &   & lhs & 63.54 & 41.64 \\[-0.5ex]
-  & &   & rhs & 64.78 & 70.32 \\[-0.5ex]
   & &   & mean & 984.79 & 1021.37 \\[-0.5ex]
   & &   & median & 40.0 & 428.90 \\[-0.5ex]
-\raisebox{1.0ex}{WN-GN SME-BIL(GN held out)} & \raisebox{0.5ex}{32}& \raisebox{0.5ex}{213002}& global
+\raisebox{1.0ex}{WN-GN SME-Bil(GN held out)} & \raisebox{0.5ex}{32}& \raisebox{0.5ex}{213002}& global
 & 64.16 & 55.98 \\[1ex]
  \hline
-& &   & lhs & 57.72 & 38.063 \\[-0.5ex]
-  &  &  & rhs & 60.72 & 63.617 \\[-0.5ex]
+ 
+  & &   & mean & 166.18 & 466.91 \\[-0.5ex]
+  & &   & median & 18.0 & 55.41 \\[-0.5ex]
+\raisebox{1.0ex}{WordNet-GermaNet-DD SME-Bil (WN held out)} & 
+\raisebox{0.5ex}{32}& \raisebox{0.5ex}{213002}& global & 77.07 & 65.082 \\[1ex]
+ 
   & &   & mean & 932.49 & 719.47 \\[-0.5ex]
   & &   & median & 56.0 & 175.56 \\[-0.5ex]
-\raisebox{1.0ex}{WordNet-GermaNet-DD (GN held out)} &  \raisebox{0.5ex}{32}& \raisebox{0.5ex}{213002}& global
-& 59.22 & 50.84 \\[1ex]
- 
-& &   & lhs & 69.66 & 59.54 \\[-0.5ex]
-  &  &  & rhs & 66.60 & 58.95 \\[-0.5ex]
-  & &   & mean & 166.18 & 18.0 \\[-0.5ex]
-  & &   & median & 466.91 & 55.41 \\[-0.5ex]
-\raisebox{1.0ex}{WordNet-GermaNet-DD (WN held out)} & \raisebox{0.5ex}{32}& \raisebox{0.5ex}{213002}& global
-& 68.13 & 59.25 \\[1ex]
- 
-% [1ex] adds vertical space
+\raisebox{1.0ex}{WordNet-GermaNet-DD SME-Bil (GN held out)} &
+\raisebox{0.5ex}{32}& \raisebox{0.5ex}{213002}& global & 59.22 & 50.84 \\[1ex]
+
 \hline % inserts single-line
 \end{tabular}
-
 \label{tab:PPer}
 \end{table}
    
 
-\begin{table}[ht]
-\caption{Ranking Performance for Mapped Relations } % title name of the table
-\centering % centering table
-\begin{tabular}{l c c c c c c} % creating 10 columns
-\hline\hline % inserting double-line
- Dataset & \#dimension & \#relations & \#entities &  & Micro(\%) & Macro(\%)
-\\ [0.5ex] 
-\hline % inserts single-line
 
- & & &  & lhs & 82.60 & 68.18 \\[-1ex]
-  & & &  & rhs & 81.90 & 68.84 \\[-1ex]
-\raisebox{1.5ex}{GermaNet} & \raisebox{0.5ex}{25}& \raisebox{0.5ex}{10}& \raisebox{0.5ex}{64025}&global
-&  82.25 & 68.51 \\[1ex]
-
- & & &  & lhs & 83.50 & 83.17 \\[-1ex]
-  & & &  & rhs & 84.22 & 83.64 \\[-1ex]
-\raisebox{1.5ex}{WordNet} & \raisebox{0.5ex}{25}& \raisebox{0.5ex}{19}& \raisebox{0.5ex}{148976}& global
-& 83.86 & 83.40 \\[1ex]
-
- & & &  & lhs & 78.70 & 82.60 \\[-1ex]
-  & & &  & rhs & 79.56 & 83.06 \\[-1ex]
-\raisebox{1.5ex}{WordNet-GermaNet (WN)} & \raisebox{0.5ex}{25}& \raisebox{0.5ex}{24}& \raisebox{0.5ex}{213002}& global
-& 79.13 & 82.83 \\[1ex]
-
- & & &  & lhs & 69.66 & 59.54 \\[-1ex]
-  & & &  & rhs & 66.60 & 58.95 \\[-1ex]
-\raisebox{1.5ex}{WordNet-GermaNet (GN)} & \raisebox{0.5ex}{25}& \raisebox{0.5ex}{24}& \raisebox{0.5ex}{213002}& global
-& 68.13 & 59.25 \\[1ex]
-
-
-% [1ex] adds vertical space
-\hline % inserts single-line
-\end{tabular}
-\label{tab:PPer}
-\end{table}
-    
-
-\subsubsection{Evaluation on feature informativity}
+\subsection{Evaluation on Semantic Similarity}
 \label{ssec:ent-link-extrinsic}
  \label{exp:word-similarity}
- We are interested to further analyze the effectiveness of learned embeddings to capture semantic features of words, therefor 
- we compare the embeddings learned a single resource or from multiple resources against human judgments.
- Five datasets of word-pair similarity are used to compare the correlation of predicted similairty of 
- pair of words against human judgments.
- [rubensteinGoodenough], [yangPowers], [millerCharles],[Szumlanski] and [finkelstein] are English datasets that we used 
- to meaure the correlation of similarities
- predicted by our embeddings and  embeddings induced by the other methods to human judgments. 
- For German, we use [this and that].
- The other embeddings which are used in our comparison are (Turian et al., HLBL and Klementiev et al.).
+ We are interested to further analyze the effectiveness of learned embeddings to capture semantic features of words,
+  therefore 
+ we compare the mono-lingual and bi-lingual embeddings against human judgments
+ and also other embeddings learned from corpus. 
+ The other embeddings which we used for our comparison are (Turian et al., HLBL
+ and Klementiev et al.).
  To measure the similarity between any given wordpair $(w_1 , w_2)$ we find all vectors associated to different senses
- of the given words in our embedding dictionary and pick the pair of embeddings that maximize cosine similarity between two words. 
- We can motivate this by saying that for each word pair any of words works as a context for disambiguating the sense of the other word.
+ of the given words in our embedding dictionary and pick the pair of embeddings that maximize cosine
+  similarity between two words. 
+ We can motivate this by saying that for each word pair any of words works as a context for 
+ disambiguating the sense of the other word.
+ 
+ Four datasets of word-pair similarity are used to compare correlation of
+ predicted similairty of pair of words against human judgments.
+ RG-65 [rubensteinGoodenough], Yang and Powers verb similarity
+ dataset[yangPowers], MC-30[millerCharles] and WS-353 [finkelstein] are English
+ datasets that we used for this task. RG-65 and its subset, MC-30 are providing
+ human scored datasets for measuring synonymy among wordpairs (nouns),. WS-353
+ has broader notaion of semantic similarity and include word pairs for measuirng semantic
+ relatedness too. Yang and Powers have provided a dataset for measuring semantic
+ similarity between verbs.
+  
+ 
   
  Both Pearson and Spearman correlation of predicted and gold similarities 
- are calculated and is reported in table \ref{tbl:en-wp-sim} for English and \ref{tbl:de-wp-sim} for German.
+ are calculated and is reported in table \ref{tbl:en-wp-sim} for English. We can
+ see that bi-lingual embeddings learned by SME-Bil model outperformed all other
+ embeddings both in Pearson and Spearman correlation in all four datasets.
+ Another observation is that SME-Bil models performes better than SE
+ models in most cases. Among SME-Bil models, bi-lingual embeddings are always
+ more correlated to human hudgments than mono-lingual embeddings.
+ All models perform poorly on WS-353, bi-lingual SME-Bil model still performs
+ better than the rest. We believe this could due to including notion of
+ relatedness in this dataset. Poor performance of WordNet based models on
+ semantic relatedness task is previously known and discussed in
+ \cite{??}[Szulmanski2013]. Words can be related by different type of relations
+ while in WordNet, a few number of relations are encoded e.g. synonymy which is the
+ subject of our evaluation task.
  
- For English, we can see that \ldots.
- 
- On the other hand in German \ldots. 
+
  
  \begin{table}[ht]
 \caption{Word-pair Similarity Performance for English } % title name of the table
 \label{tbl:en-wp-sim}
 \centering % centering table
 \tabcolsep=0.09cm
-
-\begin{tabular}{cr c c c c c c c c c} 
+{\footnotesize
+\begin{tabular}{c c c c c c c c c c} 
 \hline\hline % inserting double-line
- Dataset & & WN-SE  & WN-GN-SE & WN-SME-BIL &  WN-GN-SME-BIL & WN-GN-SME-BIL-DD &HLBL & Turian* & Klementiev*
+ Dataset & & WN-SE  & WN-GN-SE & WN-SME-Bil &  WN-GN-SME-Bil & WN-GN-SME-Bil-DD
+ &HLBL& Turian et al.& Klementiev et al
 \\ [0.5ex] 
 \hline % inserts single-line
-                                           &P&0.682&0.666&0.540&0.508&0.611&-0.115&0.233&-0.380 \\[-1ex]
-\raisebox{1.5ex}{RubensteinGoodenough65}  &S&0.769&0.741&0.447&0.478&0.552&-.083&0.118&-0.398 \\[1ex]
+                          &P&0.682&0.666&0.703&0.833&0.725&-0.115&0.233&-0.380 \\[-1ex]
+\raisebox{1.5ex}{RG-65}  &S&0.769&0.741&0.741&0.811&0.825&-.083&0.118&-0.398 \\[1ex]
 
-                                     &  P &0.611&0.644&0.592&0.555&0.541&-0.363&0.150&-0.768 \\[-1ex]
-\raisebox{1.5ex}{MillerCharles30}  &  S & 0.720&0.648&0.564&0.561&0.468&-.450&-0.198&-0.522 \\[1ex]
+                          &  P &0.611&0.644&0.601&0.740&0.599&-0.363&0.150&-0.768 \\[-1ex]
+\raisebox{1.5ex}{MC-30}  &  S & 0.720&0.648&0.756&0.846&0.954&-.450&-0.198&-0.522 \\[1ex]
 
-                                   &  P &0.179&0.206&0.272&0.208&0.193&0.236&0.246&0.032 \\[-1ex]
-\raisebox{1.5ex}{Finkelstein353}  &  S &0.087&0.146&0.240&0.196&0.162&0.204&0.223&0.044 \\[1ex]
+                           &  P &0.181&0.206&0.239&0.246&0.238&0.233&0.236&0.029 \\[-1ex]
+\raisebox{1.5ex}{WS-353}  &  S &0.093&0.146&0.185&0.224&0.201&0.197&0.210&0.040 \\[1ex]
 
-                                  &  P &-0.145&0.032&0.010&0.043&0.048&-0.228&0.014&0.0001 \\[-1ex]
-\raisebox{1.5ex}{Szumlanski122}  &  S & -0.159&0.034&0.035&0.037&0.041&-0.263&0.023&-0.014 \\[1ex]
+ %                           &  P
+                            % &-0.109&0.037&-0.126&-0.326&-0.1128&-0.367&-0.044&-0.005 \\[-1ex]
+%\raisebox{1.5ex}{Rel-122}  &  S &
+% -0.112&0.019&-0.121&0.037&0.041&-0.409&-0.092&-0.0009 \\[1ex]
 
-                                  &  P & 0.729&0.682&0.597&0.767&0.819&0.237&0.199&0.454 \\[-1ex]
-\raisebox{1.5ex}{YangPowers130}  &  S & 0.829&0.853&0.483&0.793&0.836&0.024&0.097& 0.634 \\[1ex]
+                                  &  P & 0.482&0.637&0.584&0.627&0.610&-0.130&-0.076&0.154 \\[-1ex]
+\raisebox{1.5ex}{YangPowers-130}  &  S & 0.401&0.472&0.406&0.553&0.533&-0.186&-0.116& 0.113 \\[1ex]
 
 \hline % inserts single-line
      
           
  \hline % inserts single-line
 \end{tabular}
-
+}
 \label{tab:en-wp-sim}
 \end{table}      
 
 
-\begin{table}[ht]
+For German,
+ we use translated versions of RG-65, MC-30 and WS-353 which were judged by
+ German native speakers \cite{??} [gurevych et al], additionally a dataset from
+ \cite{??} [Gurevych et al.] is used. The structured embeddings are being
+ compared to the only available German word embeddings from
+ \cite{Klementiev}[Klem et al.]. We can observe that bi-lingual embeddings
+ always outperform mono-lingual embeddings except for RG-DE-65 dataset which
+ both mono-lingual and bi-lingual \textbf{SE} models have equal Spearman
+ correlation to the gold data but mono-lingual model performs better in Pearson
+ correlation. The good results of German evaluation is another indicator for
+ proofing the idea of learning word embeddings from multiple resources.
+
+\begin{table*}[ht]
 \caption{Word-pair Similarity Performance for German } % title name of the table
 \label{tbl:de-wp-sim}
 \centering  % centering table
 \tabcolsep=0.09cm
-
+{\footnotesize
 \begin{tabular}{cr c c c c c c c} % creating 10 columns
 \hline\hline % inserting double-line
- Dataset & & GN-SE  & WN-GN-SE & GN-SME-BIL &  WN-GN-SME-BIL & WN-GN-SME-BIL-DD & Klementiev*
+ Dataset & & GN-SE  & WN-GN-SE & GN-SME-Bil &  WN-GN-SME-Bil & WN-GN-SME-Bil-DD
+ & Klementiev et al.
 \\ [0.5ex] 
 \hline % inserts single-line
-                                 &  P & -0.022  & 0.112 & 0.058 & 0.103&0.203 &0.118 \\[-1ex]
-\raisebox{1.5ex}{wortpaare222}  &  S & -0.100 & 0.225 & 0.230 & 0.091 & 0.195 &0.153 \\[1ex]
+                                 
+                                 &  P & -0.010  & 0.156 & 0.073 & 0.130&0.196 &0.107 \\[-1ex]
+\raisebox{1.5ex}{wortpaare222}  &  S & -0.125 & 0.234& 0.152 & 0.175 & 0.111 &0.152 \\[1ex]
 
-                                  &  P & 0.865 & 0.984 & -0.443 & 0.671 & 0.656 & -0.887 \\[-1ex]
-\raisebox{1.5ex}{wortpaare30}    &  S & 1.0 & 1.0 & -0.500 & 0.682 & 0.686 & -1.0 \\[1ex]
+                                  &  P & 0.865 & 0.984 & 0.185 & 0.287 & 0.301 & -0.887 \\[-1ex]
+\raisebox{1.5ex}{MC-DE-30}    &  S & 1.0   & 1.0   & -0.500 & -0.500  & 0.500 &
+-1.0
+\\[1ex]
 
-                                  &  P & -0.089  & 0.045 & 0.163 & 0.300& 0.256 &0.168 \\[-1ex]
-\raisebox{1.5ex}{wortpaare350}  &  S & -0.158 & -0.017  &  0.135 & 0.295 & 0.231 &0.117 \\[1ex]
+                                  &  P & -0.085  & 0.063 & 0.185 & 0.188 & 0.127 &0.187 \\[-1ex]
+\raisebox{1.5ex}{WS-DE-350}  &  S & -0.157 & 0.009  &  0.172 & 0.194 & 0.142
+&0.142
+\\[1ex]
 
-                                &  P & 0.800  & 0.558 & -0.572 & 0.607 & 0.480 & 0.233 \\[-1ex]
-\raisebox{1.5ex}{wortpaare65}  &  S & 0.800 & 0.800 & -0.8 & 0.588 & 0.439 &0.200 \\[1ex]
+                                &  P & 0.800  & 0.558 & -0.572 & 0.485 & -0.166 & 0.233 \\[-1ex]
+\raisebox{1.5ex}{RG-DE-65}  &  S & 0.800 & 0.800 & -0.8 & 0.399 & 0.200 & 0.200
+\\[1ex]
+                                 
 
 
 \hline % inserts single-line
      
           
-\hline % inserts single-line
+ \hline % inserts single-line
 \end{tabular}
+}
 
+\end{table*}      
 
-\end{table}      
+\section{Conclusion}
+\label{sec:ent-link-conc}
+
           
-            
-As we see in the table \ref{tab:en-wp-sim} in two datasets the performance of learned embeddings from bi-lingual resources
-are slightly worse but comparable to the mono-lingual embeddings and in the other two datasets one can observe a significant 
-increase of performance of bi-lingual resources over monolingual resources.      
-
-
-More analysis on why some dataset is good and some is not good. 

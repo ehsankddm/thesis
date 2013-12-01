@@ -3,51 +3,46 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: thesis.aux
 The style file: plain.bst
 Database file #1: library.bib
-Warning--I didn't find a database entry for "Dirt"
-Warning--I didn't find a database entry for "patty"
-Warning--I didn't find a database entry for "UniversalSchema"
-Warning--there's a number but no volume in Bordes2011
-Warning--can't use both volume and number fields in Mintz2009
-Warning--there's a number but no volume in Riedel2013
-You've used 6 entries,
+Warning--I didn't find a database entry for "??"
+You've used 1 entry,
             2118 wiz_defined-function locations,
-            542 strings with 5146 characters,
-and the built_in function-call counts, 2594 in all, are:
-= -- 260
-> -- 118
-< -- 5
-+ -- 46
-- -- 40
-* -- 187
-:= -- 401
-add.period$ -- 18
-call.type$ -- 6
-change.case$ -- 38
+            502 strings with 4101 characters,
+and the built_in function-call counts, 213 in all, are:
+= -- 16
+> -- 7
+< -- 0
++ -- 3
+- -- 2
+* -- 7
+:= -- 40
+add.period$ -- 2
+call.type$ -- 1
+change.case$ -- 4
 chr.to.int$ -- 0
-cite$ -- 9
-duplicate$ -- 103
-empty$ -- 192
-format.name$ -- 40
-if$ -- 556
+cite$ -- 1
+duplicate$ -- 7
+empty$ -- 23
+format.name$ -- 2
+if$ -- 43
 int.to.chr$ -- 0
-int.to.str$ -- 6
-missing$ -- 6
-newline$ -- 33
-num.names$ -- 12
-pop$ -- 40
+int.to.str$ -- 1
+missing$ -- 0
+newline$ -- 7
+num.names$ -- 2
+pop$ -- 8
 preamble$ -- 1
-purify$ -- 32
+purify$ -- 3
 quote$ -- 0
-skip$ -- 84
+skip$ -- 10
 stack$ -- 0
-substring$ -- 186
-swap$ -- 42
-text.length$ -- 5
+substring$ -- 5
+swap$ -- 1
+text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 24
-warning$ -- 3
-while$ -- 25
-width$ -- 7
-write$ -- 69
-(There were 6 warnings)
+type$ -- 4
+warning$ -- 0
+while$ -- 2
+width$ -- 2
+write$ -- 9
+(There was 1 warning)

@@ -1,38 +1,7 @@
 \begin{thebibliography}{1}
 
-\bibitem{Bordes2012}
-Antoine Bordes, Xavier Glorot, Jason Weston, and Yoshua Bengio.
-\newblock {Joint learning of words and meaning representations for open-text
-  semantic parsing}.
-\newblock In {\em Artificial Intelligence and Statistics (AISTATS)}, volume~22,
-  2012.
-
-\bibitem{Bordes2011}
-Antoine Bordes, Jason Weston, R~Collobert, and Y~Bengio.
-\newblock {Learning structured embeddings of knowledge bases}.
-\newblock {\em AAAI}, (Bengio):301--306, 2011.
-
-\bibitem{Mintz2009}
-Mike Mintz, Steven Bills, Rion Snow, and Dan Jurafsky.
-\newblock {Distant supervision for relation extraction without labeled data}.
-\newblock In {\em of the Joint Conference of the 47th Annual Meeting of the ACL
-  and the 4th International Joint Conference on Natural Language Processing of
-  the AFNLP}, volume~2, pages 1003 -- 1011, 2009.
-
-\bibitem{Riedel2013}
-Sebastian Riedel and Limin Yao.
-\newblock {Relation Extraction with Matrix Factorization and Universal
-  Schemas}.
-\newblock {\em Proceedings of NAACL- \ldots}, (June):74--84, 2013.
-
-\bibitem{Riedel2010a}
-Sebastian Riedel, Limin Yao, and A~McCallum.
-\newblock {Modeling relations and their mentions without labeled text}.
-\newblock {\em Machine Learning and Knowledge \ldots}, pages 148--163, 2010.
-
-\bibitem{Riedel2010}
-Sebastian Riedel, Limin Yao, and Andrew Mccallum.
-\newblock {Modeling relations and their mentions without labeled text}.
-\newblock {\em Machine Learning and Knowledge \ldots}, pages 148--163, 2010.
+\bibitem{Klementiev}
+Ivan {Klementiev, Alexandre; Titov}.
+\newblock {Crosslingual Distributed Representations of Words}.
 
 \end{thebibliography}
