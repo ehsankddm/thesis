@@ -270,19 +270,19 @@ features and compare it to the setting previously used in \cite{Bordes2011} and
 gradually introduce our own features in each experiment.
 
 \begin {description}
-\item[Experiment 1] \hfil \\
+\item[KB~(Experiment 1)] \hfil \\
 In this experiment we only use Freebase relations for the sake of repeating the
 proposed setting in \cite{Bordes2011}. In this setting, there is no actual link
 from text to KB and therefor by comparing other experiments against experiment 1
 we can see the efftect of linking through our proposed formalism.
-\item[Experiment 2] \hfill \\
+\item[KB+Trigger~(Experiment 2)] \hfill \\
 This experiment is designed to see the effect of adding surface pattern features
 to Freebase relations and learn them jointly. In this settings, our train
 dataset consists only of Freebase relations and trigger relations.
-\item[Experiment 3] \hfill \\
+\item[Text+KB\char`\\Trigger ~(Experiment 3)] \hfill \\
 All the features are used in this experiment except
 the surface pattern (trigger) relations. 
-\item[Experiment 4] \hfill \\
+\item[Text+KB~(Experiment 4)] \hfill \\
 All the features including surface patterns are employed and we have full
 linkage between corpus and KB. 
 \end{description}
@@ -303,7 +303,7 @@ experiments.
 \subsection{Evaluation}
 \label{ssec:textkb-exp-exp}
 
-The objective we train our model toward that is to predict a relation between
+The goal our model is to predict a relation between
 two given entities. So how do we do prediction with our model? We basically rank
 all possible relations based on a similarity score we already introduced in
 \eqref{eq:dot}. Given two entities, we take their embeddings we learned through
@@ -322,42 +322,106 @@ appeared on top-$r$ relations, here 100. For aggregating these statistics for
 the whole dataset we can follow to protocols. In one type of aggregation we
 give more weight for more frequent relations (Micro statistics) and in the other
 protocol we compute mean and median of true ranks without considering the
-popularity of a relation, we give equal weight for each relation. 
+popularity of a relation, we give equal weight for each relation (Macro
+statistics).
 
-\begin{table*}[ht]
+\begin{table}[ht]
 \caption{Relation Prediction Evaluation  }
+
 \label{tbl:rel-pred} % title name of the table
 \centering % 
 \begin{tabular}{l  l c  c c}
+
 \hline\hline % inserting double-line
  Dataset &  Feature Type &  & Micro & Macro
 \\ [0.5ex] 
 \hline % inserts single-line
 
-  &   & mean & 1003.59 & 3739.85 \\[-1ex]
-   &  & median & 5.0 & 2213.37 \\[-1ex]
+  &   & mean & 71.11 & 78.39 \\[-1ex]
+   &  & median & 31.0 & 72.73 \\[-1ex]
 \raisebox{1.0ex}{Experiment 1} &  \raisebox{1.0ex}{KB}
- &r@100& 84.23 & 72.49 \\[1ex]
+ &r@100& 67.05 & 62.79 \\[1ex]
 
-&   & mean & 1003.59 & 3739.85 \\[-1ex]
-   &  & median & 5.0 & 2213.37 \\[-1ex]
+&   & mean & 639.67 & 534.72 \\[-1ex]
+   &  & median & 544.0 & 503.20 \\[-1ex]
 \raisebox{1.0ex}{Experiment 2} &  \raisebox{1.0ex}{KB+Trigger}
- &r@100& 84.23 & 72.49 \\[1ex]
+ &r@100& 20.92 & 19.85 \\[1ex]
  
- &   & mean & 1003.59 & 3739.85 \\[-1ex]
-   &  & median & 5.0 & 2213.37 \\[-1ex]
-\raisebox{1.0ex}{Experiment 3} &  \raisebox{1.0ex}{All-Trigger}
- &r@100& 84.23 & 72.49 \\[1ex]
+ &   & mean & 59.63 & 61.59 \\[-1ex]
+   &  & median & 25.50 & 56.49 \\[-1ex]
+\raisebox{1.0ex}{Experiment 3} &  \raisebox{1.0ex}{All \textbackslash{Trigger}}
+ &r@100& 73.85 & 73.88 \\[1ex]
  
- &   & mean & 1003.59 & 3739.85 \\[-1ex]
-   &  & median & 5.0 & 2213.37 \\[-1ex]
+ &   & mean & 6.72 & 57.13 \\[-1ex]
+   &  & median & 2.0 & 55.71 \\[-1ex]
 \raisebox{1.0ex}{Experiment 4} &  \raisebox{1.0ex}{All}
- &r@100& 84.23 & 72.49 \\[1ex]
+ &r@100& 98.85 & 76.88 \\[1ex]
  
  
  
 \hline % inserts single-line
 \end{tabular}
 
-\end{table*}
+\end{table}
 
+the first observation from \autoref{tbl:rel-pred} is the significant role of
+features. We can see that the \textit{Experiment 4}  has the best
+performance in all the statistics and it benefits from full set of features. The
+comparison between results of the first model, Bordes plain \textit{KB} model
+and the \textit{KB+Text} model reveals that introduced features are highly
+effective and the reconstruction (extending) of KBs can be done better. Not that
+with this formalization we can achieve a relation extraction model linked to
+text but also we can use it as a model to extend and populate current KBs. The
+big difference between Micro and Macro statistics for this model suggests that
+its good performance on frequent relations can also be achieved  for less
+frequent relations through learning larger size of Freebase. We believe all the
+models will for sure benefit from this but the forth model has already shown a
+superior performance for relations occurred more than a certain threshold and by
+feeding bigger portions of our KB we can help less frequent relations to pass
+this threshold. To investigate this effect we compare the per relation
+performance for two group of high and low frequent relations. 
+
+
+\begin{table}[ht]
+\caption{Per Relation Evaluation  }
+
+\label{tbl:rel-high-perf} % title name of the table
+\centering % 
+\begin{tabular}{l  c c c c  c c}
+
+\hline\hline % inserting double-line
+ Relation &  Frequency & &KB & KB+Trigger  & Text+KB\char`\\Trigger & Text+KB 
+\\ [0.5ex] 
+\hline % inserts single-line
+
+  &   & mean & 88.65 & 789.27 & 83.27 & 2.55 \\[-1ex]
+   &  & median & 60.0 & 797.0 &64.00 & 1.0\\[-1ex]
+\raisebox{0.0ex}{NA} &  2000
+ &r@100& 61.55 & 14.10 & 62.79 & 99.95 \\[1ex]
+ 
+   &   & mean & 49.37 & 577.79 & 28.85 & 3.60 \\[-1ex]
+   &  & median & 9.0 & 468.00 &5.00 & 2.00\\[-1ex]
+\raisebox{0.0ex}{/location/containedby} &  688
+ &r@100& 78.34 & 20.34 & 89.39 & 99.85 \\[1ex]
+ 
+  &   & mean & 39.03 & 531.25 & 25.09 & 6.68 \\[-1ex]
+   &  & median & 12.50 & 410.5 &8.0 & 4.0\\[-1ex]
+\raisebox{0.0ex}{/people/person/place\_lived} &  132
+ &r@100& 84.84 & 25.75 & 93.18 & 100.0 \\[1ex]
+
+  &   & mean & 47.00 & 359.48  & 16.43 & 2.83 \\[-1ex]
+   &  & median & 7.5 & 105.5 &3.0 & 2.0\\[-1ex]
+\raisebox{0.0ex}{/person/company} &  124
+ &r@100& 79.83 & 50 & 95.16 & 100.0 \\[1ex]
+
+
+ 
+   &   & mean & 47.95 & 433.36 & 15.60 & 3.92 \\[-1ex]
+   &  & median & 15.0 & 315.50 & 4.0 & 2.0\\[-1ex]
+\raisebox{0.0ex}{/deceased\_person/place\_of\_death} &  80
+ &r@100& 78.75 & 36.25 & 95.00 & 100.0 \\[1ex]
+ 
+\hline % inserts single-line
+\end{tabular}
+
+\end{table}

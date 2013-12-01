@@ -1,29 +1,13 @@
-\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
-\BOOKMARK [0][-]{chapter.2}{Machine Learning}{}% 2
-\BOOKMARK [1][-]{section.2.1}{Representation Learning}{chapter.2}% 3
-\BOOKMARK [2][-]{subsection.2.1.1}{Distributional Representation}{section.2.1}% 4
-\BOOKMARK [2][-]{subsection.2.1.2}{Distributed Representation}{section.2.1}% 5
-\BOOKMARK [2][-]{subsection.2.1.3}{Representation Learning of Knowledge Bases}{section.2.1}% 6
-\BOOKMARK [0][-]{chapter.3}{Relation Discovery}{}% 7
-\BOOKMARK [1][-]{section.3.1}{Distant Supervision}{chapter.3}% 8
-\BOOKMARK [1][-]{section.3.2}{Unsupervised Relation Extraction}{chapter.3}% 9
-\BOOKMARK [2][-]{subsection.3.2.1}{DIRT}{section.3.2}% 10
-\BOOKMARK [2][-]{subsection.3.2.2}{TextRunner}{section.3.2}% 11
-\BOOKMARK [2][-]{subsection.3.2.3}{USP}{section.3.2}% 12
-\BOOKMARK [2][-]{subsection.3.2.4}{Rel-LDA \046 Type-LDA}{section.3.2}% 13
-\BOOKMARK [1][-]{section.3.3}{Problem Identification}{chapter.3}% 14
-\BOOKMARK [0][-]{chapter.4}{Linking Text to a Knowledge Base for Relation Discovery}{}% 15
-\BOOKMARK [1][-]{section.4.1}{Learning Representaion of Entities and Relations from Text and Knowledge Base}{chapter.4}% 16
-\BOOKMARK [2][-]{subsection.4.1.1}{Informative Features for Relation Extraction}{section.4.1}% 17
-\BOOKMARK [1][-]{section.4.2}{Task Description}{chapter.4}% 18
-\BOOKMARK [1][-]{section.4.3}{Linking Text to KB}{chapter.4}% 19
-\BOOKMARK [1][-]{section.4.4}{Experimental Setup}{chapter.4}% 20
-\BOOKMARK [2][-]{subsection.4.4.1}{Creating Dataset}{section.4.4}% 21
-\BOOKMARK [2][-]{subsection.4.4.2}{Experiments}{section.4.4}% 22
-\BOOKMARK [2][-]{subsection.4.4.3}{Evaluation}{section.4.4}% 23
-\BOOKMARK [0][-]{chapter.5}{Entity Linking Among Lexical Resources}{}% 24
-\BOOKMARK [1][-]{section.5.1}{Experimental Setup}{chapter.5}% 25
-\BOOKMARK [1][-]{section.5.2}{Evaluation}{chapter.5}% 26
-\BOOKMARK [2][-]{subsection.5.2.1}{Evaluation Using Reconstruction}{section.5.2}% 27
-\BOOKMARK [0][-]{chapter.6}{Future Work}{}% 28
-\BOOKMARK [0][-]{chapter.7}{Conclusion}{}% 29
+\BOOKMARK [0][-]{chapter.1}{Linking Text to a Knowledge Base for Relation Discovery}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Learning Representaion of Entities and Relations from Text and Knowledge Base}{chapter.1}% 2
+\BOOKMARK [2][-]{subsection.1.1.1}{Informative Features for Relation Extraction}{section.1.1}% 3
+\BOOKMARK [1][-]{section.1.2}{Task Description}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.3}{Linking Text to KB}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.4}{Experimental Setup}{chapter.1}% 6
+\BOOKMARK [2][-]{subsection.1.4.1}{Creating Dataset}{section.1.4}% 7
+\BOOKMARK [2][-]{subsection.1.4.2}{Experiments}{section.1.4}% 8
+\BOOKMARK [2][-]{subsection.1.4.3}{Evaluation}{section.1.4}% 9
+\BOOKMARK [0][-]{chapter.2}{Entity Linking Among Lexical Resources}{}% 10
+\BOOKMARK [1][-]{section.2.1}{Experimental Setup}{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.2}{Evaluation}{chapter.2}% 12
+\BOOKMARK [2][-]{subsection.2.2.1}{Evaluation Using Reconstruction}{section.2.2}% 13
