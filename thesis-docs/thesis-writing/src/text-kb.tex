@@ -1,4 +1,4 @@
-\chapter{Linking Text to a Knowledge Base for Relation Discovery}
+\chapter{Linking Text to Knowledge Base for Relation Discovery}
 \label{ch:text-kb}
 
 In this chapter I introduce an idea which relates previous work on
@@ -300,8 +300,8 @@ In the next section we will see the results and comparison of different
 experiments.
 
 
-\subsection{Evaluation}
-\label{ssec:textkb-exp-exp}
+\section{Evaluation and Analysis}
+\label{sec:textkb-exp-exp}
 
 The goal our model is to predict a relation between
 two given entities. So how do we do prediction with our model? We basically rank
@@ -317,7 +317,7 @@ training dataset I don't use it here.
 Having all the relations sorted for a given tuple of entities for our test
 cases, we can find the predicted rank of the true relation and report statistics
 per relation and for whole test set. The statistics I report here are mean and
-median of true rank pre relation and also the number of times that true relation
+median of true rank per relation and also the number of times that true relation
 appeared on top-$r$ relations, here 100. For aggregating these statistics for
 the whole dataset we can follow to protocols. In one type of aggregation we
 give more weight for more frequent relations (Micro statistics) and in the other
@@ -417,11 +417,56 @@ performance for two group of high and low frequent relations.
 
  
    &   & mean & 47.95 & 433.36 & 15.60 & 3.92 \\[-1ex]
-   &  & median & 15.0 & 315.50 & 4.0 & 2.0\\[-1ex]
+   &  & median & 15.0 & 315.5 & 4.0 & 2.0\\[-1ex]
 \raisebox{0.0ex}{/deceased\_person/place\_of\_death} &  80
  &r@100& 78.75 & 36.25 & 95.00 & 100.0 \\[1ex]
  
+ 
+   &   & mean & 77.71 & 444.57 & 34.00 & 33.14 \\[-1ex]
+   &  & median & 31.00 & 413.0 & 37.0 & 20.0\\[-1ex]
+\raisebox{0.0ex}{ /people/person/ethnicity} &  7
+ &r@100& 57.14 & 28.57 & 100.0 & 85.71  \\[1ex]
+ 
+    &   & mean & 89.25 & 331.25  & 51.75 & 52.50  \\[-1ex]
+   &  & median & 77.0 & 295.5 & 24.5 & 22.5 \\[-1ex]
+\raisebox{0.0ex}{ /music/composer/compositions} &  5
+ &r@100& 50.00 & 0.0 & 75.00 & 75.00 \\[1ex]
+ 
+    &   & mean & 46.33 & 354.00 & 135.66 &71.0  \\[-1ex]
+   &  & median & 43.00 &  157.0 & 142.0 & 90.0 \\[-1ex]
+\raisebox{0.0ex}{  /book/book\_edition/publisher} &  3
+ &r@100& 100.0 & 33.33  & 33.33 & 100.0 \\[1ex]
+ 
+      &   & mean & 20.33 & 220.00 & 4.33 & 51.33 \\[-1ex]
+   &  & median & 8.0 & 179.0 & 2.0 & 18.0 \\[-1ex]
+\raisebox{0.0ex}{ /people/person/religion} &  3
+ &r@100& 100.0 &33.33  & 100.0 & 66.66 \\[1ex]
+ 
+
 \hline % inserts single-line
 \end{tabular}
 
 \end{table}
+
+By comparing performance of \textit{KB} and \textit{Text+KB} in
+\autoref{tbl:rel-high-perf} we can observe that while \textit{Text+KB}
+outperforms other models overall and for high frequent relations but for very
+low frequent relations, \textbf{/people/person/religion} and
+\textbf{/book/book\_edition/publisher}, it doesn't perform as good
+as \textit{KB}.
+This suggests that since in \textit{Text+KB} we are learning a much more complex
+structure,we need more iterations to learn better features. For comparison we
+used same number of iterations for all models to emphasis on the formalization
+rather than parameter tuning but we can observe that \textit{Text+KB} is being
+penalized by this and by more iterations of SGD we can achieve even better
+results.
+
+\section{Conclusion}
+\label{sec:textkb-conc}
+
+In this chapter I introduced a new formalization and a process which
+enables us to link a corpus to a KB and then improve the learning of features
+from KB. With this formalization we can grounding KB relations to
+ text and also populate a KB with facts coming from a corpus. We showed that the features come
+from both text and KB are more informative for relation extraction task than
+features that comes only from a KB.

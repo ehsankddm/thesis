@@ -1,4 +1,4 @@
-\BOOKMARK [0][-]{chapter.1}{Linking Text to a Knowledge Base for Relation Discovery}{}% 1
+\BOOKMARK [0][-]{chapter.1}{Linking Text to Knowledge Base for Relation Discovery}{}% 1
 \BOOKMARK [1][-]{section.1.1}{Learning Representaion of Entities and Relations from Text and Knowledge Base}{chapter.1}% 2
 \BOOKMARK [2][-]{subsection.1.1.1}{Informative Features for Relation Extraction}{section.1.1}% 3
 \BOOKMARK [1][-]{section.1.2}{Task Description}{chapter.1}% 4
@@ -6,8 +6,9 @@
 \BOOKMARK [1][-]{section.1.4}{Experimental Setup}{chapter.1}% 6
 \BOOKMARK [2][-]{subsection.1.4.1}{Creating Dataset}{section.1.4}% 7
 \BOOKMARK [2][-]{subsection.1.4.2}{Experiments}{section.1.4}% 8
-\BOOKMARK [2][-]{subsection.1.4.3}{Evaluation}{section.1.4}% 9
-\BOOKMARK [0][-]{chapter.2}{Entity Linking Among Lexical Resources}{}% 10
-\BOOKMARK [1][-]{section.2.1}{Experimental Setup}{chapter.2}% 11
-\BOOKMARK [1][-]{section.2.2}{Evaluation}{chapter.2}% 12
-\BOOKMARK [2][-]{subsection.2.2.1}{Evaluation Using Reconstruction}{section.2.2}% 13
+\BOOKMARK [1][-]{section.1.5}{Evaluation and Analysis}{chapter.1}% 9
+\BOOKMARK [1][-]{section.1.6}{Conclusion}{chapter.1}% 10
+\BOOKMARK [0][-]{chapter.2}{Entity Linking Among Lexical Resources}{}% 11
+\BOOKMARK [1][-]{section.2.1}{Experimental Setup}{chapter.2}% 12
+\BOOKMARK [1][-]{section.2.2}{Evaluation}{chapter.2}% 13
+\BOOKMARK [2][-]{subsection.2.2.1}{Evaluation Using Reconstruction}{section.2.2}% 14
