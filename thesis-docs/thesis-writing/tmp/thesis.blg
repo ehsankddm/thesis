@@ -3,46 +3,61 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: thesis.aux
 The style file: plain.bst
 Database file #1: library.bib
+Warning--I didn't find a database entry for "Dirt"
+Warning--I didn't find a database entry for "patty"
+Warning--I didn't find a database entry for "UniversalSchema"
 Warning--I didn't find a database entry for "??"
-You've used 1 entry,
+Warning--there's a number but no series in Alfonseca2012
+Warning--there's a number but no series in Bhagat2007
+Warning--there's a number but no volume in Bordes2011
+Warning--there's a number but no volume in Bottou2010
+Warning--can't use both volume and number fields in Mintz2009
+Warning--there's a number but no volume in Pantel2007
+Warning--empty institution in Poon2013
+Warning--can't use both volume and number fields in Poon2009
+Warning--there's a number but no volume in Riedel2013
+Warning--there's a number but no volume in Teh2007
+Warning--there's a number but no volume in Turian2010b
+Warning--there's a number but no series in Yates2007
+You've used 39 entries,
             2118 wiz_defined-function locations,
-            502 strings with 4101 characters,
-and the built_in function-call counts, 213 in all, are:
-= -- 16
-> -- 7
-< -- 0
-+ -- 3
-- -- 2
-* -- 7
-:= -- 40
-add.period$ -- 2
-call.type$ -- 1
-change.case$ -- 4
+            742 strings with 9730 characters,
+and the built_in function-call counts, 14461 in all, are:
+= -- 1477
+> -- 589
+< -- 23
++ -- 231
+- -- 192
+* -- 947
+:= -- 2257
+add.period$ -- 118
+call.type$ -- 39
+change.case$ -- 210
 chr.to.int$ -- 0
-cite$ -- 1
-duplicate$ -- 7
-empty$ -- 23
-format.name$ -- 2
-if$ -- 43
+cite$ -- 51
+duplicate$ -- 606
+empty$ -- 1137
+format.name$ -- 192
+if$ -- 3129
 int.to.chr$ -- 0
-int.to.str$ -- 1
-missing$ -- 0
-newline$ -- 7
-num.names$ -- 2
-pop$ -- 8
+int.to.str$ -- 39
+missing$ -- 37
+newline$ -- 197
+num.names$ -- 78
+pop$ -- 227
 preamble$ -- 1
-purify$ -- 3
+purify$ -- 174
 quote$ -- 0
-skip$ -- 10
+skip$ -- 494
 stack$ -- 0
-substring$ -- 5
-swap$ -- 1
-text.length$ -- 0
+substring$ -- 997
+swap$ -- 212
+text.length$ -- 23
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 4
-warning$ -- 0
-while$ -- 2
-width$ -- 2
-write$ -- 9
-(There was 1 warning)
+type$ -- 152
+warning$ -- 12
+while$ -- 149
+width$ -- 41
+write$ -- 430
+(There were 16 warnings)

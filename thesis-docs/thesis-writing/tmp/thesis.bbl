@@ -1,7 +1,212 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{Alfonseca2012}
+Enrique Alfonseca and K~Filippova.
+\newblock {Pattern learning for relation extraction with a hierarchical topic
+  model}.
+\newblock In {\em ACL}, number July, pages 54--59, 2012.
+
+\bibitem{Androutsopoulos2009}
+Ion Androutsopoulos and Prodromos Malakasiotis.
+\newblock {A survey of paraphrasing and textual entailment methods}.
+\newblock {\em arXiv preprint arXiv:0912.3747}, 38:135--187, 2009.
+
+\bibitem{Banko2009}
+Michele Banko.
+\newblock {\em {Open Information Extraction from the Web.}}
+\newblock PhD thesis, University of Washingotn, 2009.
+
+\bibitem{Bankoa}
+Michele Banko, Michael~J Cafarella, Stephen Soderland, Matt Broadhead, and Oren
+  Etzioni.
+\newblock {Open Information Extraction from the Web}.
+\newblock In {\em IJCAI}, pages 2670--2676, 2007.
+
+\bibitem{Bengio2003}
+Y~Bengio and R~Ducharme.
+\newblock {A neural probabilistic language model}.
+\newblock {\em The Journal of Machine \ldots}, 3:1137--1155, 2003.
+
+\bibitem{Bengio2009b}
+Yoshua Bengio.
+\newblock {Learning deep architectures for AI}.
+\newblock {\em Foundations and Trends® in Machine Learning}, 2009.
+
+\bibitem{Bhagat2007}
+Rahul Bhagat, Patrick Pantel, EH~Hovy, and Marina Rey.
+\newblock {LEDIR: An Unsupervised Algorithm for Learning Directionality of
+  Inference Rules.}
+\newblock In {\em EMNLP-CoNLL}, number June, pages 161--170, 2007.
+
+\bibitem{Bordes2012}
+Antoine Bordes, Xavier Glorot, Jason Weston, and Yoshua Bengio.
+\newblock {Joint learning of words and meaning representations for open-text
+  semantic parsing}.
+\newblock In {\em Artificial Intelligence and Statistics (AISTATS)}, volume~22,
+  2012.
+
+\bibitem{Bordes2011}
+Antoine Bordes, Jason Weston, R~Collobert, and Y~Bengio.
+\newblock {Learning structured embeddings of knowledge bases}.
+\newblock {\em AAAI}, (Bengio):301--306, 2011.
+
+\bibitem{Bottou2010}
+L~Bottou.
+\newblock {Large-scale machine learning with stochastic gradient descent}.
+\newblock {\em Proceedings of COMPSTAT'2010}, (x), 2010.
+
+\bibitem{Brown1992}
+PF~Brown, PV~Desouza, and RL~Mercer.
+\newblock {Class-based n-gram models of natural language}.
+\newblock {\em Computational Linguistics}, 4:467--479, 1992.
+
+\bibitem{Collobert2008a}
+R~Collobert and Jason Weston.
+\newblock {A unified architecture for natural language processing: deep neural
+  networks with multitask learning}.
+\newblock {\em \ldots international conference on Machine learning}, 2008.
+
+\bibitem{Collobert2011}
+Ronan Collobert, Jason Weston, Leon Bottou, Michael Karlen, Koray Kavukcuoglu,
+  and Pavel Kuksa.
+\newblock {Natural Language Processing (almost) from Scratch}.
+\newblock {\em Machine Learning Research}, 12(August):2493--2537, March 2011.
+
+\bibitem{Gershman2012}
+Samuel~J. Gershman and David~M. Blei.
+\newblock {A tutorial on Bayesian nonparametric models}.
+\newblock {\em Journal of Mathematical Psychology}, 56(1):1--12, February 2012.
+
+\bibitem{Harris1981}
+ZS~Harris.
+\newblock {\em {Distributional structure}}.
+\newblock Springer Netherlands, 1981.
 
 \bibitem{Klementiev}
 Ivan {Klementiev, Alexandre; Titov}.
 \newblock {Crosslingual Distributed Representations of Words}.
+
+\bibitem{Kotlerman2010}
+Lili Kotlerman, Ido Dagan, Idan Szpektor, and Maayan Zhitomirsky-Geffet.
+\newblock {Directional distributional similarity for lexical inference}.
+\newblock {\em Natural Language Engineering}, 16(04):359--389, October 2010.
+
+\bibitem{Lin2009}
+D~Lin and X~Wu.
+\newblock {Phrase clustering for discriminative learning}.
+\newblock In {\em ACL-AFNLP}, pages 1030--1038, 2009.
+
+\bibitem{Lin2001}
+Dekang Lin and Patrick Pantel.
+\newblock {DIRT - Discovery of Inference Rules from Text}.
+\newblock In {\em \ldots conference on Knowledge discovery and data mining},
+  pages 323--328. Association for Computing Machinery, 2001.
+
+\bibitem{Lin2002}
+Dekang Lin and Patrick Pantel.
+\newblock {Discovery of inference rules for question-answering}.
+\newblock {\em Natural Language Engineering}, 7(04), February 2002.
+
+\bibitem{Mechura2008}
+M~Mechura.
+\newblock {\em {Selectional Preferences, Corpora and Ontologies}}.
+\newblock PhD thesis, Trinity College, University of Dublin, 2008.
+
+\bibitem{Mintz2009}
+Mike Mintz, Steven Bills, Rion Snow, and Dan Jurafsky.
+\newblock {Distant supervision for relation extraction without labeled data}.
+\newblock In {\em of the Joint Conference of the 47th Annual Meeting of the ACL
+  and the 4th International Joint Conference on Natural Language Processing of
+  the AFNLP}, volume~2, pages 1003 -- 1011, 2009.
+
+\bibitem{Mnih2009}
+Andriy Mnih and Geoffrey Hinton.
+\newblock {A scalable hierarchical distributed language model}.
+\newblock {\em Advances in neural information processing systems}, pages 1--8,
+  2009.
+
+\bibitem{Murphy2012}
+Kevin~P. Murphy.
+\newblock {\em {Machine Learning A probabilistic perspective}}.
+\newblock The MIT Press, 2012.
+
+\bibitem{Nakashole2012a}
+Ndapandula Nakashole, Gerhard Weikum, and Fabian Suchanek.
+\newblock {PATTY: a taxonomy of relational patterns with semantic types}.
+\newblock {\em EMNLP}, pages 1135--1145, 2012.
+
+\bibitem{Pantel2002}
+P~Pantel and D~Lin.
+\newblock {Discovering word senses from text}.
+\newblock In {\em Proceedings of the eighth ACM SIGKDD international \ldots},
+  pages 613--619, 2002.
+
+\bibitem{Pantel2007}
+Patrick Pantel and Rahul Bhagat.
+\newblock {ISP: Learning inferential selectional preferences}.
+\newblock {\em ACL}, (April):564--571, 2007.
+
+\bibitem{Pereira1993}
+F~Pereira, N~Tishby, and L~Lee.
+\newblock {Distributional clustering of English words}.
+\newblock In {\em ACL}, pages 183--190, 1993.
+
+\bibitem{Poon2013}
+H~Poon and P~Domingos.
+\newblock {Deep Learning for Semantic Parsing}.
+\newblock Technical report, 2013.
+
+\bibitem{Poon2009}
+Hoifung Poon and Pedro Domingos.
+\newblock {Unsupervised semantic parsing}.
+\newblock In {\em EMNLP}, volume~1, pages 1--10, Morristown, NJ, USA, 2009.
+  Association for Computational Linguistics.
+
+\bibitem{Richardson2006}
+M~Richardson and P~Domingos.
+\newblock {Markov logic networks}.
+\newblock {\em Machine learning}, pages 107--136, 2006.
+
+\bibitem{Riedel2013}
+Sebastian Riedel and Limin Yao.
+\newblock {Relation Extraction with Matrix Factorization and Universal
+  Schemas}.
+\newblock {\em Proceedings of NAACL- \ldots}, (June):74--84, 2013.
+
+\bibitem{Riedel2010a}
+Sebastian Riedel, Limin Yao, and A~McCallum.
+\newblock {Modeling relations and their mentions without labeled text}.
+\newblock {\em Machine Learning and Knowledge \ldots}, pages 148--163, 2010.
+
+\bibitem{Riedel2010}
+Sebastian Riedel, Limin Yao, and Andrew Mccallum.
+\newblock {Modeling relations and their mentions without labeled text}.
+\newblock {\em Machine Learning and Knowledge \ldots}, pages 148--163, 2010.
+
+\bibitem{Teh2007}
+YW~Teh.
+\newblock {Dirichlet Processes: Tutorial and Practical Course}.
+\newblock {\em Machine Learning Summer School}, (August), 2007.
+
+\bibitem{Titov2011}
+Ivan Titov and Alexandre Klementiev.
+\newblock {A Bayesian model for unsupervised semantic parsing}.
+\newblock {\em ACL}, pages 1445--1455, 2011.
+
+\bibitem{Turian2010b}
+Joseph Turian, Lev Ratinov, and Yoshua Bengio.
+\newblock {Word representations: a simple and general method for
+  semi-supervised learning}.
+\newblock {\em ACL}, (July):384--394, July 2010.
+
+\bibitem{Yao2011}
+Limin Yao, A~Haghighi, Sebastian Riedel, and A~McCallum.
+\newblock {Structured relation discovery using generative models}.
+\newblock In {\em EMNLP}, pages 1456--1466, 2011.
+
+\bibitem{Yates2007}
+Alexander Yates, M~Cafarella, and M~Banko.
+\newblock {TextRunner: open information extraction on the web}.
+\newblock In {\em ACL}, number April, pages 25--26, 2007.
 
 \end{thebibliography}

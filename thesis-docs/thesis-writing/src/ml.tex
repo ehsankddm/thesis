@@ -14,14 +14,14 @@ applications share common learning models and classifiers, the difference in
 performance of competing methods mostly goes to the data representation and
 hand-crafted features that they use. This observation reveals an important
 weakness in current models, namely their inability to extract and organize
-discriminative features from data. Representation learning is an umberella term
+discriminative features from data. Representation learning is an umbrella term
 for a family of unsupervised methods to learn features from data. Most of recent
 works on the application of this idea in NLP focus on inducing word
 representations. \emph{Word representation} is a mathematical object, usually a
 vector, which each dimension in this vector represents a grammatical or
 semantical feature to identify this word and is induced automatically from data
 \cite{Turian2010b}. Recently, it has been shown in \cite{Turian2010b} and \cite{Collobert2011} that using
- induced feautres can be helpful to improve state-of-the-art methods in 
+ induced features can be helpful to improve state-of-the-art methods in 
 different NLP tasks. It seems that relation extraction can also benefit from such features since similar tasks like 
 semantic role labeling has been shown to benefit from
 induced word representations. In section ~\ref{sec:contr} we will describe one
@@ -37,7 +37,7 @@ meaning of a word are other words in its neighborhood as it is so called the
 context. In some approaches like LDA and latent semantic analysis (LSA), 
 the context is defined in the scope of a document rather than a window around a
 word. To represent word meanings in via distributional approach, one should
-start from count matrix (or zero-one co-occurence matrix) which each row
+start from count matrix (or zero-one co-occurrence matrix) which each row
 represents a word and each column is a context. The representation can be
 limited to raw usage of the very same matrix or some transforms like
 \emph{tf-idf} will be applied first. A further analysis over this matrix to
@@ -54,7 +54,7 @@ Distributed representation has been introduced in the literature for the first
 time in \cite{Bengio2003} where Bengio et al. introduced a first language
 model based on deep learning methods\cite{Bengio2009b}. Deep learning is
 learning through several layers of neural networks which each layer is
-responsible to learn a different concept and each concecpt is built over other
+responsible to learn a different concept and each concept is built over other
 more abstract concepts. In the deep learning society, any word representation
 that is induced with a neural network is called \emph{Word Embedding}. 
 In contrast to raw count matrix in distributional representations, word embeddings are low-dimensional, dense and real-valued vectors.
@@ -68,11 +68,11 @@ discriminative model to jointly learn word embeddings and a language model that
 can separate plausible n-grams from noisy ones. For each word in a n-gram, they
 combine the word embeddings and use it as positive example. They put noise in
 the n-gram to make negative examples and then train a neural network to learn to
-classify postive labels from negative ones. The parameters of neural network
+classify positive labels from negative ones. The parameters of neural network
 (neural language model) and word embedding values will be learned jointly by an
 optimization method called \emph{Stochastic Gradient Descent} \cite{Bottou2010}.
 
-A hierarchical dsitributed language model (HLBL) proposed by Mnih and
+A hierarchical distributed language model (HLBL) proposed by Mnih and
 Hinton in \cite{Mnih2009} is another influential work on word embeddings. In
 this model a probabilistic linear neural network(LBL) will be trained to 
 combine word embeddings in first $n-1$ words of a n-gram to predict the $n_th$ word.
@@ -97,9 +97,9 @@ the missing entity. The high accuracy (99.2\%) of the model on prediciton
 of training data shows that learned representation highly captures attributes of
 the entities and relations in Freebase.
 
-Two major models are proposed in [Bordes2011] and [Bordes2012] to learn features in continues vector space
- from a Knowledge Bases(KB) which information is usually representated in form of triples of $(e_{i},r_{k} , e_{j} )$ 
- where $e_{i}$ and $e_{j}$ are $i_{th}$ and $j_{th}$ entities related
+Two major models are proposed in [Bordes2011] and [Bordes2012] to learn features
+in continuous  vector space from a Knowledge Bases(KB) which information is
+usually represented in form of triples of $(e_{i},r_{k} , e_{j} )$ where $e_{i}$ and $e_{j}$ are $i_{th}$ and $j_{th}$ entities related
  by a binary relation of type $r_{k}$. The purpose of the models is to induce a vector space and associate
   each entity or relation to an embedding vector or a matrix.
   The dimensions of such an embedding vector are supposed to reflect a set of informative features of entities and relations.
@@ -124,8 +124,8 @@ Two major models are proposed in [Bordes2011] and [Bordes2012] to learn features
     negative triples to have lower associated similarity value  than correspondent positive triples by a large margin.
     
     The second model, \textbf{Semantic Matching Energy using Bilinear layers(SME-Bil)}, 
-    is using a different represention for relations,weighted bilinear transformation of embeddings 
-    and  dot product similarity function instead of L1 norm. 
+    is using a different representation for relations,weighted bilinear
+    transformation of embeddings and  dot product similarity function instead of L1 norm. 
     In this model, each relation is represented by a \textit{d}-dimensional vector $R_{k}$ same as entities. 
     For triple $(e_{i},r_{k} , e_{j} )$ , the model combines the weighted transformation of each entity embedding with 
     the weighted embedding of relation using element-wise vector product. as it is shown in Equation ~\eqref{eq:bil}.
@@ -134,14 +134,107 @@ Two major models are proposed in [Bordes2011] and [Bordes2012] to learn features
     \end{equation}
     $W_{i}$ and $W_{k}$ are $d \times d$ weight matrices and $b_{left}$ is a $d$-dimensional bias vector. 
     The same equation holds for transforming the right entity embeddings to $E'_{right}$. Finally, the associated score for the triple
-     can be calucated by dot product of $E'_{left}$ and $E'_{right}$ which is shown in Equation ~\ref{eq:dot}.
+     can be calculated by dot product of $E'_{left}$ and $E'_{right}$ which is
+     shown in Equation ~\ref{eq:dot}.
     
    \begin{equation}
     \label{eq:dot} Sim(E_{i}, E_{j}, R_{k}) = -E'_{left}E'_{right}
    \end{equation}
     Similar constraints to the first model are also applied to this model and 
-     both models can be trained by stochahstic gradient descent (SGD) which we
+     both models can be trained by stochastic gradient descent (SGD) which we
      introduced in \autoref{sec:SGD}.
+
+\section{Bayesian Non-Parametric Models}
+\label {sec:bnp}
+
+\subsection{Introduction}
+\label{ssec:intro}
+One of the most important contributions of Machine Learning to Natural Language
+Processing and Computational Linguistics is to provide variety of statistical frameworks for modeling
+ different aspects of language. Modeling makes the data more interpretable and is trying to represent 
+ it in a compact way. From language modeling to syntax and semantics, 
+ computational models are needed to first describe and then predict the certain phenomena in language. 
+ Here we address a family of models which are trying to be less dependent on human choice or 
+ trial and error schema for choosing best parameters and are called Bayesian nonparametric models (BNP).
+ 
+\subsection{Model Selection with BNP Models}
+\label{ssec:model-sel}
+A traditional approach for model selection is to have a set of models and then try to fit 
+these models on the linguistic data by tuning and inferring the parameters of them [2]. 
+It is more like a search in possible space of models and their parameters to find the best setting. 
+Therefore, it is necessary to have a criterion to select the models to see which one is better 
+explaining the data and have the prediction power. There are two main features that any criterion 
+should consider necessarily. First is the accuracy of prediction (model fitness) and it ensures that 
+the model is well-defined and second is the complexity of model [1,2]. 
+Let us define these terms in a mathematical language so we can introduce a Bayesian framework for modeling. 
+The data is often a set of data points which could be represented as vectors or is in more 
+complex structure like a graph or an ordered sequence. For simplicity we first start with 
+data point or vector representation of data. Let us define the data as:
+\begin{equation}
+\label{eq:data}
+D = y_1,y_2,\ldots,y_n
+\end{equation}
+
+
+The model could express predictions by the likelihood which is in this form:
+\begin{equation}
+P(D|\theta,m)
+\end{equation}
+
+You see that the predictions are conditioned on the model and a specific parameter in this way. 
+In a fully Bayesian model, one should specify the range of parameters or more precisely 
+a distribution over possible parameters should be determined beforehand [2]. 
+This could be done by adjusting the prior and then we can incorporate the role of all possible parameters 
+to predictions weighted by their importance. Here one can notice that the set of parameters are fixed.
+\begin{equation}
+P(D|m) = \int \! P(D,\theta|m) \, \mathrm{d}\theta = \int \!
+P(D|\theta,m)P(\theta|m) \, \mathrm{d}\theta.
+\end{equation} 
+
+One can see in this formula that the prediction is average over all parameters weighted by prior. 
+Each model is a generative process of data which gives us a joint distribution of hidden and observable variables. 
+Each data point is drawn from a distribution of observable variables conditioned on 
+hidden variables (parameters of model) and hidden variables are drawn from a prior distribution [1]. 
+To infer the posterior distribution (distribution of hidden variables conditioned on observable variables) 
+we can reverse the generative process. 
+Instead of generating a data point from the distribution we look for the model that more likely explains 
+the generation of the data. [1,4]
+The second important aspect of model selection is measuring the complexity of the model. 
+If we have two models with about same level of fitting, we favor the one that is simpler since it 
+performs better generalization for unseen data. Knowingly as Occam’s razor rule having 
+less complex model helps avoiding overfitting to the observed data. Bayesian 
+framework naturally favors simpler models by putting prior over parameters 
+and penalizing unnecessary complexity of the model [2]. 
+One can cleverly ask how much complexity is required for a particular data and how can 
+we adapt our modeling to change predictions in the case of having new unseen data? 
+The answer of Bayesian nonparametric modelling (BPN) to this problem differs to all previous models 
+in a way that instead of comparing different models with different complexities it tries to fit 
+a single model on the data which changes its complexity by seeing new data. 
+While previous methods have fixed set of parameters, BNP assumes an infinite number of parameters. 
+It is like that BNP has infinite amount of money (parameters) in the bank and whenever 
+the data is more expensive (more complex) it spends more money to model the data. 
+Actually \textit{nonparametric} could be misleading  since they have infinite number of parameters 
+but only activate a finite subset of them in the learning phase.  
+Another point of view is to see a BNP model as information channel which parameters are bandwidth of this channel. 
+As data grows bigger, more information should be captured by the model so it increase its bandwidth 
+(uses more parameters) [2].
+There are several families of BNP models available due to different tasks and structure of data and 
+hidden variables. In following, we enumerate these families shortly and then we
+go more in depth for one of them.
+
+These groups of models are [1,4,2]:
+\begin{enumerate}
+  \item Classification and Regression task (Gaussian processes)
+\item Clustering (Dirichlet processes and Chinese restaurant processes)
+\item Density estimation (closed link to clustering)
+\item Ordered discrete sequences data (infinite HMM)
+\item Tree structured data or Hierarchical data (Adaptor grammar, infinite PCFG,
+Kingman’s coalescent, HDP)
+\item Overlapping clusters and factor analysis (Indian Buffet processes)
+\end{enumerate}
+
+\subsection{Clustering (Dirichlet processes and Chinese restaurant processes)}
+\label{ssec:bnp-chinese}
 
 
 
