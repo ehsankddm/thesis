@@ -1,6 +1,6 @@
 \chapter[Entity Linking Among Lexical R]{Entity Linking Among Lexical Resources\footnote{This part of the work has been done during an internship in UKP
 Lab, Technical University of Darmstadt. All the codes and results produced during
-this time belongs to Prof. Dr. Iryna Gurevych and can be obtained upon the
+this time belongs to Prof. Dr. Iryna Gurevych and can be obtained per
 request.}}
 
 \label{ch:ent-link}
@@ -199,8 +199,8 @@ Bordes et al. (Bordes2011) proposed a ranking task that for each triple $(e_{i} 
  The other embeddings which we used for our comparison are Turian et al.
  \cite{Turian2010b}, Mnih et al. \cite{Mnih2009} mentioned in ~\autoref{sec:disted-repr} and
  Klementiev et al.
- \cite{Klementiev} embeddings To measure the similarity between any given wordpair $(w_1 , w_2)$ 
- we find all vectors associated to different senses of the given words in our embedding dictionary 
+ \cite{Klementiev} embeddings To measure the similarity between any given word
+ pair $(w_1 , w_2)$ we find all vectors associated to different senses of the given words in our embedding dictionary 
  and pick the pair of embeddings that maximize cosine
   similarity between two words. 
  We can motivate this by saying that for each word pair any of words works as a context for 
@@ -208,12 +208,13 @@ Bordes et al. (Bordes2011) proposed a ranking task that for each triple $(e_{i} 
  
  Four datasets of word-pair similarity are used to compare correlation of
  predicted similairty of pair of words against human judgments.
- RG-65 [rubensteinGoodenough], Yang and Powers verb similarity
- dataset[yangPowers], MC-30[millerCharles] and WS-353 [finkelstein] are English
- datasets that we used for this task. RG-65 and its subset, MC-30 are providing
+ RG-65 ~\cite{Rubenstein1965}, Yang and Powers verb similarity
+ dataset~\cite{Yang2007}, MC-30~\cite{Miller1991} and WS-353
+ ~\cite{Finkelstein2001}
+  are English datasets that we used for this task. RG-65 and its subset, MC-30 are providing
  human scored datasets for measuring synonymy among wordpairs (nouns),. WS-353
- has broader notaion of semantic similarity and include word pairs for measuirng semantic
- relatedness too. Yang and Powers have provided a dataset for measuring semantic
+ has broader notion of semantic similarity and include word pairs for measuring
+ semantic relatedness too. Yang and Powers have provided a dataset for measuring semantic
  similarity between verbs.
   
  
@@ -222,14 +223,14 @@ Bordes et al. (Bordes2011) proposed a ranking task that for each triple $(e_{i} 
  are calculated and is reported in table \ref{tbl:en-wp-sim} for English. We can
  see that bi-lingual embeddings learned by SME-Bil model outperformed all other
  embeddings both in Pearson and Spearman correlation in all four datasets.
- Another observation is that SME-Bil models performes better than SE
+ Another observation is that SME-Bil models performs better than SE
  models in most cases. Among SME-Bil models, bi-lingual embeddings are always
- more correlated to human hudgments than mono-lingual embeddings.
+ more correlated to human judgments than mono-lingual embeddings.
  All models perform poorly on WS-353, bi-lingual SME-Bil model still performs
  better than the rest. We believe this could due to including notion of
  relatedness in this dataset. Poor performance of WordNet based models on
  semantic relatedness task is previously known and discussed in
- \cite{??}[Szulmanski2013]. Words can be related by different type of relations
+ ~\cite{Szumlanski}. Words can be related by different type of relations
  while in WordNet, a few number of relations are encoded e.g. synonymy which is the
  subject of our evaluation task.
  
@@ -276,11 +277,11 @@ Bordes et al. (Bordes2011) proposed a ranking task that for each triple $(e_{i} 
 
 For German,
  we use translated versions of RG-65, MC-30 and WS-353 which were judged by
- German native speakers \cite{??} [gurevych et al], additionally a dataset from
- \cite{??} [Gurevych et al.] is used. The structured embeddings are being
+ German native speakers ~\cite{Zesch2008}, additionally a dataset from
+ ~\cite{Zesch2006} is used. The structured embeddings are being
  compared to the only available German word embeddings from
- \cite{Klementiev}[Klem et al.]. We can observe that bi-lingual embeddings
- always outperform mono-lingual embeddings except for RG-DE-65 dataset which
+ \cite{Klementiev}. We can observe that bi-lingual embeddings
+ always outperform mono-lingual embeddings except for Gur65 dataset which
  both mono-lingual and bi-lingual \textbf{SE} models have equal Spearman
  correlation to the gold data but mono-lingual model performs better in Pearson
  correlation. The good results of German evaluation is another indicator for
@@ -300,20 +301,20 @@ For German,
 \hline % inserts single-line
                                  
                                  &  P & -0.010  & 0.156 & 0.073 & 0.130&0.196 &0.107 \\[-1ex]
-\raisebox{1.5ex}{wortpaare222}  &  S & -0.125 & 0.234& 0.152 & 0.175 & 0.111 &0.152 \\[1ex]
+\raisebox{1.5ex}{ZG222}  &  S & -0.125 & 0.234& 0.152 & 0.175 & 0.111 &0.152 \\[1ex]
 
                                   &  P & 0.865 & 0.984 & 0.185 & 0.287 & 0.301 & -0.887 \\[-1ex]
-\raisebox{1.5ex}{MC-DE-30}    &  S & 1.0   & 1.0   & -0.500 & -0.500  & 0.500 &
+\raisebox{1.5ex}{Gur30}    &  S & 1.0   & 1.0   & -0.500 & -0.500  & 0.500 &
 -1.0
 \\[1ex]
 
                                   &  P & -0.085  & 0.063 & 0.185 & 0.188 & 0.127 &0.187 \\[-1ex]
-\raisebox{1.5ex}{WS-DE-350}  &  S & -0.157 & 0.009  &  0.172 & 0.194 & 0.142
+\raisebox{1.5ex}{Gur350}  &  S & -0.157 & 0.009  &  0.172 & 0.194 & 0.142
 &0.142
 \\[1ex]
 
                                 &  P & 0.800  & 0.558 & -0.572 & 0.485 & -0.166 & 0.233 \\[-1ex]
-\raisebox{1.5ex}{RG-DE-65}  &  S & 0.800 & 0.800 & -0.8 & 0.399 & 0.200 & 0.200
+\raisebox{1.5ex}{Gur65}  &  S & 0.800 & 0.800 & -0.8 & 0.399 & 0.200 & 0.200
 \\[1ex]
                                  
 

@@ -103,6 +103,13 @@ Christiane Fellbaum.
   Language, Speech, and Communication}.
 \newblock MIT Press, 1998.
 
+\bibitem{Finkelstein2001}
+Lev Finkelstein, Evgeniy Gabrilovich, Yossi Matias, Ehud Rivlin, Zach Solan,
+  Gadi Wolfman, and Eytan Ruppin.
+\newblock {Placing search in context}.
+\newblock In {\em Proceedings of the tenth international conference on World
+  Wide Web - WWW '01}, pages 406--414. ACM Press, 2001.
+
 \bibitem{Gershman2012}
 Samuel~J. Gershman and David~M. Blei.
 \newblock {A tutorial on Bayesian nonparametric models}.
@@ -142,6 +149,10 @@ Dekang Lin and Patrick Pantel.
 M~Mechura.
 \newblock {\em {Selectional Preferences, Corpora and Ontologies}}.
 \newblock PhD thesis, Trinity College, University of Dublin, 2008.
+
+\bibitem{Miller1991}
+George~A. Miller and Walter~G. Charles.
+\newblock {Contextual correlates of semantic similarity}, 1991.
 
 \bibitem{Mintz2009}
 Mike Mintz, Steven Bills, Rion Snow, and Dan Jurafsky.
@@ -214,6 +225,15 @@ Sebastian Riedel, Limin Yao, and Andrew Mccallum.
 \newblock {Modeling relations and their mentions without labeled text}.
 \newblock {\em Machine Learning and Knowledge \ldots}, pages 148--163, 2010.
 
+\bibitem{Rubenstein1965}
+Herbert Rubenstein and John~B. Goodenough.
+\newblock {Contextual correlates of synonymy}, 1965.
+
+\bibitem{Szumlanski}
+S~Szumlanski, F~Gomez, and VK~Sims.
+\newblock {A New Set of Norms for Semantic Relatedness Measures}.
+\newblock {\em cs.ucf.edu}.
+
 \bibitem{Teh2007}
 YW~Teh.
 \newblock {Dirichlet Processes: Tutorial and Practical Course}.
@@ -230,6 +250,12 @@ Joseph Turian, Lev Ratinov, and Yoshua Bengio.
   semi-supervised learning}.
 \newblock {\em ACL}, (July):384--394, July 2010.
 
+\bibitem{Yang2007}
+Dongqiang Yang and David M~W Powers.
+\newblock {An Empirical Investigation into Grammatically Constrained Contexts
+  in Predicting Distributional Similarity}.
+\newblock In {\em Australian Language Technology Workshop}, 2007.
+
 \bibitem{Yao2011}
 Limin Yao, A~Haghighi, Sebastian Riedel, and A~McCallum.
 \newblock {Structured relation discovery using generative models}.
@@ -239,5 +265,18 @@ Limin Yao, A~Haghighi, Sebastian Riedel, and A~McCallum.
 Alexander Yates, M~Cafarella, and M~Banko.
 \newblock {TextRunner: open information extraction on the web}.
 \newblock In {\em ACL}, number April, pages 25--26, 2007.
+
+\bibitem{Zesch2006}
+Torsten Zesch and Iryna Gurevych.
+\newblock {Automatically creating datasets for measures of semantic
+  relatedness}.
+\newblock {\em Proceedings of the Workshop on Linguistic Distances LD 06},
+  (July):16--24, 2006.
+
+\bibitem{Zesch2008}
+Torsten Zesch, Christof M\"{u}ller, and Iryna Gurevych.
+\newblock {Using Wiktionary for Computing Semantic Relatedness}.
+\newblock In {\em Proceedings of AAAI}, volume~8, pages 861--866. AAAI Press,
+  2008.
 
 \end{thebibliography}
