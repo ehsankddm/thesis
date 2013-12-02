@@ -35,8 +35,6 @@ will very briefly review \textit{backpropagation} and \textit{stochastic
 gradient descent} as we need them to understand the mechanism of learning in
 ANNs.
 
-\subsection{Architecture and Model Description}
-\label{ssec:ml-ann-arch}
 Artificial neural networks have old history in the domain of machine learning.
 They are inspired from the mechanism humans learn via their neural networks. The
 basic element of this network is a neuron which takes a weighted input signals and by applying an activation function
@@ -56,7 +54,7 @@ x^{l-1} \mbox{~: input vector of size~}n  \mbox{~and layer~}l-1
 w^{l,l-1} \mbox{~: weight vector of size}~n~ \text{from layer}~l-1 \text{~to
 layer}~l
 \\
-y_{j}^{l} \mbox{~: output value of neuron}j  \mbox{at layer}~l\\
+y_{j}^{l} \mbox{~: output value of neuron~}j  \mbox{~at layer}~l\\
 y_{j}^{l} = f(\sum_{i=0}^{n} w_{i,j}x_{i}^{l-1})\\
 \end{split}
 \end{equation} 
@@ -73,39 +71,79 @@ usually either of functions in the list below:
     \begin{figure}[h!]
   \caption{A model of neuron}
   \centering
-    \includegraphics[width=0.5\textwidth]{neuron-model.eps}
+    \includegraphics[width=0.8\textwidth]{neuron-model.eps}
     \label{fig:neuron-model}
 \end{figure} 
 
 The type of ANNs matters mostly for us in this research are
 networks which neurons are arranged in ordered layers and there is no feedback
 from a deeper layer  to the layers in the back. The first layer is usually for
-learning representation of objects, then a layer for adding non-linearity comes
-and finally we have an axillary classification or ranking task. In \autoref{fig:ann}
- we can see a neural architecture proposed by Bengio et al. \cite{Bengio2003}
- which works as language model. This model takes n-grams as input and predict
- the probability of the next word. The first layer is hot-one representation of
- sequence words, $w_{t-n+1}, \ldots ,w_{t-2}, w_{t-1}$ and then the layer for learning word features comes.
- Learned features of words combine together with tanh layer and finally we will have a softmax layer
- which outputs probability of all words as the next word, $w_t$, in the
- sequence. Later we will see more details about different layers of this ANN but
- the main question that arises here is how to learn parameters of such a network
- in order to make good predictions and induce meaningful features for words.
- This will be attempted to answer in the next section.
-
+unsupervised pre-training of objects, then a layer for adding non-linearity
+comes and finally we have an axillary classification or ranking task.
  \begin{figure}[h!]
   \caption{A Neural Language Model proposed by Bengio et al.}
   \centering
-    \includegraphics[width=0.5\textwidth]{ann.eps}
+    \includegraphics[width=1\textwidth]{ann.eps}
     \label{fig:ann}
 \end{figure} 
+ In \autoref{fig:ann}
+ we can see a neural architecture proposed by Bengio et al. \cite{Bengio2003}
+ which works as language model. This model takes n-grams as input and predict
+ the probability of the next word. The first layer is hot-one representation of
+ sequence words, $w_{t-n+1}, \ldots ,w_{t-2}, w_{t-1}$ and then the layer for
+ unsupervised pre-training of words comes.
+ Learned features of words will be combined together with \textit{tanh} layer
+ and finally we will have a \textit{softmax} layer which outputs probability of
+ all words as the next word, $w_t$, in the sequence. Later we will see more details about 
+ different layers of this ANN but
+ the main question that arises here is how to learn parameters of such a network
+ in order to make good predictions and induce meaningful features for words.
 
-\subsection{Learning Parameters of ANNs}
-\label{ssec:ml-ann-learn}
+There are two main approaches for learning parameters of a single supervised
+layer. By supervised layer we mean that true outputs/predictions are available
+for training the parameter of the layer. :
+\begin{description}
+  \item[Online learning] \hfil \\
+    To optimize the parameters, we
+    iterate over all points in the training dataset and calculate the layer
+    predictions for input. In each iteration, we update the weights in order to
+    decrease the difference between the predicted output and the true output for
+    each point. This forms an objective function (error function) which can be
+    minimized by gradient descent, by calculating error derivatives and update
+    weights to decrease them.
+    Since each data point can change the parameters, we call this algorithm an online learning algorithm.
+  \item[Batch learning] \hfil \\
+  In this approach, unlike the previous approach, first we calculate the
+  predicted outputs of whole dataset and form the error function and try to
+  minimize the error derivative for whole dataset. Since we update the
+  parameters after observing all points in the training dataset we call this
+  approach batch learning.
+  
+  \item[Stochastic Gradient Descent] \hfil \\
+  The idea of SGD is to make best out of both previous ideas. Neither updating
+  after each datapoint nor after all points, SGD makes small batches in each
+  iteration, each usually contains only 100 datapoints, and calculate error
+  derivatives and update parameters for each batch.
+  
+  
+\end{description} 
 
+Since we now know how to train a single supervised layer, other layers of a
+network can be trained using \textit{backpropagation}. Parameters of the network
+will be randomly initialized and then by choosing one of the approaches above we
+can start by learning the last layer, since we have the output for that. After
+updating the last layer, it works as the output of the layer before it and we
+can use the same strategy to train its parameters. Likewise, we continue
+training of other layers. The criteria for stopping the algorithm can be either
+maximum number of iterations or when parameters don't change from after some
+iterations.
+
+After introducing ANNs we will focus more on the idea of unsupervised
+pre-training in the next section. I show the generalization of this idea using
+other methods and motivates it as a very crucial step in many NLP tasks.
 
 \section{Representation Learning}
-\label {ch:repr-learning}
+\label {sec:repr-learning}
 
 In this chapter, we will define and justify the task of
 \emph{Representation Learning} and we will see different families of methods for
@@ -128,8 +166,8 @@ semantical feature to identify this word and is induced automatically from data
  induced features can be helpful to improve state-of-the-art methods in 
 different NLP tasks. It seems that relation extraction can also benefit from such features since similar tasks like 
 semantic role labeling has been shown to benefit from
-induced word representations. In ~\autoref{ch:text-kb} and \autoref{ch:ent-link} I
-will show two applications of it, (1) direct usage for relation discovery and
+induced word representations. In ~\autoref{ch:text-kb} and
+~\autoref{ch:ent-link} I will show two applications of it, (1) direct usage for relation discovery and
 (2) word feature generation which can be used in current relation discovery
 systems as well as other NLP applications.
 In the next two sections, two major families of representation learning methods
@@ -181,7 +219,8 @@ optimization method called \emph{Stochastic Gradient Descent} \cite{Bottou2010}.
 A hierarchical distributed language model (HLBL) proposed by Mnih and
 Hinton in \cite{Mnih2009} is another influential work on word embeddings. In
 this model a probabilistic linear neural network(LBL) will be trained to 
-combine word embeddings in first $n-1$ words of a n-gram to predict the $n_th$ word.
+combine word embeddings in first $n-1$ words of a n-gram to predict the $n_{th}$
+word.
 
 Weston-Collobert model and HLBL by Mnih and Hinton are evaluated in
 \cite{Turian2010b} in two NLP tasks: chunking and named entity recognition. With
@@ -192,8 +231,9 @@ performance of both tasks are shown to be improved.
 \label{sec: repr-learning-kb}
 Bordes et al. in \cite{Bordes2011} and \cite{Bordes2012} have attempted to use
 a neural distributed model to induce word representations from lexical resources
-such as WordNet and knowledge bases (KB) like Freebase. In Freebase for example, each named entity is related
-to another entity by an instance of a specific type of relation. In
+such as WordNet ~\cite{Fellbaum1998} and knowledge bases (KB) like Freebase
+~\cite{Bollacker2008} .
+In Freebase for example, each named entity is related to another entity by an instance of a specific type of relation. In
 \cite{Bordes2011}, each entity is represented as a vector and each relation is decomposed to two
 matrices. Each of these matrices transform left and right-hand-side entities
 to a semantic space. Similarity of transformed entities indicates that the
@@ -252,7 +292,7 @@ usually represented in form of triples of $(e_{i},r_{k} , e_{j} )$ where $e_{i}$
      shown in Equation ~\ref{eq:dot}. \autoref{fig:bordes2012} is used by Bordes
      et al. to sketch SME-Bil model. Similar constraints to the first model are also applied to this model and 
      both models can be trained by stochastic gradient descent (SGD) which we
-     introduced in \autoref{sec:SGD}.
+     introduced in \autoref{sec:ml-ann}.
     
    \begin{equation}
     \label{eq:dot} Sim(E_{i}, E_{j}, R_{k}) = -E'_{left}E'_{right}
@@ -265,7 +305,7 @@ usually represented in form of triples of $(e_{i},r_{k} , e_{j} )$ where $e_{i}$
 \end{figure} 
    
 
-
+\iffalse
 \section{Bayesian Non-Parametric Models}
 \label {sec:bnp}
 
@@ -358,6 +398,6 @@ Kingman’s coalescent, HDP)
 \subsection{Clustering (Dirichlet processes and Chinese restaurant processes)}
 \label{ssec:bnp-chinese}
 
-
+\fi
 
     

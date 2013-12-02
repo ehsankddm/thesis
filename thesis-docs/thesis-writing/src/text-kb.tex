@@ -16,16 +16,16 @@ from Text and Knowledge Base}
 \label{sec:dataset}
 
 Two direction of works have been conducted previously on learning representation
-of words which we discussed in \ref{repr-learn}. 1) KB-based
+of words which we discussed in \ref{sec:repr-learning}. 1) KB-based
 representation learning and 2)Corpus-based methods. Here I will demonstrate a
 process which will enable us to jointly learn embeddings with both contextual
 and lexical information. Among previously discussed methods, I borrow a model
-proposed in \cite{Bordes2012}. As I described in \ref{bordes-model}, this model
+proposed in \cite{Bordes2012}. As I described in \ref{sec: repr-learning-kb}, this model
 can take set of binary predicates and their arguments and induce continuous
 features for both predicates and arguments in vector space. Using these
 embeddings and a bilinear combination of them, the model can discriminate
 between true facts in the dataset and negative examples. For more information of
-this model please see \ref{bordes-model}.
+this model please see ~\autoref{sec: repr-learning-kb}.
 
 We can see that this models in its plain vanilla form is limited to learn
 embeddings from a KB but has a great potential to be extended in various
@@ -35,29 +35,29 @@ also from text. The reason is that, despite the vast effort of gathering
 information and encode it as knowledge in KBs, they are limited in the sense of
 coverage. To compensate this problem we need to discover new facts from corpus.
 
-In chapter \ref{rel-dscv} we have extensively discussed major related works and
-we also discussed important features that were being used in many important
+In ~\autoref{ch:rel-discovery} we have extensively discussed major related works
+and we also discussed important features that were being used in many important
 works and are shown to be very effective. Most of these feature were previously
 encoded in a way that can be used for classic classifiers. I will first
 enumerate these features and then we will see that how can we formalized them
 to make it possible to use them with a neural distributed model discussed in
-\ref{bordes-model}. A thorough discussion of creating dataset will appear in
-\ref{sec:textkb-exp} but for now, it is sufficient to know that by a corpus we
-mean, a pre-processed clean pile of text in English, coming from harvested web
+~\autoref{sec: repr-learning-kb}. A thorough discussion of creating dataset will
+appear in ~\autoref{sec:textkb-exp} but for now, it is sufficient to know that
+by a corpus we mean, a pre-processed clean pile of text in English, coming from harvested web
 pages or from news papers which contains these annotations: 1) part of speech
 tags 2)dependency parsed 3) named entities are recognized and tagged by their
 type. Our process of extracting features will be described fully in
-\ref{sec:textkb-exp}, in the next part, Any feature I describe comes from a
+~\autoref{sec:textkb-exp}, in the next part, Any feature I describe comes from a
 sentence which contains two named entities. 
 
 \subsection{Informative Features for Relation Extraction}
 In this part, I briefly enumerate important features which have been used
-extensively in previous works. For an actul example, I show some instances from
+extensively in previous works. For an actual example, I show some instances from
 a dataset prepared by Riedel et al. and used in \cite{Riedel2013} and
 \cite{Riedel2010a}. For full description of futures in their work please see
-\ref{UnivSchema}.
+~\autoref{ssec:univschema}.
 
-A relevent set of features that I harvest from text to my work is as follow:
+A relevant set of features that I harvested from text for my work is as follow:
 
 \begin{description}
   
@@ -70,9 +70,9 @@ A relevent set of features that I harvest from text to my work is as follow:
     
   \item[Dependency Role of Named Entities] \hfill \\
     Dependency structures have useful information and there is a long history of
-    using dependency patterns in literature. For example we discussed
-    \cite{Dirt}, \cite{patty} in \ref{rel-dscv} and we showed the importance of
-    dependency roles in these models. I follow previous works and will use this
+    using dependency patterns in literature. For example the
+    importance of dependency roles is discussed in ~\autoref{ssec:dirt-model}.
+     I follow previous works and will use this
     type of features in my proposed model. As an example a NE in a senctence can
     have either of these roles: direct object \textit{dobj}, passive object
     \textit{pobj}, appositional modifier \textit{appos}, participial modifier
@@ -124,15 +124,15 @@ jointly:
 
 In the domain of machine learning there are several models with ability of
 performing learning representations and classification jointly which we
-discussed some of them in \autoref{repr-learning}. Among those models relevant
+discussed some of them in \autoref{sec:disted-repr}. Among those models relevant
 to our task, we picked the neural distributed model proposed in \cite{Bordes2012}.
-A detail of this model is discussed in \autoref{Bordes}.
+A detail of this model is discussed in \autoref{sec: repr-learning-kb}.
 
 This model takes a set of triples $\mathcal{T}$ as an input and perform both of
 our desired tasks. With having this model the only problem now is to generate 
 $\mathcal{T}$ such as it staisfies our objective. In the next section I will
 describe a method for generating this dataset and later in
-\autoref{sec:textkb-eval} I emperically show the effectivness of this method.
+\autoref{sec:textkb-exp-eval} I emperically show the effectivness of this method.
 
 \section{Linking Text to KB}
 \label{sec:textkb-link}
@@ -171,7 +171,7 @@ dependency role:
  together. This head word ,which in our case is always verb but in general can
  also be a nominal phrase, will work as a surface pattern and a candidate
  relation. From now on we will call this head words \textit{triggers},
- following the work in \cite{UniversalSchema}.
+ following the work in \cite{Riedel2013}.
  For example for this sentence and its dependency path:
 \begin{center}
  \textit{Mir-Hossein Mousavi, president of Iran, said \ldots}
@@ -238,7 +238,7 @@ $\mathcal{T}$.
 To make our corpus we follow the protocol described in \cite{Riedel2013} and
 \cite{Riedel2010} and use their dataset since it is fully compatible with our
 requirements.
-They used NYTimes corpusin their work. After pre-processing and tagging this
+They used NYTimes corpus in their work. After pre-processing and tagging this
 corpus, it is splitted to two parts. Articles after year 2000 as training and
 between 1990 to 2000 for the test dataset. For KB, Freebase has been chosen and
 only those relations have been included to $\mathcal{F}$ that both left hand
@@ -294,14 +294,21 @@ can be analyzed based on the effectiveness of the feature set of each
 experiments. For all experiments we used 50-dimensional embeddings and we used
 SME-Bil neural distributed model. Number of iterations were 500 for all
 experiments and with fixed number of batches, namely 100. The details of this
-model has been previously described in \autoref{??}.
+model has been previously described in \autoref{sec: repr-learning-kb}.
 
-In the next section we will see the results and comparison of different
-experiments.
+Theano \cite{Bergstra2010}, a math compiler in python is being used to develop
+the model implemented previously in ~\cite{Bordes2011} and ~\cite{Bordes2012}
+and I further developed a pipeline based on these modules to run the
+experiments. Since I have not had access to GPU, I ran my experiments on CPU
+which for experiment 4 took about few days CPU time and few hours for the first
+experiment.
+
+ In the next section we will see the results and comparison of
+different experiments.
 
 
 \section{Evaluation and Analysis}
-\label{sec:textkb-exp-exp}
+\label{sec:textkb-exp-eval}
 
 The goal our model is to predict a relation between
 two given entities. So how do we do prediction with our model? We basically rank

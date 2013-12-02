@@ -1,5 +1,10 @@
-\chapter{Entity Linking Among Lexical Resources}
+\chapter[Entity Linking Among Lexical R]{Entity Linking Among Lexical Resources\footnote{This part of the work has been done during an internship in UKP
+Lab, Technical University of Darmstadt. All the codes and results produced during
+this time belongs to Prof. Dr. Iryna Gurevych and can be obtained upon the
+request.}}
+
 \label{ch:ent-link}
+
 
 Each KB or lexical resource contains limited amount of information and
 different structured resources have different perspective and partially encode
@@ -30,8 +35,8 @@ them in relation discovery.
 \label{sec:xkb-task-desc}
 
 In this part I describe the methodology we followed to encode available information 
-in two different lexical resources, WordNet and GermaNet, that makes it possible to link entities of the two different
-resources and learn bi-lingual 
+in two different lexical resources, WordNet and GermaNet ~\cite{BirgitHamp},
+that makes it possible to link entities of the two different resources and learn bi-lingual 
 embeddings of word senses in German and English.  
 The main idea is to relate two senses from two different resources using cross-lingual sense alignments.
 This is an additional information which can play a role of bridge between two
@@ -80,7 +85,9 @@ Left and right entities are WordNet and GermaNet senses and relations are curren
   For reducing the sparsity of data and boosting the learning runtime we 
   filtered out all the entities that appeared less than 3 times in our datasets.
    
-  (version of wordnet, germanet, ILI and role of uby should be described here)  
+  For implementation I used a unified lexical resource called \textit{Uby}
+  ~\cite{Eckle-Kohler2012} which provides an integrated API to work with
+  Wordnet, GermaNet and other resources.
  
 
 \section{Evaluation}
@@ -189,10 +196,12 @@ Bordes et al. (Bordes2011) proposed a ranking task that for each triple $(e_{i} 
   therefore 
  we compare the mono-lingual and bi-lingual embeddings against human judgments
  and also other embeddings learned from corpus. 
- The other embeddings which we used for our comparison are (Turian et al., HLBL
- and Klementiev et al.).
- To measure the similarity between any given wordpair $(w_1 , w_2)$ we find all vectors associated to different senses
- of the given words in our embedding dictionary and pick the pair of embeddings that maximize cosine
+ The other embeddings which we used for our comparison are Turian et al.
+ \cite{Turian2010b}, Mnih et al. \cite{Mnih2009} mentioned in ~\autoref{sec:disted-repr} and
+ Klementiev et al.
+ \cite{Klementiev} embeddings To measure the similarity between any given wordpair $(w_1 , w_2)$ 
+ we find all vectors associated to different senses of the given words in our embedding dictionary 
+ and pick the pair of embeddings that maximize cosine
   similarity between two words. 
  We can motivate this by saying that for each word pair any of words works as a context for 
  disambiguating the sense of the other word.

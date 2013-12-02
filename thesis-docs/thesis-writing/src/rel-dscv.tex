@@ -7,38 +7,38 @@
 
 Labeling data with entity-relation annotation is tedious, specially in large
 scale domains such as web. Mintz et al. \cite{Mintz2009} used the idea of
-\emph{distand supervision} and combined it with a large knowledge base,
+\emph{distant supervision} and combined it with a large knowledge base,
 Freebase, to extract relations from text. They assumed that for each pair of
 entity related to each other in Freebase, any piece of text contained both of
 the entities is most probably expressing the same relation. Therefore, they
-started to make an autoamtically annotated dataset of relations. From around 1.2
+started to make an automatically annotated dataset of relations. From around 1.2
 million Wikipedia, they collected contexts that a pair of related entities have
 been mentioned in them. This dataset of 1.8 million instances of 102 relation
-type is considered as positive labeles. To learn a classifer, they also needed
-negative lables which were created with random sampling of entities that don't
+type is considered as positive labels. To learn a classifier, they also needed
+negative labels which were created with random sampling of entities that don't
 happened to be related in Freebase. The number of negative examples should be at
 least twice a number of positive examples. After this phase, a multi-class
 logistic regression classifier was trained to extract relation (separate
-sentences wich express a relation from those which do not).
+sentences which express a relation from those which do not).
 
 A variety of features were extracted to make the dataset and each type of
 features is shown to have different impact in final performance of the model.
 For example it is mentioned in \cite{Mintz2009} that the method is benefiting a lot
 from syntactic features specially in ambiguous relations or where the entities
 are near in the dependency tree but far in the sentences. Word representations
-where we will be covered in chapter ~\ref{ch:word-embedding}, are capable of
+where we will be covered in chapter ~\ref{sec:repr-learning}, are capable of
 abstracting and learning both semantic and syntactic features from various
 resources. This will suggest us to use word embeddings combined with
 authors' hand-crafted features with the hope of improving their results. This
-idea will be elaborated more in section ~\ref{sec:contr}.
+idea will be elaborated more in section ~\ref{ch:ent-link}.
 
 \section{Unsupervised Relation Extraction}
 \label{sec:related}
 
 
-In this chapter we will review four major works on unsupervised relation
+In this section we will review four major works on unsupervised relation
 discovery.
- We will discuss their formulation of the task, their models
+ I will discuss their formulation of the task, their models
  and the features they incorporate, the model constraints and finally we will take a look at how good a model is performing.
 
 
@@ -67,9 +67,11 @@ cluster similar words which convey a similar meaning. The key assumption in this
   to phrases or predicates-arguments. A set of relations or phrases that appear in a similar context
   are semantically equivalent. Lin and Pantel have extended this idea with giving a slightly different notion
    of context. The context that they define in their work is the dependency path between a predicate of
-    relation and its arguments. As the Extended Distributional Hypothesis states:
-    %\begin{shaded}
-     If two paths tend to occur in similar contexts, the meaning of the path tend to be similar 
+    relation and its arguments. As the Extended Distributional Hypothesis
+    states:~If two paths tend to occur in similar contexts, the meaning of
+     the path tend to be similar
+   % \begin{shaded}
+    % \shadowbox{}
     %\end{shaded}
     
       
@@ -511,6 +513,9 @@ Figure ~\ref{fig:type-lda} .
    relations which will be discussed more in the last chapter. A similar approach which tries to induce
     hierarchical structures is \cite{Alfonseca2012} .
  
+ \subsection{Universal Schema}
+\label{ssec:univschema}
+kkk
  \section{Problem Identification}
 \label{sec:prob-id}
 
