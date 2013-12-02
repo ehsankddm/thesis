@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2013.7.17)  3 DEC 2013 00:09
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2013.7.17)  3 DEC 2013 00:22
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -1314,15 +1314,9 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 132.
  (./thesis.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 132.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 132.
+Package rerunfilecheck Info: File `thesis.out' has not changed.
+(rerunfilecheck)             Checksum: 5C247C389BF86A61FD4B4207C189BBF4;2421.
 
-
-Package rerunfilecheck Warning: File `thesis.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `thesis.out':
-(rerunfilecheck)             Before: 372A2E177CEFB90AEC28E769C6E7DCEB;2424
-(rerunfilecheck)             After:  5C247C389BF86A61FD4B4207C189BBF4;2421.
 
 LaTeX Warning: There were undefined references.
 
@@ -1340,4 +1334,4 @@ Here is how much of TeX's memory you used:
  957 hyphenation exceptions out of 8191
  36i,17n,40p,270b,645s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on thesis.dvi (65 pages, 230828 bytes).
+Output written on thesis.dvi (65 pages, 231288 bytes).
