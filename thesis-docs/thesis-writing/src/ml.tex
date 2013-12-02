@@ -1,43 +1,41 @@
 \chapter{Machine Learning}
-
-\section{Representation Learning}
-\label {ch:repr-learning}
-
-In this chapter, we will define and justify the task of
-\emph{Representation Learning} and we will see different families of methods for
-inducing word representation and its application in NLP.
-
-In machine learning specially in industry, most of the labor is dedicated to
-\emph{Feature Engineering}. Extracting informative features is the crucial part
-of most supervised methods and it is done mostly manually. While many different
-applications share common learning models and classifiers, the difference in
-performance of competing methods mostly goes to the data representation and
-hand-crafted features that they use. This observation reveals an important
-weakness in current models, namely their inability to extract and organize
-discriminative features from data. Representation learning is an umbrella term
-for a family of unsupervised methods to learn features from data. Most of recent
-works on the application of this idea in NLP focus on inducing word
-representations. \emph{Word representation} is a mathematical object, usually a
-vector, which each dimension in this vector represents a grammatical or
-semantical feature to identify this word and is induced automatically from data
-\cite{Turian2010b}. Recently, it has been shown in \cite{Turian2010b} and \cite{Collobert2011} that using
- induced features can be helpful to improve state-of-the-art methods in 
-different NLP tasks. It seems that relation extraction can also benefit from such features since similar tasks like 
-semantic role labeling has been shown to benefit from
-induced word representations. In ~\autoref{ch:text-kb} and \autoref{ch:ent-link} I
-will show two applications of it, (1) direct usage for relation discovery and
-(2) word feature generation which can be used in current relation discovery
-systems as well as other NLP applications.
-In the next two sections, two major families of representation learning methods
-will be shortly reviewed.
-
-\subsection{Artificial Neural Networks}
+Machine learning is playing a fundamental role in natural language processing
+and computational linguistics. The impact is so significant that one of key note
+speakers of ACL 2012, Mark Johnson, predicted that in 50 years from now NLP/CL
+will not exist as a research field and will be emerged as two different
+fields:(1) machine learning and (2) logic. This chapter is dedicated  to subset
+of models in machine learning that can play a role of bridge between logic and
+machine learning. This chapter provides the building material for a new
+direction of research so called \textit{Representation Learning} which enables
+us to transfer information from logical forms such as predicate-argument form to
+vector space (beside many other advantages which we will discuss).
+Most of current models in machine learning are designed to work in vector space
+therefore it is an important achievement to be able to work with type of
+information which is in other forms or representations by first transferring
+them to vector space. Working with logical forms in vector space helps us to use
+many available knowledge bases and lexicons with available machine learning
+models which is crucial for relation discovery. I will skip discussing classical
+machine learning problems to emphasis more on new relevant topics. 
+I will first briefly review artificial neural networks and then motivate and
+define the task of representation learning. In next chapters, we will
+need the materials provided in this chapter to understand the undergoing
+research about relation discovery.
+\section{Artificial Neural Networks}
 \label{sec:ml-ann}
-Before diving in to different methods of representation learning, it would be
+Before diving into different methods of representation learning, it would be
 useful to briefly review the architecture, applications and learning algorithms
-of artificial neural networks (ANN).
+of artificial neural networks (ANN). ANNs can be used for variety of
+applications in machine learning: classification, clustering, dimensionality
+reduction,\ldots ~. What makes ANN important for us is their ability to do many
+of mentioned tasks jointly. Its layer-wised architecture very well fits to the
+idea of multi-task learning. Different layers of an ANN can have different
+objectives and can share information with other layers through parameter
+sharing. First I discuss about elements and architecture of ANNs and then we
+will very briefly review \textit{backpropagation} and \textit{stochastic
+gradient descent} as we need them to understand the mechanism of learning in
+ANNs.
 
-\subsubsection{Architecture and Model Definition}
+\subsection{Architecture and Model Description}
 \label{ssec:ml-ann-arch}
 Artificial neural networks have old history in the domain of machine learning.
 They are inspired from the mechanism humans learn via their neural networks. The
@@ -78,6 +76,64 @@ usually either of functions in the list below:
     \includegraphics[width=0.5\textwidth]{neuron-model.eps}
     \label{fig:neuron-model}
 \end{figure} 
+
+The type of ANNs matters mostly for us in this research are
+networks which neurons are arranged in ordered layers and there is no feedback
+from a deeper layer  to the layers in the back. The first layer is usually for
+learning representation of objects, then a layer for adding non-linearity comes
+and finally we have an axillary classification or ranking task. In \autoref{fig:ann}
+ we can see a neural architecture proposed by Bengio et al. \cite{Bengio2003}
+ which works as language model. This model takes n-grams as input and predict
+ the probability of the next word. The first layer is hot-one representation of
+ sequence words, $w_{t-n+1}, \ldots ,w_{t-2}, w_{t-1}$ and then the layer for learning word features comes.
+ Learned features of words combine together with tanh layer and finally we will have a softmax layer
+ which outputs probability of all words as the next word, $w_t$, in the
+ sequence. Later we will see more details about different layers of this ANN but
+ the main question that arises here is how to learn parameters of such a network
+ in order to make good predictions and induce meaningful features for words.
+ This will be attempted to answer in the next section.
+
+ \begin{figure}[h!]
+  \caption{A Neural Language Model proposed by Bengio et al.}
+  \centering
+    \includegraphics[width=0.5\textwidth]{ann.eps}
+    \label{fig:ann}
+\end{figure} 
+
+\subsection{Learning Parameters of ANNs}
+\label{ssec:ml-ann-learn}
+
+
+\section{Representation Learning}
+\label {ch:repr-learning}
+
+In this chapter, we will define and justify the task of
+\emph{Representation Learning} and we will see different families of methods for
+inducing word representation and its application in NLP.
+
+In machine learning specially in industry, most of the labor is dedicated to
+\emph{Feature Engineering}. Extracting informative features is the crucial part
+of most supervised methods and it is done mostly manually. While many different
+applications share common learning models and classifiers, the difference in
+performance of competing methods mostly goes to the data representation and
+hand-crafted features that they use. This observation reveals an important
+weakness in current models, namely their inability to extract and organize
+discriminative features from data. Representation learning is an umbrella term
+for a family of unsupervised methods to learn features from data. Most of recent
+works on the application of this idea in NLP focus on inducing word
+representations. \emph{Word representation} is a mathematical object, usually a
+vector, which each dimension in this vector represents a grammatical or
+semantical feature to identify this word and is induced automatically from data
+\cite{Turian2010b}. Recently, it has been shown in \cite{Turian2010b} and \cite{Collobert2011} that using
+ induced features can be helpful to improve state-of-the-art methods in 
+different NLP tasks. It seems that relation extraction can also benefit from such features since similar tasks like 
+semantic role labeling has been shown to benefit from
+induced word representations. In ~\autoref{ch:text-kb} and \autoref{ch:ent-link} I
+will show two applications of it, (1) direct usage for relation discovery and
+(2) word feature generation which can be used in current relation discovery
+systems as well as other NLP applications.
+In the next two sections, two major families of representation learning methods
+will be shortly reviewed.
 
 \subsection{Distributional Representation}
 \label{sec:distl-repr}

@@ -1,12 +1,13 @@
 \select@language {english}
 \contentsline {chapter}{\numberline {1}Machine Learning}{1}{chapter.1}
-\contentsline {section}{\numberline {1.1}Representation Learning}{1}{section.1.1}
-\contentsline {subsection}{\numberline {1.1.1}Artificial Neural Networks}{2}{subsection.1.1.1}
-\contentsline {subsubsection}{\numberline {1.1.1.1}Architecture and Model Definition}{2}{subsubsection.1.1.1.1}
-\contentsline {subsection}{\numberline {1.1.2}Distributional Representation}{3}{subsection.1.1.2}
-\contentsline {subsection}{\numberline {1.1.3}Distributed Representation}{3}{subsection.1.1.3}
-\contentsline {subsection}{\numberline {1.1.4}Representation Learning of Knowledge Bases}{4}{subsection.1.1.4}
-\contentsline {section}{\numberline {1.2}Bayesian Non-Parametric Models}{6}{section.1.2}
-\contentsline {subsection}{\numberline {1.2.1}Introduction}{6}{subsection.1.2.1}
-\contentsline {subsection}{\numberline {1.2.2}Model Selection with BNP Models}{7}{subsection.1.2.2}
-\contentsline {subsection}{\numberline {1.2.3}Clustering (Dirichlet processes and Chinese restaurant processes)}{9}{subsection.1.2.3}
+\contentsline {section}{\numberline {1.1}Artificial Neural Networks}{1}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Architecture and Model Description}{2}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Learning Parameters of ANNs}{4}{subsection.1.1.2}
+\contentsline {section}{\numberline {1.2}Representation Learning}{4}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Distributional Representation}{4}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Distributed Representation}{5}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}Representation Learning of Knowledge Bases}{6}{subsection.1.2.3}
+\contentsline {section}{\numberline {1.3}Bayesian Non-Parametric Models}{8}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Introduction}{8}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Model Selection with BNP Models}{9}{subsection.1.3.2}
+\contentsline {subsection}{\numberline {1.3.3}Clustering (Dirichlet processes and Chinese restaurant processes)}{11}{subsection.1.3.3}
