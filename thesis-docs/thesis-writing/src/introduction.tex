@@ -1,5 +1,6 @@
 \chapter{Introduction}
-Nowadays searching through Internet is the first step we take if we want to get answer to our question.
+Nowadays searching through Internet is the first step we take if we want to
+answer our question.
 We convert our questions to sequences of keywords and search engines are trying 
 to lead us to web pages where might contain the answer to our questions, they return us a set of related
 documents which are sorted by their popularity and similarity of their text to our query.
@@ -18,7 +19,8 @@ of binary relations and their arguments \cite{Androutsopoulos2009}. For instance
 relation like \emph{bornIn} with its arguments which could be for example like this:\emph{ (
 bornIn, Beata Nyari, Budapest )}. Applications of such task is numerous
 in natural language processing; Question/Answering, machine translation and
-text summarization are systems that benefit from relation extraction \cite{Androutsopoulos2009}.
+text summarization are systems that benefit from relation extraction
+\cite{Androutsopoulos2009}.
 
 In this task, we are trying to have a model to find paraphrases which means
 that we are interested to have all the similar semantically similar relations under
@@ -40,10 +42,10 @@ to predict true relations between NEs with several order of magnitude better
 performance than the related previous work.
 
 Likewise we use structured representation learning techniques to induce
-cross-resource and cross-lingual word features and predict semantical relations
+cross-resource and cross-lingual word features and predict semantic relations
 among different entities of various lexical resources.
 
-My thesis follows the structure below:
+The thesis follows the structure below:
 \begin{description}
 \item[Machine Learning:]~~ First we review required machine learning models for
 our task which we will use later in next chapters.
@@ -53,6 +55,21 @@ motivations of the task, as well as literature review which is necessary to unde
 contribution of the thesis since our model is standing on the basis of several
 previous works.
 
+\item[Linking Text to Knowledge Base for Relation Discovery:]~~ This chapter
+covers our main contribution for relation discovery among named entities. I
+describe the idea, motivation and theoretical justification of my proposed
+models in this chapter. Several experiments to empirically test the idea have
+been conducted which their results is analyzed and reported.
 
+\item[Entity Linking Among Lexical Resources:]~~ A broader notion of relation
+discovery is the subject of this chapter. Here we don't limit ourselves to find
+relations among named entities and tries to predict semantic relations among
+words together with learning word features using multiple lexical resources. The
+designed experiments and evaluation tasks are discussed in the end.
+
+\item[Future Work:]~~ I finalize this work with elaborating on possible
+directions of extending the current research and some of its shortages which
+have been discussed in this chapter.
 
 \end{description}
+

@@ -1,6 +1,11 @@
 \chapter{Relation Discovery}
 \label{ch:rel-discovery}
-
+In this chapter we review the background of relation discovery as well
+deeply analysing the important previous works. From each method we can learn a
+lesson which helps us to propose a model with less shortage and better
+performance. After reviewing main models for relation discovery, a main list of
+problems of recent works has been highlighted which forms a basis for a new
+model proposed in the next chapter.
 \section{Distant Supervision}
 \label{sec:dist-supervision}
 
@@ -201,7 +206,8 @@ The last sub-system has no major role in relation extraction so we put our focus
 TextRunner avoids using parsing for large-scale and inhomogeneous corpus like web. \emph{Learner} sub-system is responsible
  for providing a substitution or an approximation for syntactic parsing which, called as extractor by the authors.
   The approach that they follow in \cite{Yates2007}
-  is that they use a small corpus to train a  relation classifier and this classifer will be applied to a much bigger web corpus.
+  is that they use a small corpus to train a  relation classifier and this
+  classifier will be applied to a much bigger web corpus.
    After parsing the small corpus, authors have used a set of predefined heuristics just based on POS tags and syntactic role 
    of words to generate positive ad negative relation examples. The heuristics were designed as prototypes of syntactic behavior
    of general relations and they are not dependent on any certain type of relation. 
@@ -214,8 +220,8 @@ TextRunner avoids using parsing for large-scale and inhomogeneous corpus like we
    starts with small seed of relations for training then it labels more instances in the corpus. This classifier will be used as
     \emph{Extractor}
    in the next phase. This classifier is not relying on any lexical or relation-specific features, hence it can operate 
-   in open domain like web \cite{Banko2009}. In the extraction phase, a maximum-entropy classifer was used to find entities and then by 
-   using the extractor learned from the previous phase, they recognize explicit relations among named entities.
+   in open domain like web \cite{Banko2009}. In the extraction phase, a
+   maximum-entropy classifier was used to find entities and then by using the extractor learned from the previous phase, they recognize explicit relations among named entities.
    
    These extracted relations and named entities contain many redundant or equivalent relations. The role of \emph{Assessor}
     is to find equivalent relations. It starts with normalization of relations and entities and then based on string-similarity

@@ -3,7 +3,7 @@
 \contentsline {chapter}{\numberline {2}Machine Learning}{3}{chapter.2}
 \contentsline {section}{\numberline {2.1}Artificial Neural Networks}{3}{section.2.1}
 \contentsline {section}{\numberline {2.2}Representation Learning}{7}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Distributional Representation}{8}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.1}Distributional Representation}{7}{subsection.2.2.1}
 \contentsline {subsection}{\numberline {2.2.2}Distributed Representation}{8}{subsection.2.2.2}
 \contentsline {subsection}{\numberline {2.2.3}Representation Learning of Knowledge Bases}{9}{subsection.2.2.3}
 \contentsline {chapter}{\numberline {3}Relation Discovery}{13}{chapter.3}
@@ -22,29 +22,28 @@
 \contentsline {subsection}{\numberline {3.2.3}USP}{19}{subsection.3.2.3}
 \contentsline {subsubsection}{\numberline {3.2.3.1}Semantic Parsing}{19}{subsubsection.3.2.3.1}
 \contentsline {subsubsection}{\numberline {3.2.3.2}Model Description}{20}{subsubsection.3.2.3.2}
-\contentsline {subsubsection}{\numberline {3.2.3.3}Evaluation}{23}{subsubsection.3.2.3.3}
+\contentsline {subsubsection}{\numberline {3.2.3.3}Evaluation}{22}{subsubsection.3.2.3.3}
 \contentsline {subsection}{\numberline {3.2.4}Rel-LDA \& Type-LDA}{23}{subsection.3.2.4}
-\contentsline {subsubsection}{\numberline {3.2.4.1}Input format and preprocessing}{24}{subsubsection.3.2.4.1}
+\contentsline {subsubsection}{\numberline {3.2.4.1}Input format and preprocessing}{23}{subsubsection.3.2.4.1}
 \contentsline {subsubsection}{\numberline {3.2.4.2}Model Description}{24}{subsubsection.3.2.4.2}
 \contentsline {subsubsection}{\numberline {3.2.4.3}Evaluation}{27}{subsubsection.3.2.4.3}
-\contentsline {subsection}{\numberline {3.2.5}Universal Schema}{28}{subsection.3.2.5}
-\contentsline {section}{\numberline {3.3}Problem Identification}{28}{section.3.3}
-\contentsline {chapter}{\numberline {4}Linking Text to Knowledge Base for Relation Discovery}{31}{chapter.4}
-\contentsline {section}{\numberline {4.1}Learning Representaion of Entities and Relations from Text and Knowledge Base}{31}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Informative Features for Relation Extraction}{32}{subsection.4.1.1}
-\contentsline {section}{\numberline {4.2}Task Description}{33}{section.4.2}
-\contentsline {section}{\numberline {4.3}Linking Text to KB}{34}{section.4.3}
-\contentsline {section}{\numberline {4.4}Experimental Setup}{35}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Creating Dataset}{36}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}Experiments}{37}{subsection.4.4.2}
-\contentsline {section}{\numberline {4.5}Evaluation and Analysis}{38}{section.4.5}
-\contentsline {section}{\numberline {4.6}Conclusion}{39}{section.4.6}
-\contentsline {chapter}{\numberline {5}Entity Linking Among Lexical R}{41}{chapter.5}
-\contentsline {section}{\numberline {5.1}Task Description}{42}{section.5.1}
-\contentsline {section}{\numberline {5.2}Experimental Setup}{42}{section.5.2}
-\contentsline {section}{\numberline {5.3}Evaluation}{43}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}Evaluation Using Reconstruction}{43}{subsection.5.3.1}
-\contentsline {subsection}{\numberline {5.3.2}Evaluation on Semantic Similarity}{44}{subsection.5.3.2}
-\contentsline {section}{\numberline {5.4}Conclusion}{45}{section.5.4}
-\contentsline {chapter}{\numberline {6}Future Work}{49}{chapter.6}
-\contentsline {chapter}{\numberline {7}Summary}{51}{chapter.7}
+\contentsline {subsection}{\numberline {3.2.5}Universal Schema}{27}{subsection.3.2.5}
+\contentsline {section}{\numberline {3.3}Problem Identification}{27}{section.3.3}
+\contentsline {chapter}{\numberline {4}Linking Text to Knowledge Base for Relation Discovery}{29}{chapter.4}
+\contentsline {section}{\numberline {4.1}Learning Representaion of Entities and Relations from Text and Knowledge Base}{29}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Informative Features for Relation Extraction}{30}{subsection.4.1.1}
+\contentsline {section}{\numberline {4.2}Task Description}{31}{section.4.2}
+\contentsline {section}{\numberline {4.3}Linking Text to KB}{32}{section.4.3}
+\contentsline {section}{\numberline {4.4}Experimental Setup}{33}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Creating Dataset}{33}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Experiments}{34}{subsection.4.4.2}
+\contentsline {section}{\numberline {4.5}Evaluation and Analysis}{35}{section.4.5}
+\contentsline {section}{\numberline {4.6}Conclusion}{37}{section.4.6}
+\contentsline {chapter}{\numberline {5}Entity Linking Among Lexical Resources}{39}{chapter.5}
+\contentsline {section}{\numberline {5.1}Task Description}{39}{section.5.1}
+\contentsline {section}{\numberline {5.2}Experimental Setup}{40}{section.5.2}
+\contentsline {section}{\numberline {5.3}Evaluation}{41}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Evaluation Using Reconstruction}{41}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Evaluation on Semantic Similarity}{42}{subsection.5.3.2}
+\contentsline {section}{\numberline {5.4}Conclusion}{43}{section.5.4}
+\contentsline {chapter}{\numberline {6}Future Work}{47}{chapter.6}
