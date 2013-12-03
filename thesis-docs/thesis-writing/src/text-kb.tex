@@ -330,7 +330,12 @@ the whole dataset we can follow to protocols. In one type of aggregation we
 give more weight for more frequent relations (Micro statistics) and in the other
 protocol we compute mean and median of true ranks without considering the
 popularity of a relation, we give equal weight for each relation (Macro
-statistics).
+statistics). A related work has been conducted very recently by
+researchers in Google. In \cite{Weston2013} a combination of
+     a model I employed here and a model in \cite{Weston2012} has been used for
+     relation extraction. Unfortunately because of privacy issues it was not possible for
+     the authors to share their code or data with me which makes me unable to
+     reproduce it and compare it to my model.
 
 \begin{table}[ht]
 \caption{Relation Prediction Evaluation  }
@@ -476,4 +481,4 @@ enables us to link a corpus to a KB and then improve the learning of features
 from KB. With this formalization we can grounding KB relations to
  text and also populate a KB with facts coming from a corpus. We showed that the features come
 from both text and KB are more informative for relation extraction task than
-features that comes only from a KB.
+features that comes only from a KB. 

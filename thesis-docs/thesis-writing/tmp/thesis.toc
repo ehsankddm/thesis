@@ -38,7 +38,7 @@
 \contentsline {subsection}{\numberline {4.4.1}Creating Dataset}{33}{subsection.4.4.1}
 \contentsline {subsection}{\numberline {4.4.2}Experiments}{34}{subsection.4.4.2}
 \contentsline {section}{\numberline {4.5}Evaluation and Analysis}{35}{section.4.5}
-\contentsline {section}{\numberline {4.6}Conclusion}{37}{section.4.6}
+\contentsline {section}{\numberline {4.6}Conclusion}{38}{section.4.6}
 \contentsline {chapter}{\numberline {5}Entity Linking Among Lexical Resources}{39}{chapter.5}
 \contentsline {section}{\numberline {5.1}Task Description}{39}{section.5.1}
 \contentsline {section}{\numberline {5.2}Experimental Setup}{40}{section.5.2}

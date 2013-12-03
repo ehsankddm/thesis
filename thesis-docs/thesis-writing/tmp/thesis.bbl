@@ -126,6 +126,13 @@ ZS~Harris.
 \newblock {\em {Distributional structure}}.
 \newblock Springer Netherlands, 1981.
 
+\bibitem{Weston2013}
+Nicolas~Usunier {Jason Weston , Antoine Bordes, Oksana Yakhnenko}.
+\newblock {Connecting Language and Knowledge Bases with Embedding Models for
+  Relation Extraction}.
+\newblock In {\em In Proceedings of the Conference on Empirical Methods in
+  Natural Language Processing (EMNLP)}, pages 1366--1371. ACL, 2013.
+
 \bibitem{Klementiev}
 Ivan {Klementiev, Alexandre; Titov}.
 \newblock {Crosslingual Distributed Representations of Words}.
@@ -255,6 +262,11 @@ Joseph Turian, Lev Ratinov, and Yoshua Bengio.
 \newblock {Word representations: a simple and general method for
   semi-supervised learning}.
 \newblock {\em ACL}, (July):384--394, July 2010.
+
+\bibitem{Weston2012}
+Jason Weston, Fr\'{e}d\'{e}ric Ratle, Hossein Mobahi, and Ronan Collobert.
+\newblock {Deep learning via semi-supervised embedding}.
+\newblock {\em Neural Networks: Tricks of the \ldots}, pages 639--655, 2012.
 
 \bibitem{Yang2007}
 Dongqiang Yang and David M~W Powers.
