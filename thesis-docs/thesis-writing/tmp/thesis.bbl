@@ -49,6 +49,12 @@ Rahul Bhagat, Patrick Pantel, EH~Hovy, and Marina Rey.
 Helmut~Feldweg {Birgit Hamp}.
 \newblock {GermaNet - a Lexical-Semantic Net for German}.
 
+\bibitem{Blei2003}
+David~M. Blei, Andrew~Y. Ng, and Michael~I. Jordan.
+\newblock {Latent Dirichlet Allocation}.
+\newblock {\em The Journal of Machine Learning Research}, 3:993--1022, March
+  2003.
+
 \bibitem{Bollacker2008}
 Kurt Bollacker, Colin Evans, Praveen Paritosh, Tim Sturge, and Jamie Taylor.
 \newblock {Freebase: a collaboratively created graph database for structuring
@@ -260,6 +266,11 @@ Dongqiang Yang and David M~W Powers.
 Limin Yao, A~Haghighi, Sebastian Riedel, and A~McCallum.
 \newblock {Structured relation discovery using generative models}.
 \newblock In {\em EMNLP}, pages 1456--1466, 2011.
+
+\bibitem{Yao2012}
+Limin Yao, Sebastian Riedel, and Andrew McCallum.
+\newblock {Unsupervised relation discovery with sense disambiguation}.
+\newblock pages 712--720, July 2012.
 
 \bibitem{Yates2007}
 Alexander Yates, M~Cafarella, and M~Banko.

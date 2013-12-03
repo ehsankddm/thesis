@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2013.7.17)  3 DEC 2013 00:22
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2013.7.17)  3 DEC 2013 08:11
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -1298,11 +1298,11 @@ Overfull \hbox (88.69862pt too wide) in paragraph at lines 245--275
 
 ]
 Chapter 6.
-) (./conclusion.tex [49] [50
-
-]
+[49]) (./conclusion.tex [50]
 Chapter 7.
-) [51] (./thesis.bbl [52
+) [51
+
+] (./thesis.bbl [52
 
 ]
 LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <12> not available
@@ -1326,12 +1326,12 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 132.
  ) 
 Here is how much of TeX's memory you used:
- 10064 strings out of 493494
- 140811 string characters out of 3143820
- 336596 words of memory out of 3000000
- 13146 multiletter control sequences out of 15000+200000
+ 10070 strings out of 493494
+ 140904 string characters out of 3143820
+ 336628 words of memory out of 3000000
+ 13152 multiletter control sequences out of 15000+200000
  40934 words of font info for 75 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  36i,17n,40p,270b,645s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on thesis.dvi (65 pages, 231288 bytes).
+Output written on thesis.dvi (65 pages, 238408 bytes).

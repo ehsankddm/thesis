@@ -1,4 +1,58 @@
 \chapter{Future Work}
 In ~\autoref{ch:text-kb} I proposed an idea to learn representation of entities
 and relations encoded in a KB jointly with features extracted from a corpus.
-This idea can be extended further by incorporating 
+This idea can be extended further by incorporating more features in form of
+triples. Recently in \cite{Yao2012} and \cite{Riedel2010} topic
+modelling and also extra features for entity types have been successfully
+applied for relation discovery. We can also incorporate such features in to our
+models, specially into \textit{Text+KB}. Any new type features can be expressed
+as a new predicate, in a same formalization described in
+~\autoref{sec:textkb-link}. For example, by using any of available topic
+modeller methods we can assign a topic to each segment of text in our corpus and
+relate each relation or NE in this part to its topic. For example if we have
+assigned a topic of \textit{`politics`} for the part of a corpus which
+contains this triple:
+\begin{center}
+ \textsc{ /government/position\_held/president (~Mir-Hossein Mousavi,~Iran)}
+ \end{center}
+
+then for any relation or NE occurred in this part we can introduce a
+new feature:
+
+\begin{center}
+ \textsc{HAS\_TOPIC (~Mir-Hossein Mousavi,~Politics)}\\
+ \textsc{HAS\_TOPIC (~Iran,~Politics)}\\
+ \textsc{HAS\_TOPIC (~/government/position\_held/president,~Politics)}\\
+ \end{center}
+
+ This will probably lead to learn better features and therefore better
+ discrimination between different NEs and relations. For topics, we can induce
+ them by some methods like LDA in \cite{Blei2003} or use a corpus like Wikipedia
+  which topics of each page is already provided.
+  
+  Likewise for the work in ~\autoref{ch:ent-link} more features from different
+  resources can be embedded to the model. Some experiments has already been
+  conducted to learn WordNet, FrameNet, OmegaWiki and Wikipedia word embeddings
+  jointly which results will be reported later through future scientific
+  publications. Also based on the results from the current work, we can predict
+  cross-resource sense alignments and link entities across multiple resources.
+  Our model can be used as a bootstrapping model which uses available
+  cross-lingual or cross-resource multiple sense alignments to learn embeddings
+  and then use same embeddings to predict new set of alignments. Currently we
+  are in the phase of preparing evaluation dataset for this idea.
+  
+  One shortage of my work in  ~\autoref{ch:text-kb} is that the output of
+  the model I used is not probabilistic. In \cite{Bordes2011} and
+  \cite{Bordes2012} and in our model, each relation embedding induce a metric
+  space which makes the similarity of different relations incomparable to each
+  other. Because of this problem we can not compare it to some of other previous
+  models such as \textit{Universal Schema} \cite{Riedel2013}. In
+  \cite{Bordes2011} a trick based on kernel density estimation has been proposed and tested. 
+  The slow performance of this trick makes it infeasible for large datasets.
+  Currently I have implemented some alternative approaches for normalizing
+  similarity scores across different relations but since the model is not
+  designed to be probabilistic all the current tricks may not theoretically
+  sound but can be practically useful to make it possible to compare our work to
+  Riedel et al.'s universal schema.
+  
+  
