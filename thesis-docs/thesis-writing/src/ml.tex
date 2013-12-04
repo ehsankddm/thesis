@@ -28,8 +28,8 @@ of artificial neural networks (ANN). ANNs can be used for variety of
 applications in machine learning: classification, clustering, dimensionality
 reduction,\ldots ~. What makes ANN important for us is their ability to do many
 of mentioned tasks jointly. Its layer-wised architecture very well fits to the
-idea of multi-task learning. Different layers of an ANN can have different
-objectives and can share information with other layers through parameter
+idea of multi-task learning \cite{Bengio2012a}. Different layers of an ANN can
+have different objectives and can share information with other layers through parameter
 sharing. First I discuss about elements and architecture of ANNs and then we
 will very briefly review \textit{backpropagation} and \textit{stochastic
 gradient descent} as we need them to understand the mechanism of learning in
@@ -43,7 +43,7 @@ on this input, the neuron will output a signal.
 layers and receive input from the neurons from the previous layer and send their
 outputs to the next layer. The combination of different layers and using
 different activation function with different degree of non-linearity is enabling
-ANNs to learn non-linear functions.
+ANNs to learn non-linear functions.\cite{Braspenning1995}
 A common mathematical model for neuron in ANNs is shown in
 \eqref{eq:neuron} and visually in \autoref{fig:neuron-model}.
 \begin{equation}
@@ -79,7 +79,7 @@ The type of ANNs matters mostly for us in this research are
 networks which neurons are arranged in ordered layers and there is no feedback
 from a deeper layer  to the layers in the back. The first layer is usually for
 unsupervised pre-training of objects, then a layer for adding non-linearity
-comes and finally we have an axillary classification or ranking task.
+comes and finally we have an axillary classification or ranking task.\cite{Bengio2003}
  \begin{figure}[h!]
   \caption{A Neural Language Model proposed by Bengio et al.}
   \centering
@@ -110,18 +110,19 @@ for training the parameter of the layer. :
     decrease the difference between the predicted output and the true output for
     each point. This forms an objective function (error function) which can be
     minimized by gradient descent, by calculating error derivatives and update
-    weights to decrease them.
+    weights to decrease them.\cite{Bengio2012}
     Since each data point can change the parameters, we call this algorithm an online learning algorithm.
   \item[Batch learning] \hfil \\
   In this approach, unlike the previous approach, first we calculate the
   predicted outputs of whole dataset and form the error function and try to
   minimize the error derivative for whole dataset. Since we update the
   parameters after observing all points in the training dataset we call this
-  approach batch learning.
+  approach batch learning.\cite{Braspenning1995}
   
   \item[Stochastic Gradient Descent] \hfil \\
-  The idea of SGD is to make best out of both previous ideas. Neither updating
-  after each datapoint nor after all points, SGD makes small batches in each
+  The idea of SGD \cite{Bottou2010},~\cite{Bengio2012} is to make best out of both
+  previous ideas.
+  Neither updating after each datapoint nor after all points, SGD makes small batches in each
   iteration, each usually contains only 100 datapoints, and calculate error
   derivatives and update parameters for each batch.
   

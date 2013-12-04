@@ -12,23 +12,22 @@
 \BOOKMARK [2][-]{subsection.3.2.2}{TextRunner}{section.3.2}% 12
 \BOOKMARK [2][-]{subsection.3.2.3}{USP}{section.3.2}% 13
 \BOOKMARK [2][-]{subsection.3.2.4}{Rel-LDA \046 Type-LDA}{section.3.2}% 14
-\BOOKMARK [2][-]{subsection.3.2.5}{Universal Schema}{section.3.2}% 15
-\BOOKMARK [1][-]{section.3.3}{Problem Identification}{chapter.3}% 16
-\BOOKMARK [0][-]{chapter.4}{Linking Text to Knowledge Base for Relation Discovery}{}% 17
-\BOOKMARK [1][-]{section.4.1}{Learning Representaion of Entities and Relations from Text and Knowledge Base}{chapter.4}% 18
-\BOOKMARK [2][-]{subsection.4.1.1}{Informative Features for Relation Extraction}{section.4.1}% 19
-\BOOKMARK [1][-]{section.4.2}{Task Description}{chapter.4}% 20
-\BOOKMARK [1][-]{section.4.3}{Linking Text to KB}{chapter.4}% 21
-\BOOKMARK [1][-]{section.4.4}{Experimental Setup}{chapter.4}% 22
-\BOOKMARK [2][-]{subsection.4.4.1}{Creating Dataset}{section.4.4}% 23
-\BOOKMARK [2][-]{subsection.4.4.2}{Experiments}{section.4.4}% 24
-\BOOKMARK [1][-]{section.4.5}{Evaluation and Analysis}{chapter.4}% 25
-\BOOKMARK [1][-]{section.4.6}{Conclusion}{chapter.4}% 26
-\BOOKMARK [0][-]{chapter.5}{Entity Linking Among Lexical Resources}{}% 27
-\BOOKMARK [1][-]{section.5.1}{Task Description}{chapter.5}% 28
-\BOOKMARK [1][-]{section.5.2}{Experimental Setup}{chapter.5}% 29
-\BOOKMARK [1][-]{section.5.3}{Evaluation}{chapter.5}% 30
-\BOOKMARK [2][-]{subsection.5.3.1}{Evaluation Using Reconstruction}{section.5.3}% 31
-\BOOKMARK [2][-]{subsection.5.3.2}{Evaluation on Semantic Similarity}{section.5.3}% 32
-\BOOKMARK [1][-]{section.5.4}{Conclusion}{chapter.5}% 33
-\BOOKMARK [0][-]{chapter.6}{Future Work}{}% 34
+\BOOKMARK [1][-]{section.3.3}{Problem Identification}{chapter.3}% 15
+\BOOKMARK [0][-]{chapter.4}{Linking Text to Knowledge Base for Relation Discovery}{}% 16
+\BOOKMARK [1][-]{section.4.1}{Learning Representaion of Entities and Relations from Text and Knowledge Base}{chapter.4}% 17
+\BOOKMARK [2][-]{subsection.4.1.1}{Informative Features for Relation Extraction}{section.4.1}% 18
+\BOOKMARK [1][-]{section.4.2}{Task Description}{chapter.4}% 19
+\BOOKMARK [1][-]{section.4.3}{Linking Text to KB}{chapter.4}% 20
+\BOOKMARK [1][-]{section.4.4}{Experimental Setup}{chapter.4}% 21
+\BOOKMARK [2][-]{subsection.4.4.1}{Creating Dataset}{section.4.4}% 22
+\BOOKMARK [2][-]{subsection.4.4.2}{Experiments}{section.4.4}% 23
+\BOOKMARK [1][-]{section.4.5}{Evaluation and Analysis}{chapter.4}% 24
+\BOOKMARK [1][-]{section.4.6}{Conclusion}{chapter.4}% 25
+\BOOKMARK [0][-]{chapter.5}{Entity Linking Among Lexical Resources}{}% 26
+\BOOKMARK [1][-]{section.5.1}{Task Description}{chapter.5}% 27
+\BOOKMARK [1][-]{section.5.2}{Experimental Setup}{chapter.5}% 28
+\BOOKMARK [1][-]{section.5.3}{Evaluation}{chapter.5}% 29
+\BOOKMARK [2][-]{subsection.5.3.1}{Evaluation Using Reconstruction}{section.5.3}% 30
+\BOOKMARK [2][-]{subsection.5.3.2}{Evaluation on Semantic Similarity}{section.5.3}% 31
+\BOOKMARK [1][-]{section.5.4}{Conclusion}{chapter.5}% 32
+\BOOKMARK [0][-]{chapter.6}{Future Work}{}% 33

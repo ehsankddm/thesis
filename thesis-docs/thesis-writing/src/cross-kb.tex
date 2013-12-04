@@ -1,6 +1,6 @@
-\chapter[Entity Linking Among Lexical Resources]{Entity Linking Among Lexical
-Resources\footnote{This part of the work has been done during an internship in UKP Lab, Technical University of Darmstadt. All the codes and results produced during
-this time belongs to Prof. Dr. Iryna Gurevych and can be obtained per
+\chapter[Entity Linking Among Lexical Resources]{Entity Linking Among
+Multiple Lexical Resources\footnote{This part of the work has been done during
+an internship in UKP Lab, Technical University of Darmstadt. All the codes and results produced during this time belongs to Prof. Dr. Iryna Gurevych and can be obtained per
 request.}}
 
 \label{ch:ent-link}
@@ -108,7 +108,9 @@ In this setup we will look to contribution of the learned features in predicting
 Bordes et al. (Bordes2011) proposed a ranking task that for each triple $(e_{i} , r_{k}, e_{j} )$ in the data set,
  all the entities will be ranked as a candidate for being right entity of the triple 
  given the relation and the left entity. Depends on which one of the models is used, SE or SME-Bil, all the entities will be sorted
-  based on their score regarding Equation~\eqref{eq:sim} or Equation~\ref{eq:dot} previously introduced in section~\ref{ssec:bordes}. 
+  based on their score regarding Equation~\eqref{eq:sim} or
+  Equation~\ref{eq:dot} previously introduced in ~\autoref{sec:
+  repr-learning-kb}.
   By keeping the statistics of difference between the predicted rank of $e_{j}$ and its true rank and also repeat the same process
   for left entities, we will be able to report the mean and median predicted rank of entities per relation and in total. Bordes et al.
    proposed to schema for calculating the average rank, micro averaging which emphasis on more frequent relations by

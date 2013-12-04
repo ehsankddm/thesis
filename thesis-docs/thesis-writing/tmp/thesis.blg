@@ -4,12 +4,14 @@ The top-level auxiliary file: thesis.aux
 The style file: plain.bst
 Database file #1: library.bib
 Warning--there's a number but no series in Alfonseca2012
+Warning--there's a number but no volume in Bengio2012a
 Warning--there's a number but no series in Bergstra2010
 Warning--there's a number but no series in Bhagat2007
 Warning--empty journal in BirgitHamp
 Warning--empty year in BirgitHamp
 Warning--there's a number but no volume in Bordes2011
 Warning--there's a number but no volume in Bottou2010
+Warning--can't use both volume and number fields in Braspenning1995
 Warning--can't use both author and editor fields in Fellbaum1998
 Warning--can't use both volume and number fields in Fellbaum1998
 Warning--can't use both volume and number fields in Mintz2009
@@ -23,45 +25,45 @@ Warning--there's a number but no volume in Turian2010b
 Warning--empty journal in Yao2012
 Warning--there's a number but no series in Yates2007
 Warning--there's a number but no volume in Zesch2006
-You've used 55 entries,
+You've used 58 entries,
             2118 wiz_defined-function locations,
-            839 strings with 12780 characters,
-and the built_in function-call counts, 20573 in all, are:
-= -- 2077
-> -- 878
-< -- 34
-+ -- 345
-- -- 290
-* -- 1354
-:= -- 3206
-add.period$ -- 166
-call.type$ -- 55
-change.case$ -- 306
+            858 strings with 13260 characters,
+and the built_in function-call counts, 21414 in all, are:
+= -- 2156
+> -- 921
+< -- 35
++ -- 362
+- -- 304
+* -- 1414
+:= -- 3354
+add.period$ -- 175
+call.type$ -- 58
+change.case$ -- 321
 chr.to.int$ -- 0
-cite$ -- 75
-duplicate$ -- 858
-empty$ -- 1608
-format.name$ -- 290
-if$ -- 4451
+cite$ -- 80
+duplicate$ -- 891
+empty$ -- 1671
+format.name$ -- 304
+if$ -- 4619
 int.to.chr$ -- 0
-int.to.str$ -- 55
-missing$ -- 52
-newline$ -- 274
-num.names$ -- 110
-pop$ -- 354
+int.to.str$ -- 58
+missing$ -- 56
+newline$ -- 289
+num.names$ -- 116
+pop$ -- 371
 preamble$ -- 1
-purify$ -- 255
+purify$ -- 268
 quote$ -- 0
-skip$ -- 696
+skip$ -- 715
 stack$ -- 0
-substring$ -- 1350
-swap$ -- 304
-text.length$ -- 34
+substring$ -- 1381
+swap$ -- 309
+text.length$ -- 35
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 214
-warning$ -- 20
-while$ -- 207
-width$ -- 57
-write$ -- 597
-(There were 20 warnings)
+type$ -- 224
+warning$ -- 22
+while$ -- 215
+width$ -- 60
+write$ -- 629
+(There were 22 warnings)

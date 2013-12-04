@@ -32,6 +32,17 @@ Yoshua Bengio.
 \newblock {Learning deep architectures for AI}.
 \newblock {\em Foundations and Trends® in Machine Learning}, 2009.
 
+\bibitem{Bengio2012}
+Yoshua Bengio.
+\newblock {Practical recommendations for gradient-based training of deep
+  architectures}.
+\newblock {\em Neural Networks: Tricks of the Trade}, 2012.
+
+\bibitem{Bengio2012a}
+Yoshua Bengio, Aaron Courville, and Pascal Vincent.
+\newblock {Representation learning: A review and new perspectives}.
+\newblock {\em arXiv preprint arXiv \ldots}, (1993):1--34, 2012.
+
 \bibitem{Bergstra2010}
 James Bergstra, Olivier Breuleux, Fr\'{e}d\'{e}ric Bastien, Pascal Lamblin,
   Razvan Pascanu, Guillaume Desjardins, Joseph Turian, David Warde-farley, and
@@ -78,6 +89,12 @@ Antoine Bordes, Jason Weston, R~Collobert, and Y~Bengio.
 L~Bottou.
 \newblock {Large-scale machine learning with stochastic gradient descent}.
 \newblock {\em Proceedings of COMPSTAT'2010}, (x), 2010.
+
+\bibitem{Braspenning1995}
+P.J. Braspenning, F.~Thuijsman, and A.~Weijters.
+\newblock {\em {Artificial neural networks: an introduction to ANN theory and
+  practice}}, volume 931.
+\newblock Springer, 1995.
 
 \bibitem{Brown1992}
 PF~Brown, PV~Desouza, and RL~Mercer.

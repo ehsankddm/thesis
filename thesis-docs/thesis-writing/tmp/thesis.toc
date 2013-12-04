@@ -27,7 +27,6 @@
 \contentsline {subsubsection}{\numberline {3.2.4.1}Input format and preprocessing}{23}{subsubsection.3.2.4.1}
 \contentsline {subsubsection}{\numberline {3.2.4.2}Model Description}{24}{subsubsection.3.2.4.2}
 \contentsline {subsubsection}{\numberline {3.2.4.3}Evaluation}{27}{subsubsection.3.2.4.3}
-\contentsline {subsection}{\numberline {3.2.5}Universal Schema}{27}{subsection.3.2.5}
 \contentsline {section}{\numberline {3.3}Problem Identification}{27}{section.3.3}
 \contentsline {chapter}{\numberline {4}Linking Text to Knowledge Base for Relation Discovery}{29}{chapter.4}
 \contentsline {section}{\numberline {4.1}Learning Representaion of Entities and Relations from Text and Knowledge Base}{29}{section.4.1}
