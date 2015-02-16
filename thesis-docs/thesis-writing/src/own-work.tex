@@ -1,4 +1,4 @@
-\chapter{Story so far}
+\chapter{PhD story so far}
 Nowadays searching through Internet is the first step we take if we want to
 answer our question.
 We convert our questions to sequences of keywords and search engines are trying 
@@ -10,9 +10,14 @@ approaches in understanding the meaning of a query and the underlying semantics 
 the web. The next natural improvement is to return a piece of information which directly approaches to 
 answer the user question. For this reason, the elements of a query, concepts or entities and 
 their relations should be identified and documents ( which might have the answer) should be mapped to the 
-same space of entities and relations in order to find the the desired information in the question.
+same space of entities and relations in order to find the the desired knowledge
+asked in the question. For the sake of achieving to this level of intelligence,
+we need a broad-coverage and open domain \emph{Semantic Parser} that helps our
+software to deal with complexity of language. My main activity during my PhD
+studies is to find solution to subset of problems that hinder us in obtaining
+such semantic parsers.
 
-\section{Semantic Parsing}
+\section{Semantic parsing}
 \label{sec:usp-sem-parse}
 
 Semantic parsing is finding a mapping from a sentence (surface structure) to its
@@ -77,38 +82,281 @@ sentence (argument identification) and each argument is labeled with its semanti
     Anakata\rbrack_{author}.
   \end{enumerate}
 
-These examples aim to show the challenge of mapping from syntax to semantics.
+On beginning, I had the impression that syntax can be quite powerful and
+can provide enough information for semantic analysis. But as we can see, these
+examples can show us the challenge of mapping from syntax to semantics.
 while \emph{Emacs} have different syntactic roles in above examples, its
-semantic role doesn't change and additionally, the predicates with one frame,
+semantic role does not change and additionally, the predicates with one frame,
 \emph{text creation}, has two different lexical realizations: \emph{writing} and
 \emph{composing}.
 This shows that there is no one-to-one mapping between surface syntax analysis and the semantic roles while syntax remains as a strong signal. The mapping
 from syntactic function to semantic roles of a verbal argument is commonly 
 called \textbf{linking} in the literature.
-\cite{Grenager2006,Lang2011a,Lang2011b}
+\citep{Grenager2006,Lang2011a,Lang2011b}
    
+\subsection{Unsupervised semantic parsing}
+\label{ssec:usp-sem-parse}
 In order to automatically parse sentences to their semantic-frame
-representations, one can train a statistical model on available annotations.
+representations, one can train a statistical model on available
+manually annotated resources.
 While this approach can be quite effective given a thorough and richly-annotated
 resource but because of major flaws highlighted below, unsupervised methods
 (annotation-free models) can be used as a replacement or complementary medium
 for approaching the task.
 
 \begin{description}
-\item[New domains need new annotation] \hfil \\ Although incorporating
+\item[New domains need new annotations] \hfil \\ Although incorporating
 annotated corpus and supervised approaches can achive high accuracy for in-domain sentences 
 \cite{Punyakanok2008,Marquez2008}, they have been
 shown to perform poorly on open-domain texts \cite{Pradhan2008}.
 \item[Difficulty of multi-lingual annotation] \hfil \\ The difficulty
 of prdoucing high-quality annotations for a large number of languages from
 perspective of time and budget is another reason to move toward unsupervised
-models
-\item[Granularity of abstraction] \hfil \\ In FrameNet, predicates are put to a
-same semantic frame if they usually co-occure in a same situation and roles are
+models where little or no human effort is needed.
+\item[Granularity of abstraction] \hfil \\ In FrameNet, predicates are assigned
+to a same semantic frame if they usually co-occure in a same situation and roles are
 frame-specific. In contrast to FrameNet, PropBank follow a different strategy
-where there is no structured relation between predicates. Also roles ar meant to
-be specific to each verb and formally do not share a structure together. Depends
-on desired NLP task, one should find a trade-of between these levels.
+where there is no structured relation between predicates, namely each frame is
+only being assigned to one predicate.
+Also roles ar meant to be specific to each verb and formally do not share a
+structure together. Additionally, opposite verbs (antonyms) are assigned to a
+same frame. Depends on a desired NLP task, one should find a trade-of between
+these levels of granularity.
 
 \end{description}
+
+Above facts hint us to aim for unsupervised learning of semantic-frames. Looking
+back to set of work on this direction and with help of my supervisor I
+understood that that succesful models are dominated by idea of using
+generative models. Generative models are probabilistic models which estimate the joint distribution of
+observable variables (surface forms) and hidden variables (meaning
+representation). The so-called generative story of the model describe the
+interaction between hidden and observable variables and should be designed for
+specific scenario by researchers. Because of difficulty of estimation of joint
+probabilities, generative stories tend to use as few number as possible
+variables. Therefore, a small set of features (observables) but with very strong
+signals (informative features) are usually used. In the specific case
+of unsupervised frame learning, the features are usually strong syntactic
+signals. This can limit models and it does in many ways such as: 1) the model
+over-relies on syntax and can not easily abstract away the syntax to capture
+semantics, 2) Adapting model from one language to another one needs a
+substantial re-designing of features and language specific knowledge. These are
+the main flaws in previous work that my supervisor and I were trying to address
+in last 14 months. In the next section I will briefly describe our solution for
+such flaws and demonstrate our results.
+
+\subsection{Feature-rich unsupervised learning of frames and semantic roles}
+\label{ssec:feat-usp-sem-parse}
+
+The materials of this section are based on our joint work with my supervisor and
+briefly summarize our solution for effective unsupervised learning of meaning
+representations. There are two recent scientific papers demonstrating our work
+which both have passed the review phase and waiting for the final decision. The
+first paper, \emph{``Unsupervised Induction of Semantic Roles within a
+Reconstruction-Error Minimization Framework''} is submitted to NAACL
+2015\footnote{The North American Chapter of the Association for Computational Linguistics} as a long paper and the second paper, 
+\emph{``Inducing Semantic Representation from Text by Jointly Predicting and
+Factorizing Relations''} is submitted to the workshop track of ICLR
+2015\footnote{International Conference of Learning Representation}. The preprint
+version of both papers are available online in \emph{arXiv}.
+
+
+In our work, we propose a framework which address the main problem of previous
+similar models, namely using few strong syntactic features. In our framework,
+instead of using few language-dependent features, we let our model
+benefit from huge space of extraced features, as it is common in supervised
+methods. The difference is that, here we do not have access to labeled data so
+unlike supervised methods we can not benefit from that which makes the problem
+hard. 
+
+
+\subsubsection{Model description}
+\label{sssec:model}
+Our model consists of two components: a log-linear feature rich semantic role labeler and
+a tensor-factorization model which captures interaction between semantic roles and argument fillers. 
+
+For the first component, we can use any existing approach for semantic role
+labeling as long as the posterior of frames and roles can be computed
+effectively. The input data to this component is the feature-vector
+representation of a sentence which arguments are identified and this component
+is responsible to assing a frame to the predicates and roles to arguments.
+ 
+consider this sentence where arguments are shown by italic and predicate by
+bold font:
+
+\begin{center}
+ \textit{Anakata} \textbf{writes} his \textit{emails} with  \textit{Emacs}.
+\end{center}
+
+the goal of the first component is to take the input sentence as feature-vector
+representation and annotates it with cluster-id of induced frames and roles:
+
+\begin{center}
+\lbrack Anakata\rbrack_{1}  \lbrack {writes}
+    \rbrack_{F23} his \lbrack
+    emails\rbrack_{3} with \lbrack
+    Emacs\rbrack_{10}.
+\end{center}
+
+How can we train the semantic role labeler without supervision? This is the
+responsibility of the second component to provide a signal for the semantic role
+labeler to find the best and menaingful configuration of frames and
+roles. The second component ovjective is prediction of argument tuples based
+on roles and the predicate given by the first model. The assumption is that, if
+the signal (role assignments) of the first model is good enough then the second
+model is able to perform well, otherwise if the second model is unable to
+predict missing arguments, it means information from the first model has bad
+quality. In conclusion, training these two components jointly should lead to the
+model that role assignments are mostly corresponding to roles and frames
+proposed by linguists. 
+
+For example, the second component should be able to predict the word
+\emph{emails} in the example if other arguments and all of roles are given:
+
+\begin{center}
+\lbrack Anakata\rbrack_{1}  \lbrack {writes}
+    \rbrack_{F23} his \lbrack
+    \st{emails}\rbrack_{3} with \lbrack
+    Emacs\rbrack_{10}.
+\end{center}
+
+For each argument we learn a vector which encodes semanitc knowledge of this
+specific argument. Moreover, we learn a matrix (transformation) for each
+frame-role pair. Furthermore, the model calculates the similarity score between
+the embedding of an argument and the transformed embeddings of the other argument candidates. This score can
+be used for training the model. Why do we think that the second component can
+provide meaningful scores? Mainly because predicate-argument representation is
+capturing semantic core of the sentence(e.g.\ a situation, a relation or an
+event).
+Thus, these representations, rather than surface linguistic details like argument order or syntactic functions, 
+should be crucial for narrowing down the set of potential candidates for
+argument tuples.
+
+In our papers we refer to our first component as: \emph{encoding
+model}, and the second component as: \emph{reconstruction model} to point the
+link to the idea of autoencoders in artificial neural networks. Although, our model, unlike
+those, is not reconstructing the whole input space (feature representation) and
+also is using two different family of models as encoding and decoding
+components.
+While our first model is set of independent log-linear classifiers, our reconstruction
+component is a tensor factorization model which factorizes over frames and roles
+coupled by arguments. 
+
+For the details of the model and our inference algorithm, I refer the readers to
+our papers. 
+
+As like previous models, our framework should be evaluated experimentally. We
+used the standard setup in previous models~\citep{Lang10} by evaluating our
+model against the CoNLL 2008 shared task data~\citep{conll08} for English and
+the CoNLL 2009 shared task for German.
+
+The English dataset contains a version of Penn Tree-bank and PropBank which
+automatic dependency analyses are additionally included. This dataset is divided
+to three sgements of training, development and test. We took the largest
+segment namely the training subset for producing role labelings and comparing it
+to gold data. The other two segments of the data, development and testing, were
+used to choose a set of paramateres that yields the best
+labeling of roles compared to the annotation. 
+
+As in most previous work on unsupervised SRL, we evaluate our model using clustering metrics: purity, collocation and their harmonic mean F1. 
+\emph{Purity} (PU) measures the average number of arguments with the same gold
+role label in each cluster, \emph{collocation} (CO) measures to what extent a specific gold role is represented by a single cluster. 
+F1 is their harmonic mean.
+For actual formula to calculate purity and collocation we refer to our long
+paper.
+
+For the semantic role labeling (encoding) component,
+we relied on 14 feature patterns used for argument labeling in one of the
+popular supervised role labelers~\citep{johansson2008}, which resulted in a
+quite large feature space (49,474 feature instantiations for our English dataset).
+
+\subsubsection{Experimental evaluation}
+\label{sssec:eval}
+Following ~\citep{Lang10}, we use a baseline ({\em SyntF}) which simply
+clusters predicate arguments according to the dependency relation to their head.
+A separate cluster is allocated for each of 20 
+most frequent relations in the dataset and an additional cluster is used for all
+other relations.
+As observed in the previous work~\citep{Lang11a}, this is a hard baseline to beat. %, especially when, as in this case, the gold standard syntax is used.
+
+We also compare against previous approaches:
+the latent logistic classification model \citep{Lang10}  (labeled {\em LLogistic}), 
+the  agglomerative clustering  method \citep{Lang11a} ({\em Agglom}),  the graph partitioning approach \citep{Lang11b} ({\em GraphPart}),
+the global role ordering model~\citep{garg2012} ({\em RoleOrdering}). We also report results of an  improved version of {\em Agglom},
+recently reported by~\citet{Lang14} ({\em Agglom+}).
+The strongest previous model is {\em Bayes}: {\em Bayes} is the most accurate (`coupled') version of  
+the Bayesian model of~\citet{TitovKlementEacl12},
+estimated from the CoNLL data without relying on any external data.
+
+\begin{table}[t]
+\caption{Results on English (PropBank / CoNLL 2008).}
+\begin{center}
+
+\begin{tabular} {l c c c}  %{l*{5}{c}r}
+
+\label{tab:en}
+                & PU & CO & F1 \\
+\hline
+Reconst(Our model)         & 79.7 & 86.2 & {\bf 82.8}   \\
+Bayes           & 89.3 & 76.6 & 82.5   \\
+Agglom+          &  87.9 & 75.6 & 81.3 \\
+RoleOrdering    & 83.5 & 78.5 & 80.9 \\
+Agglom        & 88.7 & 73.0 & 80.1   \\
+GraphPart		  &	88.6 & 70.7 & 78.6   \\
+%Linking$^{*}$          &  74.5 & 83.1 & 78.6 \\
+LLogistic         & 79.5 & 76.5 & 78.0   \\
+
+\hline
+SyntF		      & 81.6 & 77.5 & 79.5   \\
+\end{tabular}
+
+\end{center}
+\end{table}
+
+
+
+For German, we replicate the experimental set-up previously
+used by Titov and Klementiev~\citet{TitovAcl2012}. As for English,
+we report results of the syntactic baseline ({\em SyntF}).  
+The results for all approaches are presented in Table~2.
+We compare against {\em Bayes (De)} -- the {\em Bayes} model~
+with argument signatures specialized for German (as reported in Titov and
+Klementiev~\citet{TitovAcl2012}).
+We also consider the original version of the {\em Bayes} model (denoted as {\em Bayes (En)}).
+ 
+\begin{table}
+\caption{Results on German (SALSA / CoNLL 2009).}
+\begin{center}
+\begin{tabular}{l*{5}{c}r}
+                & PU & CO & F1 \\
+\hline
+Reconst(Our model)         & 76.3 & 87.0 & \textbf{81.3}   \\
+Bayes (De)         		   & 86.8 & 75.7 & 80.9   \\
+Bayes (En) 				   & 80.6 & 76.0 & 78.3 \\
+\hline
+SyntF		      & 83.1 & 79.3 & 81.2  \\
+\end{tabular}
+\end{center}
+
+\end{table}
+
+For German, we replicate the experimental set-up previously
+used by Titov and Klementiev~\citet{TitovAcl2012}. As for English,
+we report results of the syntactic baseline ({\em SyntF}).  
+The results for all approaches are presented in Table~2.
+We compare against {\em Bayes (De)} -- the {\em Bayes} model~
+with argument signatures specialized for German (as reported in Titov and
+Klementiev~\citet{TitovAcl2012}).
+We also consider the original version of the {\em Bayes} model (denoted as {\em Bayes (En)}). 
+
+The overall picture for German closely resembles the one for English. Our method achieves results comparable to
+the best method evaluated in this setting. 
+Importantly, parameters and features of our model for German and English are identical. 
+On the contrary, by comparing  {\em Bayes (En)} with {\em Bayes (De)},  one can see that specialization of argument
+signatures was crucial for the Bayesian model.  Also, similarly to English, our method induces less fine-grain sets of semantic roles but achieves
+much higher collocation scores. This can be seen as an advantage since our roles
+are linguistically justifiable.
+
+
+
 
