@@ -14,9 +14,8 @@ version of the model and evaluate it as soon as possible.
   \item[Improvements on runtime] Any broad-coverage semantic parser
 should be able to be scaled to very large set of data. Albeit our current
 framework is using either linear or bilinear models further investigation is
-needed to improve the performance. The current candidate for improving run-time
-of the model is to use factorization with less parameters, i.e.\ using vectors
-for modeling frames rather than matrices. This modification requires us to
+needed to improve the performance. The current candidate
+for improving run-time of the model is to use factorization with less parameters, i.e.\ using vectors for modeling frames rather than matrices. This modification requires us to
 revise our current factorization model and relax some of our model assumptions.
 (not using frame-specific roles, for example.)
   \item[New learning objective] Our factorization model uses argument
@@ -27,9 +26,10 @@ revise our current factorization model and relax some of our model assumptions.
   language and its translation, the model should be able to induce similar
   semantic representation for the pair.
   \item[Machine reading and Q/A] Another dimension of work, is to see the
-  application of our model in upstream NLP tasks such as question/answering (Q/A) and machine
-reading/comprehension. This depends on activating the potential ability of our
-framework to capture logical relations between predicate/frames. 
+  application of our model in upstream NLP tasks such as question/answering
+  (Q/A), machine reading/comprehension and relation extraction. All these tasks
+  can benefit from powerful meaning representations. The major success depends
+  on activating the potential ability of our framework to capture higher-order relations across predicates/frames.
   \item[Modality and Negation] Moreover, I would like to mainly
 improve our framework to capture more sophisticated language usages. While our current framework is limited to simple examples of compositionality (ignoring noun and verb modifications), I would
 like to push it for capturing negation and modality and go beyond propositional sentences. I have already gathered related
@@ -46,3 +46,61 @@ started to be explored very recently.
 
 \section{Schedule}
 \label{sec:sch}
+
+In this section I provide a coarse-grain time table for the sub-problems I want
+to address for rest of the duration of studies.
+
+\begin{description}
+  \item[February 2015 - March 2015 ~~~~(2 months)]
+  \hfill
+  \begin{itemize}
+    \item Working on semi-supervised version of the model
+  \end{itemize}
+  
+  \item[April 2015 - September 2015  ~~~~(6 months)]\hfill 
+  \begin{itemize}
+    \item Working on frame induction using argument prediction objective
+    \item Working on frame induction using paraphrase pairs (mono-lingual and
+    cross-lingual)
+  \end{itemize}
+  
+  
+  \item[October 2015 - March 2016 ~~~~(6 months)]\hfill
+	  \begin{itemize}
+    	\item Applying achievements of the previous phases for Q/A and machine
+    	comprehension, conditioned on success in previous levels
+    	\item Working on shallow inference based on frames
+	  \end{itemize}
+
+  \item[April 2016 - September 2016 ~~~~(6 months)] \hfill 
+	  \begin{itemize}
+    	\item Continue working on inference based on frames
+    	\item Working on modeling modality and negation
+    
+	  \end{itemize}
+
+\item[October 2016 - March 2017 ~~~~(6 months)] \hfill
+	  \begin{itemize}
+    	\item Applying achievements of the previous phases for Q/A and machine
+    	comprehension, conditioned on success in previous levels
+    	\item Finalizing the gaps in the work and preparation for writing the
+    	thesis
+    
+	  \end{itemize}
+
+\item[April 2017 - September 2017 ~~~~(6 months)]\hfill
+\begin{itemize}
+    	\item Writing the thesis
+    	\item Finalizing ready-to-publish work
+    	    
+	  \end{itemize}
+\item[October 2017 - December 2017~~~~(3 months)] \hfill
+\begin{itemize}
+    	\item Submititting the thesis
+    	\item Preparing for the defense
+    	\item PhD defense
+    	    
+	  \end{itemize}
+\end{description}
+
+
