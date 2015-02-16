@@ -1,0 +1,48 @@
+\chapter{PhD story from now}
+
+
+
+\section{Future work}
+\label{sec:fwork}
+
+The future work consists of exentions to the current framework across multiple
+dimensions. I briefly mention them here:
+
+\begin{description}
+  \item[Semi-supervised version] The immediate and urgent task is to implement the semi-supervised
+version of the model and evaluate it as soon as possible.
+  \item[Improvements on runtime] Any broad-coverage semantic parser
+should be able to be scaled to very large set of data. Albeit our current
+framework is using either linear or bilinear models further investigation is
+needed to improve the performance. The current candidate for improving run-time
+of the model is to use factorization with less parameters, i.e.\ using vectors
+for modeling frames rather than matrices. This modification requires us to
+revise our current factorization model and relax some of our model assumptions.
+(not using frame-specific roles, for example.)
+  \item[New learning objective] Our factorization model uses argument
+  prediction as its learning objective, this idea can be extended to use
+  paraphrases. The learning objective then, will be formulated as inducing
+  similar semantic representation for pair of paraphrases. Another objective
+  could be, using translation model. Given a pair of sentences in source
+  language and its translation, the model should be able to induce similar
+  semantic representation for the pair.
+  \item[Machine reading and Q/A] Another dimension of work, is to see the
+  application of our model in upstream NLP tasks such as question/answering (Q/A) and machine
+reading/comprehension. This depends on activating the potential ability of our
+framework to capture logical relations between predicate/frames. 
+  \item[Modality and Negation] Moreover, I would like to mainly
+improve our framework to capture more sophisticated language usages. While our current framework is limited to simple examples of compositionality (ignoring noun and verb modifications), I would
+like to push it for capturing negation and modality and go beyond propositional sentences. I have already gathered related
+materials and datasets for this purpose and had insightful discussions with the
+supervisor on this matter.
+  \item[Reasoning] The upper limit
+for this framework to learn how to perform logical reasoning should be improved
+by substantial re-designing and introducing new features. One potential way is
+to try to model logical connectives and quantifiers with tensors and vectors
+which can be complicated, mostly due to this fact that this domain has been
+started to be explored very recently.
+
+\end{description}
+
+\section{Schedule}
+\label{sec:sch}
