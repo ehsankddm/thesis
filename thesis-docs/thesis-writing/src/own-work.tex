@@ -1,0 +1,114 @@
+\chapter{Story so far}
+Nowadays searching through Internet is the first step we take if we want to
+answer our question.
+We convert our questions to sequences of keywords and search engines are trying 
+to lead us to web pages where might contain the answer to our questions, they return us a set of related
+documents which are sorted by their popularity and similarity of their text to our query.
+In this way, users themselves are responsible to find the desired knowledge 
+from documents. The next generation search engines should go further than current 
+approaches in understanding the meaning of a query and the underlying semantics of documents on 
+the web. The next natural improvement is to return a piece of information which directly approaches to 
+answer the user question. For this reason, the elements of a query, concepts or entities and 
+their relations should be identified and documents ( which might have the answer) should be mapped to the 
+same space of entities and relations in order to find the the desired information in the question.
+
+\section{Semantic Parsing}
+\label{sec:usp-sem-parse}
+
+Semantic parsing is finding a mapping from a sentence (surface structure) to its
+formal meaning representation (hidden structure).
+We aim to represent a natural language text with first-order logic. One can derive
+a semantic parse of a sentence by starting from a lexicon of atomic formulas and combining each fragment to build a composition of formulas combined with quantifiers and logical connectives. In \citep{Poon2009} the lexicon will be induced from a raw corpus. It is in contrast to traditional means of semantic parsing with manually
+  produced lexicons.
+  
+  The main challenge in unsupervised semantic parsing is that for a single semantic representation there could be
+  several syntactic and lexical realizations (different surface
+  representations). For example, all of the sentences below has a same semantic
+  representation:
+   \begin{itemize}
+     \item Microsoft buys Skype
+     \item Microsoft acquires the VoIP company Skype
+     \item Skype is acquired by Microsoft Corporation
+     \item The Redmond software giant buys Skype
+     \item Microsoft’s purchase of Skype,\ldots
+   \end{itemize}  
+  
+   A simple lexicon to represent all of the examples above is:
+  
+   $$ BUY(n_1)$$
+   $$ \lambda x_2.BUYER(n_1 , x_2) \; \;  \lambda x_3.BOUGHT(n_1 , x_3) $$
+   $$ MICROSOFT(n_2) \; \; SKYPE(n_3)$$
+   
+   Having a corpus of surface structures in natural language, one can aim to
+   induce such a lexicon and will also extract a formal representation for each sentence.
+   %In the next section we will review the necessary steps toward this goal.
+   Although, since a series of tasks that interest me are usually dealing with
+   factual or situated examples of language (e.g.\ relation extraction,
+   question answering) with limited compositionality, we can choose a framework,
+   namely \textit{Frame theory}, which gives us more flexibility than logical
+   representations but with trading-off the expressiveness power.
+   
+   \textbf{Frames} are conceptual structures that describe an event or situation
+   with specifying each participant and its role \cite{Baker1998}. From my
+   perspective, frames are generalization of verb  senses (also nominal and
+   prepositional phrases in some cases) with additional information on number
+   of semantic arguments and restrictions on their types (generalization of
+   selectional preferences).
+   
+   \textit{Frame parsing} is the task of mapping the
+syntactic analysis of a sentence to predicate-argument structure and label each
+argument with set of semantic roles. Predicates should also map to additional
+layer of abstraction which groups them in to frames.
+
+In the examples below, frames are identified (for clarity one frame per
+sentence but there is no limit on it) and its arguments are marked for each
+sentence (argument identification) and each argument is labeled with its semantic role (argument classification). 
+
+\begin{enumerate}
+  
+    \item \lbrack Anakata\rbrack_{author}  \lbrack {writes}
+    \rbrack_{Text-creation} his \lbrack
+    emails\rbrack_{text} with \lbrack
+    Emacs\rbrack_{instrument}.
+    \item  \lbrack Emacs\rbrack_{instrument} is
+    used to \lbrack {compose}
+    \rbrack_{Text-creation}  \lbrack
+    emails\rbrack_{text} by \lbrack
+    Anakata\rbrack_{author}.
+  \end{enumerate}
+
+These examples aim to show the challenge of mapping from syntax to semantics.
+while \emph{Emacs} have different syntactic roles in above examples, its
+semantic role doesn't change and additionally, the predicates with one frame,
+\emph{text creation}, has two different lexical realizations: \emph{writing} and
+\emph{composing}.
+This shows that there is no one-to-one mapping between surface syntax analysis and the semantic roles while syntax remains as a strong signal. The mapping
+from syntactic function to semantic roles of a verbal argument is commonly 
+called \textbf{linking} in the literature.
+\cite{Grenager2006,Lang2011a,Lang2011b}
+   
+In order to automatically parse sentences to their semantic-frame
+representations, one can train a statistical model on available annotations.
+While this approach can be quite effective given a thorough and richly-annotated
+resource but because of major flaws highlighted below, unsupervised methods
+(annotation-free models) can be used as a replacement or complementary medium
+for approaching the task.
+
+\begin{description}
+\item[New domains need new annotation] \hfil \\ Although incorporating
+annotated corpus and supervised approaches can achive high accuracy for in-domain sentences 
+\cite{Punyakanok2008,Marquez2008}, they have been
+shown to perform poorly on open-domain texts \cite{Pradhan2008}.
+\item[Difficulty of multi-lingual annotation] \hfil \\ The difficulty
+of prdoucing high-quality annotations for a large number of languages from
+perspective of time and budget is another reason to move toward unsupervised
+models
+\item[Granularity of abstraction] \hfil \\ In FrameNet, predicates are put to a
+same semantic frame if they usually co-occure in a same situation and roles are
+frame-specific. In contrast to FrameNet, PropBank follow a different strategy
+where there is no structured relation between predicates. Also roles ar meant to
+be specific to each verb and formally do not share a structure together. Depends
+on desired NLP task, one should find a trade-of between these levels.
+
+\end{description}
+
